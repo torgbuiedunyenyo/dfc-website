@@ -9,6 +9,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body{
   background-color: snow;
   position: relative;
@@ -22,45 +23,55 @@ header{
 h1{
   top:0;
   z-index: 9999;
-  font-family: "Story Script";
+  font-family: "Story Script", sans-serif;
   font-size: 70px;
   letter-spacing: 2px;
-  font-kerning: 3px;
+  font-kerning: normal;
   /*color: lightgrey;  */
   padding-top: 3px;
   padding-left: 30px;
   position: relative;
-
 }
 
-h2{font-family: "Story Script";
+h2{
+  font-family: "Story Script", sans-serif;
   font-size: 30px;
-  color: blue;  
+  color: blue;
   padding-left: 30px;
 }
-h3{font-family: "Story Script";
+
+h3{
+  font-family: "Story Script", sans-serif;
   font-size: 30px;
-  color: darkslategray;  
+  color: darkslategray;
   padding-left: 50%;
 }
-h4{
-    font-family: "Story Script";
-                font-size: 20px; 
-                color: darkslategrey; 
-                text-align:center;
-                width: 80%;
-}
-h5{  font-family:Lato;
-  font-size: 20px; 
-  color: blue; 
-}
-  a.one: link { font-family: "Story Script";
-                font-size: 70px; 
-                text-decoration: none;}
 
-  a.two: link { font:Lato;
-                font-size: 20px; 
-                text-decoration: none;}
+h4{
+  font-family: "Story Script", sans-serif;
+  font-size: 20px;
+  color: darkslategray;
+  text-align: center;
+  width: 80%;
+}
+
+h5{
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  color: blue;
+}
+
+a.one:link {
+  font-family: "Story Script", sans-serif;
+  font-size: 70px;
+  text-decoration: none;
+}
+
+a.two:link {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
 
 a {
   margin-top: 0;
@@ -68,32 +79,31 @@ a {
   padding-right: 20px;
   cursor: pointer;
   color: blue;
-  font-family: Lato;
+  font-family: "Lato", sans-serif;
 }
 
-
 a:hover{
-    color: whitesmoke;
+  color: whitesmoke;
 }
 
 .fixed-nav-bar {
-    width: 100%;
-    font-family:Lato;
-    letter-spacing: 1px;
-    font-size: 19px;
-    text-decoration: none;
-    padding: 23px;
-    padding-left: 20px;
-    text-align: center;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1px;
+  font-size: 19px;
+  text-decoration: none;
+  padding: 23px;
+  padding-left: 20px;
+  text-align: center;
 }
 
-Main{
-  width:90%;
- padding-left: 15%;
+main{
+  width: 90%;
+  padding-left: 15%;
 }
 
 table{
-  width:80%;
+  width: 80%;
   padding-left: 20%;
 }
 
@@ -107,37 +117,25 @@ td{
 }
 
 p{
-    font-family:Lato;
-    font-size: 16px; 
-    color: darkslategray; 
-    width: 80%;
-    text-align: justify;
-    padding-top: 20px;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: darkslategray;
+  width: 80%;
+  text-align: justify;
+  padding-top: 20px;
 }
 
 img{
-  height: auto ;
+  height: auto;
   width: 80%;
+  max-width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
-
 }
-
-
 
 .slidesjs-pagination-item{
-  display:none;
+  display: none;
   font-size: 20px;
-  }
-
-.slidesjs-previous slidesjs-navigation{
-
-
-}
-
-.slidesjs-next slidesjs-navigation{
-
-
 }
 
 #clearfix{
@@ -146,21 +144,18 @@ img{
 
 #wrapper {
   padding: 0px;
-  }
-
-#slides{
-   width:80%;
-
- font-family: "Story Script";
- font-size: 40px;
- 
 }
 
+#slides{
+  width: 80%;
+  font-family: "Story Script", sans-serif;
+  font-size: 40px;
+}
 
 footer{
   position: fixed;
-  bottom: 0; 
-  font-family: "Story Script";
+  bottom: 0;
+  font-family: "Story Script", sans-serif;
   letter-spacing: 3px;
   font-weight: 900;
   font-size: 15px;
@@ -168,9 +163,122 @@ footer{
   text-align: right;
   margin: auto;
   padding: 0px 1%;
-
   width: 100%;
   height: 50px;
+  background-color: snow;
 }
 
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+    padding-left: 15px;
+    letter-spacing: 1px;
+  }
 
+  h2 {
+    font-size: 24px;
+    padding-left: 15px;
+  }
+
+  h3 {
+    font-size: 22px;
+    padding-left: 15px;
+  }
+
+  h4 {
+    font-size: 18px;
+    width: 95%;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+
+  main {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  table {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  td {
+    display: block;
+    width: 100% !important;
+    padding: 10px 0;
+  }
+
+  p {
+    width: 95%;
+    font-size: 15px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .fixed-nav-bar {
+    font-size: 16px;
+    padding: 15px 10px;
+  }
+
+  a {
+    padding-right: 10px;
+  }
+
+  footer {
+    position: relative;
+    height: auto;
+    padding: 15px 5%;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  #slides {
+    width: 100%;
+    font-size: 28px;
+  }
+
+  a.one:link {
+    font-size: 36px;
+  }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+    padding-left: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+    padding-left: 10px;
+  }
+
+  h3 {
+    font-size: 18px;
+    padding-left: 10px;
+  }
+
+  .fixed-nav-bar {
+    font-size: 14px;
+    padding: 10px 5px;
+  }
+
+  a {
+    padding-right: 8px;
+    font-size: 14px;
+  }
+}
