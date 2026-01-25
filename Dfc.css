@@ -237,6 +237,10 @@ footer{
     padding-right: 10px;
   }
 
+  a.two:link {
+    font-size: 16px;
+  }
+
   footer {
     position: relative;
     height: auto;
@@ -279,6 +283,10 @@ footer{
 
   a {
     padding-right: 8px;
+    font-size: 14px;
+  }
+
+  a.two:link {
     font-size: 14px;
   }
 }
