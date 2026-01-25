@@ -20,6 +20,16 @@ header{
     padding-bottom: 10px;
 }
 
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: snow;
+  padding-bottom: 10px;
+}
+
 h1{
   top:0;
   z-index: 9999;
@@ -101,6 +111,7 @@ a:hover{
 main{
   width: 90%;
   padding-left: 15%;
+  padding-top: 180px;
 }
 
 table{
@@ -200,6 +211,7 @@ footer{
     width: 100%;
     padding-left: 5%;
     padding-right: 5%;
+    padding-top: 140px;
   }
 
   .container {
@@ -232,6 +244,10 @@ footer{
   .fixed-nav-bar {
     font-size: 16px;
     padding: 15px 10px;
+  }
+
+  .site-header {
+    padding-bottom: 5px;
   }
 
   a {
@@ -275,6 +291,10 @@ footer{
   h3 {
     font-size: 18px;
     padding-left: 10px;
+  }
+
+  main {
+    padding-top: 120px;
   }
 
   .fixed-nav-bar {
