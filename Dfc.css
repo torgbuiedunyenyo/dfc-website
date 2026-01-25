@@ -16,9 +16,6 @@ body{
 }
 
 header{
-    z-index: 9999;
-    position: fixed;
-    height: 250px;
     padding-bottom: 10px;
 }
 
@@ -80,17 +77,14 @@ a:hover{
 }
 
 .fixed-nav-bar {
-    z-index: 9999;
     width: 100%;
     font-family:Lato;
     letter-spacing: 1px;
-                font-size: 19px; 
-                text-decoration: none;
-                padding: 23px;
-                padding-left: 20px;
-                /*padding-left: 23px;*/
+    font-size: 19px;
+    text-decoration: none;
+    padding: 23px;
+    padding-left: 20px;
     text-align: center;
-    position: fixed;
 }
 
 Main{
