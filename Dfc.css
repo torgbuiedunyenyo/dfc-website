@@ -87,6 +87,7 @@ a:hover{
 }
 
 .fixed-nav-bar {
+  z-index: 9999;
   width: 100%;
   font-family: "Lato", sans-serif;
   letter-spacing: 1px;
