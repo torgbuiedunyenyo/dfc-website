@@ -1,0 +1,179 @@
+.story-script-regular {
+  font-family: "Story Script", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: snow;
+  position: relative;
+  overflow: auto;
+}
+
+header{
+    z-index: 9999;
+    position: fixed;
+    height: 250px;
+    padding-bottom: 10px;
+}
+
+h1{
+  top:0;
+  z-index: 9999;
+  font-family: Story Script;
+  font-size: 70px;
+  letter-spacing: 2px;
+  font-kerning: 3px;
+  /*color: lightgrey;  */
+  padding-top: 3px;
+  padding-left: 30px;
+  position: relative;
+
+}
+
+h2{font-family: Story Script;
+  font-size: 30px;
+  color: blue;  
+  padding-left: 30px;
+}
+h3{font-family:Story Script;
+  font-size: 30px;
+  color: darkslategray;  
+  padding-left: 50%;
+}
+h4{
+    font-family:Story Script;
+                font-size: 20px; 
+                color: darkslategrey; 
+                text-align:center;
+                width: 80%;
+}
+h5{  font-family:Lato;
+  font-size: 20px; 
+  color: blue; 
+}
+  a.one: link { font-family:Story Script;
+                font-size: 70px; 
+                text-decoration: none;}
+
+  a.two: link { font:Lato;
+                font-size: 20px; 
+                text-decoration: none;}
+
+a {  
+  margin-top: px; 
+  text-decoration: none;
+  padding-right: 20px;
+  cursor: pointer;
+  color: blue;
+  font: Lato;
+}
+
+
+a:hover{
+    color: whitesmoke;
+}
+
+.fixed-nav-bar {
+    z-index: 9999;
+    width: 100%;
+    font-family:Lato;
+    letter-spacing: 1px;
+                font-size: 19px; 
+                text-decoration: none;
+                padding: 23px;
+                padding-left: 20px;
+                /*padding-left: 23px;*/
+    text-align: center;
+    position: fixed;
+}
+
+Main{
+  width:90%;
+ padding-left: 15%;
+}
+
+table{
+  width:80%;
+  padding-left: 20%;
+}
+
+.container{
+  width: 90%;
+  padding-left: 20%;
+}
+
+p{
+    font-family:Lato;
+    font-size: 16px; 
+    color: darkslategray; 
+    width: 80%;
+    text-align: justify;
+    padding-top: 20px;
+}
+
+img{
+  height: auto ;
+  width: 80%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: center;
+
+}
+
+
+
+.slidesjs-pagination-item{
+  display:none;
+  font-size: 20px;
+  }
+
+.slidesjs-previous slidesjs-navigation{
+
+
+}
+
+.slidesjs-next slidesjs-navigation{
+
+
+}
+
+#clearfix{
+  overflow: auto;
+}
+
+#wrapper {
+  padding: 0px;
+  }
+
+#slides{
+   width:80%;
+
+ font: Story Script;
+ font-size: 40px;
+ 
+}
+
+
+footer{
+  position: fixed;
+  bottom: 0; 
+  font-family: Story Script;
+  letter-spacing: 3px;
+  font-weight: 900;
+  font-size: 15px;
+  color: blue;
+  text-align: right;
+  margin: auto;
+  padding: 0px 1%;
+
+  width: 100%;
+  height: 50px;
+}
+
+
