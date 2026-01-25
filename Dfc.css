@@ -103,6 +103,10 @@ table{
   padding-left: 20%;
 }
 
+td{
+  vertical-align: top;
+}
+
 .container{
   width: 90%;
   padding-left: 20%;
