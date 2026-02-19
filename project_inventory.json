@@ -1,0 +1,371 @@
+{
+  "metadata": {
+    "created": "2026-01-25",
+    "source": "Wix dreamfarmcommons.com",
+    "total_from_past_page": 33,
+    "to_skip": 2,
+    "to_populate": 1,
+    "to_migrate": 30,
+    "additional_from_sitemap": 23
+  },
+  "skip": [
+    {
+      "name": "Rad Tender",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-right-now-rad-tender",
+      "existing_file": "RadT.html",
+      "reason": "Already completed by previous developer"
+    },
+    {
+      "name": "Wyrm",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-annex",
+      "existing_file": "TW.html",
+      "reason": "Already completed by previous developer (Temple Wyrm)"
+    },
+    {
+      "name": "Always Hungry Never Perfect",
+      "wix_url": null,
+      "existing_file": "AHNP.html",
+      "reason": "Already completed by previous developer (recent event, not on /past page)"
+    }
+  ],
+  "populate": [
+    {
+      "name": "Food Monument",
+      "wix_url": "https://www.dreamfarmcommons.com/about-1-1",
+      "wix_path": "/about-1-1",
+      "existing_file": "FBM.html",
+      "new_filename": "FBM.html",
+      "status": "exists_empty",
+      "section": "Exhibitions + Residencies"
+    }
+  ],
+  "migrate": [
+    {
+      "name": "Bloodroot",
+      "wix_url": "https://www.dreamfarmcommons.com/bloodroot",
+      "wix_path": "/bloodroot",
+      "new_filename": "Bloodroot.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "FERTILE DREAMS",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-right-now-fertile-dreams",
+      "wix_path": "/copy-of-right-now-fertile-dreams",
+      "new_filename": "FertileDreams.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "LIMB STORIES & OTHER BODILY EXTENSIONS",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-right-now-limb-stories",
+      "wix_path": "/copy-of-right-now-limb-stories",
+      "new_filename": "LimbStories.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "ALL LAND IS HOLY",
+      "wix_url": "https://www.dreamfarmcommons.com/about-1",
+      "wix_path": "/about-1",
+      "new_filename": "AllLandIsHoly.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "JES YOUNG AIR",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-right-now-jes-young-air",
+      "wix_path": "/copy-of-right-now-jes-young-air",
+      "new_filename": "JesYoungAir.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "MAST YEAR",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-right-now-alicia-escott-air",
+      "wix_path": "/copy-of-right-now-alicia-escott-air",
+      "new_filename": "MastYear.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "MOM",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-right-now-mom",
+      "wix_path": "/copy-of-right-now-mom",
+      "new_filename": "MOM.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Kim Anno & SIGNs",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-right-now-signs",
+      "wix_path": "/copy-of-right-now-signs",
+      "new_filename": "KimAnnoSigns.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "a leaf, a gourd, a shell...",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-right-now-olivia-cueva-resid",
+      "wix_path": "/copy-of-right-now-olivia-cueva-resid",
+      "new_filename": "LeafGourdShell.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "More Limb Stories",
+      "wix_url": "https://www.dreamfarmcommons.com/nuestra-lucha-es-por-la-vida",
+      "wix_path": "/nuestra-lucha-es-por-la-vida",
+      "new_filename": "MoreLimbStories.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Macrowaves",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-re-worlding-the-unimaginablee",
+      "wix_path": "/copy-of-re-worlding-the-unimaginablee",
+      "new_filename": "Macrowaves.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Salt, Vessels and Tender Emissions",
+      "wix_url": "https://www.dreamfarmcommons.com/coming-soon",
+      "wix_path": "/coming-soon",
+      "new_filename": "SaltVessels.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Tosha Stimage Residency",
+      "wix_url": "https://www.dreamfarmcommons.com/tosha-stimage-residency",
+      "wix_path": "/tosha-stimage-residency",
+      "new_filename": "ToshaStimage.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Thinking Outside of the Box",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-rickys-tribune-barber-shop",
+      "wix_path": "/copy-of-rickys-tribune-barber-shop",
+      "new_filename": "ThinkingOutside.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "RASA",
+      "wix_url": "https://www.dreamfarmcommons.com/coming-soon-1",
+      "wix_path": "/coming-soon-1",
+      "new_filename": "RASA.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Laura Van Duren",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-right-now-laura-van-duren",
+      "wix_path": "/copy-of-right-now-laura-van-duren",
+      "new_filename": "LauraVanDuren.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Quinn Keck",
+      "wix_url": "https://www.dreamfarmcommons.com/rickys-tribune-barber-shop",
+      "wix_path": "/rickys-tribune-barber-shop",
+      "new_filename": "QuinnKeck.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Encounters",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-rasa-1",
+      "wix_path": "/copy-of-rasa-1",
+      "new_filename": "Encounters.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Chaves Smith",
+      "wix_url": "https://www.dreamfarmcommons.com/copy-of-quinn-keck",
+      "wix_path": "/copy-of-quinn-keck",
+      "new_filename": "ChavesSmith.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "Mail Art",
+      "wix_url": "https://www.dreamfarmcommons.com/mail-art-round-3",
+      "wix_path": "/mail-art-round-3",
+      "new_filename": "MailArt.html",
+      "section": "Exhibitions + Residencies"
+    },
+    {
+      "name": "The Witness to Witness Program",
+      "wix_url": "https://www.dreamfarmcommons.com/the-witness-to-witness-program",
+      "wix_path": "/the-witness-to-witness-program",
+      "new_filename": "WitnessProgram.html",
+      "section": "Selected Talks + Workshops"
+    },
+    {
+      "name": "Liyang Network Teach-In",
+      "wix_url": "https://www.dreamfarmcommons.com/liyang-network-teach-in",
+      "wix_path": "/liyang-network-teach-in",
+      "new_filename": "LiyangTeachIn.html",
+      "section": "Selected Talks + Workshops"
+    },
+    {
+      "name": "New Horizons",
+      "wix_url": "https://www.dreamfarmcommons.com/new-horizons",
+      "wix_path": "/new-horizons",
+      "new_filename": "NewHorizons.html",
+      "section": "Selected Talks + Workshops"
+    },
+    {
+      "name": "\"Object-ify\" Ourselves!",
+      "wix_url": "https://www.dreamfarmcommons.com/object-ify-ourselves",
+      "wix_path": "/object-ify-ourselves",
+      "new_filename": "ObjectifyOurselves.html",
+      "section": "Selected Talks + Workshops"
+    },
+    {
+      "name": "Innovator Incubator",
+      "wix_url": "https://www.dreamfarmcommons.com/innovator-incubator",
+      "wix_path": "/innovator-incubator",
+      "new_filename": "InnovatorIncubator.html",
+      "section": "Selected Talks + Workshops"
+    },
+    {
+      "name": "Neoliberalism & Anxiety",
+      "wix_url": "https://www.dreamfarmcommons.com/aesthetics-politics-neoliberalism",
+      "wix_path": "/aesthetics-politics-neoliberalism",
+      "new_filename": "NeoliberalismAnxiety.html",
+      "section": "Selected Talks + Workshops"
+    },
+    {
+      "name": "Borderless Imaginary Dinner",
+      "wix_url": "https://www.dreamfarmcommons.com/borderless-imaginary-dinner",
+      "wix_path": "/borderless-imaginary-dinner",
+      "new_filename": "BorderlessDinner.html",
+      "section": "Other Events"
+    },
+    {
+      "name": "Pop-Up Bookshop",
+      "wix_url": "https://www.dreamfarmcommons.com/pop-up-bookshop",
+      "wix_path": "/pop-up-bookshop",
+      "new_filename": "PopUpBookshop.html",
+      "section": "Other Events"
+    },
+    {
+      "name": "4 Continents",
+      "wix_url": "https://www.dreamfarmcommons.com/4continents",
+      "wix_path": "/4continents",
+      "new_filename": "FourContinents.html",
+      "section": "Other Events"
+    },
+    {
+      "name": "FORTALEZA = STRENGTH",
+      "wix_url": "https://www.dreamfarmcommons.com/fortaleza-strength",
+      "wix_path": "/fortaleza-strength",
+      "new_filename": "Fortaleza.html",
+      "section": "Other Events"
+    }
+  ],
+  "additional_from_sitemap": [
+    {
+      "wix_path": "/loose-ends-tracy-ren",
+      "wix_url": "https://www.dreamfarmcommons.com/loose-ends-tracy-ren",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/everything-and-more",
+      "wix_url": "https://www.dreamfarmcommons.com/everything-and-more",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/carissa-lillian-clark",
+      "wix_url": "https://www.dreamfarmcommons.com/carissa-lillian-clark",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/body-body-body",
+      "wix_url": "https://www.dreamfarmcommons.com/body-body-body",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/mailart-r2",
+      "wix_url": "https://www.dreamfarmcommons.com/mailart-r2",
+      "note": "Not on /past page - might be mail art round 2"
+    },
+    {
+      "wix_path": "/you-meaning-me",
+      "wix_url": "https://www.dreamfarmcommons.com/you-meaning-me",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/mail-art",
+      "wix_url": "https://www.dreamfarmcommons.com/mail-art",
+      "note": "Not on /past page - might be original mail art"
+    },
+    {
+      "wix_path": "/radical-departures",
+      "wix_url": "https://www.dreamfarmcommons.com/radical-departures",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/mini-residencies",
+      "wix_url": "https://www.dreamfarmcommons.com/mini-residencies",
+      "note": "Not on /past page - might be program page"
+    },
+    {
+      "wix_path": "/mailart-r1",
+      "wix_url": "https://www.dreamfarmcommons.com/mailart-r1",
+      "note": "Not on /past page - might be mail art round 1"
+    },
+    {
+      "wix_path": "/activists-ancestors-and-comrades",
+      "wix_url": "https://www.dreamfarmcommons.com/activists-ancestors-and-comrades",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/subterranean-borders",
+      "wix_url": "https://www.dreamfarmcommons.com/subterranean-borders",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/the-white-privilege-research-room",
+      "wix_url": "https://www.dreamfarmcommons.com/the-white-privilege-research-room",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/the-future-emergent",
+      "wix_url": "https://www.dreamfarmcommons.com/the-future-emergent",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/cat-lauigan-residency",
+      "wix_url": "https://www.dreamfarmcommons.com/cat-lauigan-residency",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/whats-mine-is-yours",
+      "wix_url": "https://www.dreamfarmcommons.com/whats-mine-is-yours",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/tipping-point",
+      "wix_url": "https://www.dreamfarmcommons.com/tipping-point",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/desperate-holdings",
+      "wix_url": "https://www.dreamfarmcommons.com/desperate-holdings",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/political-birthdays",
+      "wix_url": "https://www.dreamfarmcommons.com/political-birthdays",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/the-solar-mothers",
+      "wix_url": "https://www.dreamfarmcommons.com/the-solar-mothers",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/monuments-of-memory",
+      "wix_url": "https://www.dreamfarmcommons.com/monuments-of-memory",
+      "note": "Not on /past page - verify if past project"
+    },
+    {
+      "wix_path": "/right-now-future-emergent",
+      "wix_url": "https://www.dreamfarmcommons.com/right-now-future-emergent",
+      "note": "Not on /past page - might be 'right now' exhibition"
+    },
+    {
+      "wix_path": "/right-now-for-democracy",
+      "wix_url": "https://www.dreamfarmcommons.com/right-now-for-democracy",
+      "note": "Not on /past page - might be 'right now' exhibition"
+    }
+  ]
+}

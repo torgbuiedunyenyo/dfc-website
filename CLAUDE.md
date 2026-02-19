@@ -228,24 +228,36 @@ Key points:
 **Always verify deployments using `railway deployment list`:**
 
 ```bash
-# List recent deployments with statuses
-railway deployment list
+# List recent deployments with statuses (requires linked service or -s flag)
+railway deployment list -s <service>        # For specific service
 
-# Check build logs for a SPECIFIC deployment (by ID)
-railway logs --build <DEPLOYMENT_ID> -n 50
+# View logs - DEPLOYMENT_ID is an optional positional argument
+railway logs <DEPLOYMENT_ID> --build -n 50  # Build logs for specific deployment
+railway logs --build <DEPLOYMENT_ID> -n 50  # Same thing (either ordering works)
+railway logs <DEPLOYMENT_ID> -n 50          # Runtime logs for specific deployment
+railway logs --build -n 50                  # Latest successful deployment's build logs
+railway logs -n 100                         # Latest deployment's runtime logs
 
-# Check deploy/runtime logs for a specific deployment
-railway logs --deployment <DEPLOYMENT_ID> -n 50
+# Stream live logs (no -n flag)
+railway logs                                # Stream from latest deployment
+railway logs -s <service>                   # Stream from specific service
+```
 
-# Check latest build logs (defaults to most recent SUCCESSFUL deployment — misleading if latest failed!)
-railway logs --build -n 50
+**NOTE:** The `--build` (`-b`) and `--deployment` (`-d`) flags are **boolean switches** that select log type. The deployment ID is an **optional positional argument**. Both argument orderings work — the CLI correctly parses the deployment ID regardless of flag position:
+
+```bash
+# Both of these are equivalent and work correctly:
+railway logs abc123-def456 --build -n 50
+railway logs --build abc123-def456 -n 50
 ```
 
 **Correct workflow after pushing:**
 1. `git push origin main`
-2. `railway deployment list` — find the new deployment, confirm it shows BUILDING
-3. Wait, then re-run `railway deployment list` — confirm it shows SUCCESS
-4. If FAILED: `railway logs --build <FAILED_DEPLOYMENT_ID> -n 100` to see the error
+2. `railway deployment list -s <service>` — find the new deployment, confirm it shows BUILDING
+3. Wait, then re-run `railway deployment list -s <service>` — confirm it shows SUCCESS
+4. If FAILED: `railway logs <FAILED_DEPLOYMENT_ID> --build -n 100 -s <service>` to see the error
+
+**NOTE:** Most `railway` commands require either a linked service (`railway link -p <project> -s <service>`) or an explicit `-s <service>` flag. Without one, you'll get "No service specified and no service linked."
 
 **WARNING:** `railway logs --build` without a deployment ID shows the most recent SUCCESSFUL build, not the latest overall. If the latest deployment failed, you'll see an OLD deployment's logs and incorrectly conclude the build passed.
 
