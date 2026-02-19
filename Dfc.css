@@ -11,7 +11,7 @@
 }
 
 body{
-  background-color: snow;
+  background-color: white;
   position: relative;
   overflow: auto;
 }
@@ -26,41 +26,44 @@ header{
   left: 0;
   width: 100%;
   z-index: 9999;
-  background-color: snow;
+  background-color: white;
   padding-bottom: 10px;
 }
 
 h1{
   top:0;
   z-index: 9999;
-  font-family: "Story Script", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
   font-size: 70px;
   letter-spacing: 2px;
   font-kerning: normal;
-  /*color: lightgrey;  */
+  color: lightgrey;  
   padding-top: 3px;
   padding-left: 30px;
   position: relative;
 }
 
 h2{
-  font-family: "Story Script", sans-serif;
-  font-size: 30px;
-  color: blue;
-  padding-left: 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: lightgrey;
+  padding-left: 40px;
 }
 
 h3{
-  font-family: "Story Script", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
-  color: darkslategray;
+  color: lightgrey;
   padding-left: 50%;
 }
 
 h4{
-  font-family: "Story Script", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
-  color: darkslategray;
+  color: lightgrey;
   text-align: center;
   width: 80%;
 }
@@ -68,11 +71,11 @@ h4{
 h5{
   font-family: "Lato", sans-serif;
   font-size: 20px;
-  color: blue;
+  color: lightgrey;
 }
 
 a.one:link {
-  font-family: "Story Script", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 70px;
   text-decoration: none;
 }
@@ -88,7 +91,7 @@ a {
   text-decoration: none;
   padding-right: 20px;
   cursor: pointer;
-  color: blue;
+  color: lightgrey;
   font-family: "Lato", sans-serif;
 }
 
@@ -145,7 +148,7 @@ td h5 {
 p{
   font-family: "Lato", sans-serif;
   font-size: 16px;
-  color: darkslategray;
+  color: darkgray;
   width: 80%;
   text-align: justify;
   padding-top: 20px;
@@ -174,18 +177,18 @@ img{
 
 #slides{
   width: 80%;
-  font-family: "Story Script", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
 }
 
 footer{
   position: fixed;
   bottom: 0;
-  font-family: "Story Script", sans-serif;
+  font-family: "Poppins", sans-serif;
   letter-spacing: 3px;
   font-weight: 900;
   font-size: 15px;
-  color: blue;
+  color: lightgrey;
   text-align: right;
   margin: auto;
   padding: 0px 1%;
