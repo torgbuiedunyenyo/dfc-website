@@ -1,1 +1,24 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vercel
 .vercel
+
+# Claude Code / AI tooling
+CLAUDE.md
+AGENTS.md
+.beads/
+.memory/
+.playwright-mcp/
+.gitattributes
+
+# Migration artifacts (not part of the live site)
+extracted_content/
+project_inventory.json
+test-results/
+
+# Editor files
+*.swp
+*.swo
+*~
