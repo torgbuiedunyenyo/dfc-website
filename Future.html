@@ -33,14 +33,129 @@
   </nav>
 </header>
 </div>
-<main>    <div class="container">
-<br><br><br>
-<h3>Check back for updates :)</h3><br><br>
-<h3>Cassie Thornton - March 2026</h3><br><br>
-<h3>Three Years Upstream - April 2026</h3><br><br>
-<!-- <h3>Follow<br><a href="https://www.instagram.com/dreamfarmcommons/"><i>dream farm commons</i><br></a> on Instagram</h3> -->
+<main>
+<div class="container">
+
+<div class="calendar-wrap">
+  <div class="calendar-nav">
+    <button class="cal-arrow" id="cal-prev">&#8592;</button>
+    <h3 id="cal-month-title"></h3>
+    <button class="cal-arrow" id="cal-next">&#8594;</button>
+  </div>
+  <div class="cal-grid">
+    <div class="cal-day-header">Sun</div>
+    <div class="cal-day-header">Mon</div>
+    <div class="cal-day-header">Tue</div>
+    <div class="cal-day-header">Wed</div>
+    <div class="cal-day-header">Thu</div>
+    <div class="cal-day-header">Fri</div>
+    <div class="cal-day-header">Sat</div>
+  </div>
+  <div class="cal-grid" id="cal-days"></div>
+  <div id="cal-events"></div>
+</div>
+
 </div>
 </main>
+
+<script>
+(function() {
+  const events = [
+    { date: '2026-03-01', end: '2026-03-31', title: 'Cassie Thornton' },
+    { date: '2026-04-01', end: '2026-04-30', title: 'Three Years Upstream' },
+    { date: '2026-06-05', end: '2026-06-05', title: 'Opening Reception — Summer Group Show' },
+    { date: '2026-06-06', end: '2026-07-18', title: 'Summer Group Show' },
+    { date: '2026-06-20', end: '2026-06-20', title: 'Artist Talk: Panel Discussion' },
+    { date: '2026-07-10', end: '2026-07-10', title: 'Poetry Reading + Sound Performance' },
+    { date: '2026-07-18', end: '2026-07-18', title: 'Closing Party — Summer Group Show' },
+    { date: '2026-08-01', end: '2026-08-28', title: 'Residency: Open Studios' },
+    { date: '2026-08-15', end: '2026-08-15', title: 'Film Screening + Discussion' },
+    { date: '2026-09-04', end: '2026-09-04', title: 'Opening Reception — Fall Exhibition' },
+    { date: '2026-09-05', end: '2026-10-17', title: 'Fall Exhibition' },
+  ];
+
+  let currentDate = new Date();
+  let viewMonth = currentDate.getMonth();
+  let viewYear = currentDate.getFullYear();
+
+  function render() {
+    const monthNames = ['January','February','March','April','May','June',
+      'July','August','September','October','November','December'];
+    document.getElementById('cal-month-title').textContent =
+      monthNames[viewMonth] + ' ' + viewYear;
+
+    const grid = document.getElementById('cal-days');
+    grid.innerHTML = '';
+
+    const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+      const blank = document.createElement('div');
+      blank.className = 'cal-cell empty';
+      grid.appendChild(blank);
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      cell.textContent = d;
+
+      const dateStr = viewYear + '-' +
+        String(viewMonth + 1).padStart(2, '0') + '-' +
+        String(d).padStart(2, '0');
+
+      const hasEvent = events.some(function(e) {
+        return dateStr === e.date;
+      });
+      if (hasEvent) cell.classList.add('has-event');
+
+      const today = new Date();
+      if (d === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
+        cell.classList.add('today');
+      }
+
+      grid.appendChild(cell);
+    }
+
+    const eventsDiv = document.getElementById('cal-events');
+    eventsDiv.innerHTML = '';
+    const monthEvents = events.filter(function(e) {
+      const eStart = new Date(e.date + 'T00:00:00');
+      const eEnd = e.end ? new Date(e.end + 'T00:00:00') : eStart;
+      return (eStart.getMonth() === viewMonth && eStart.getFullYear() === viewYear) ||
+             (eEnd.getMonth() === viewMonth && eEnd.getFullYear() === viewYear);
+    });
+    if (monthEvents.length > 0) {
+      monthEvents.forEach(function(e) {
+        const div = document.createElement('div');
+        div.className = 'cal-event-item';
+        const start = new Date(e.date + 'T00:00:00');
+        const end = e.end ? new Date(e.end + 'T00:00:00') : null;
+        let label = monthNames[start.getMonth()] + ' ' + start.getDate();
+        if (end && end.getTime() !== start.getTime()) {
+          label += ' – ' + monthNames[end.getMonth()] + ' ' + end.getDate();
+        }
+        div.innerHTML = '<span class="cal-event-date">' + label + '</span> ' + e.title;
+        eventsDiv.appendChild(div);
+      });
+    }
+  }
+
+  document.getElementById('cal-prev').addEventListener('click', function() {
+    viewMonth--;
+    if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+    render();
+  });
+  document.getElementById('cal-next').addEventListener('click', function() {
+    viewMonth++;
+    if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+    render();
+  });
+
+  render();
+})();
+</script>
 <nav></nav>
     
 

@@ -114,8 +114,9 @@ h2{
 }
 
 h3{
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
+  font-family: "Melodrama", sans-serif;
+  font-size: 32px;
+  letter-spacing: 4px;
   color: white;
   padding-left: 15px;
 }
@@ -218,7 +219,7 @@ td{
 .container{
     width: 90%;
     padding-left: 10%;
-    padding-top: 220px;
+    padding-top: 340px;
 }
 
 .two-column {
@@ -227,7 +228,7 @@ td{
     width: 90%;
     padding-left: 5%;
     padding-right: 5%;
-    padding-top: 220px;
+    padding-top: 260px;
 }
 
 .column {
@@ -252,7 +253,7 @@ td{
 
 p{
     font-family:"Roboto";
-    font-size: 16px;
+    font-size: 19px;
     color: white; 
     width: 88%;
     padding-left: 2%;
@@ -279,6 +280,108 @@ img{
 }
 
 
+
+.donate-img {
+  height: 450px;
+  width: 90%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Calendar */
+.calendar-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.calendar-nav h3 {
+  padding-left: 0;
+  min-width: 250px;
+  text-align: center;
+}
+
+.cal-arrow {
+  background: none;
+  border: 1px solid #42f5bc;
+  color: #42f5bc;
+  font-size: 28px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cal-arrow:hover {
+  background-color: #42f5bc;
+  color: #201e57;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-day-header {
+  font-family: "Melodrama", sans-serif;
+  font-size: 18px;
+  color: #42f5bc;
+  text-align: center;
+  padding: 8px 0;
+  letter-spacing: 1px;
+}
+
+.cal-cell {
+  font-family: "Aktiv Grotesk", "Roboto", sans-serif;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding: 18px 0;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+.cal-cell.empty {
+  border: none;
+}
+
+.cal-cell.has-event {
+  background-color: #42f5bc22;
+  border-color: #42f5bc;
+  color: #42f5bc;
+  font-weight: 600;
+}
+
+.cal-cell.today {
+  border-color: white;
+  font-weight: 700;
+}
+
+.cal-event-item {
+  font-family: "Aktiv Grotesk", "Roboto", sans-serif;
+  font-size: 20px;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.cal-event-date {
+  color: #42f5bc;
+  font-weight: 600;
+}
+
+#cal-events {
+  margin-top: 20px;
+  border-top: 1px solid #42f5bc44;
+  padding-top: 15px;
+}
 
 .slidesjs-pagination-item{
   display:none;
