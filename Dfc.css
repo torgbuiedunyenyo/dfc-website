@@ -176,14 +176,14 @@ a:hover{
 
 .fixed-nav-bar {
     z-index: 9999;
-    width: 70%;
-margin-left:15%;
-margin-right: 15%;
+    width: 90%;
+margin-left:5%;
+margin-right: 5%;
     text-align: center;
     font-family: "Melodrama", sans-serif;
     font-weight: 500;
     letter-spacing: 0px;
-                font-size: 23px;
+                font-size: 18px;
                 text-decoration: none;
     position: fixed;
     /*background-color: #2727277d;*/
@@ -199,7 +199,7 @@ margin-right: 15%;
 
 .fixed-nav-bar a {
   color: #42f5bc;
-  padding: 0 8px;
+  padding: 0 5px;
 }
 
 Main{
@@ -220,6 +220,7 @@ td{
     width: 90%;
     padding-left: 10%;
     padding-top: 340px;
+    padding-bottom: 80px;
 }
 
 .two-column {
@@ -233,8 +234,6 @@ td{
 
 .column {
     flex: 1;
-    overflow-y: auto;
-    max-height: calc(100vh - 280px);
     padding: 0 10px;
 }
 
@@ -419,8 +418,7 @@ footer a {
 }
 
 footer{
-  position: fixed;
-  bottom: 0;
+  position: relative;
   font-family: "Aktiv Grotesk", sans-serif;
   font-weight: 400;
   letter-spacing: 3px;
