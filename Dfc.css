@@ -583,6 +583,19 @@ footer{
   }
 }
 
+/* About mailing-list callout */
+.about-mailing-list {
+  margin-top: 26px;
+  font-family: "Melodrama", sans-serif;
+  font-style: normal;
+  color: #42f5bc;
+}
+
+.about-mailing-list a {
+  font-family: inherit;
+  color: inherit;
+}
+
 /* Past projects archive alignment */
 .past-archive table {
   table-layout: fixed;
