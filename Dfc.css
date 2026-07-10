@@ -663,23 +663,38 @@ footer{
 .project-page {
   width: 100%;
   padding: 0;
+  height: calc(100vh - 42px);
+  overflow: hidden;
 }
 
 .project-detail {
   display: grid;
-  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
-  gap: clamp(40px, 6vw, 90px);
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(32px, 4vw, 56px);
+  align-items: stretch;
   width: 90%;
   max-width: 1280px;
+  height: 100%;
   margin: 0 auto;
-  padding: 240px 0 100px;
+  padding: 240px 0 24px;
+  overflow: hidden;
+}
+
+.project-gallery,
+.project-copy {
+  min-height: 0;
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 12px;
+  scrollbar-gutter: stable;
 }
 
 .project-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  align-content: start;
 }
 
 .project-gallery img {
@@ -722,11 +737,26 @@ footer{
 }
 
 @media screen and (max-width: 768px) {
+  .project-page {
+    height: auto;
+    overflow: visible;
+  }
+
   .project-detail {
     grid-template-columns: 1fr;
     gap: 32px;
     width: 100%;
+    height: auto;
     padding: 180px 5% 60px;
+    overflow: visible;
+  }
+
+  .project-gallery,
+  .project-copy {
+    height: auto;
+    overflow: visible;
+    padding-right: 0;
+    scrollbar-gutter: auto;
   }
 
   .project-copy {
