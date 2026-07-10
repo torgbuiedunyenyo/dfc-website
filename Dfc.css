@@ -584,6 +584,16 @@ footer{
 }
 
 /* About mailing-list callout */
+.about-intro {
+  padding-bottom: 6px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-intro + table img {
+    margin-top: 0;
+  }
+}
+
 .about-mailing-list {
   margin-top: 26px;
   font-family: "Melodrama", sans-serif;
