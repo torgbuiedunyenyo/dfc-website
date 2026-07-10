@@ -578,6 +578,30 @@ footer{
   }
 }
 
+/* Past projects archive alignment */
+.past-archive table {
+  table-layout: fixed;
+}
+
+.past-archive td {
+  vertical-align: top;
+  padding: 0 10px 30px;
+}
+
+.past-archive td > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: 20px auto 24px;
+  object-fit: cover;
+}
+
+.past-archive td h5 {
+  min-height: 1.3em;
+  margin: 0;
+  line-height: 1.3;
+}
+
 /* Standard past-project detail layout */
 .project-page {
   width: 100%;
