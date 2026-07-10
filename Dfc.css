@@ -129,6 +129,11 @@ h4{
   text-align: center;
 }
 
+.about-read-more {
+  font-family: "Melodrama", sans-serif;
+  color: #42f5bc;
+}
+
 h5{
   font-family: "Aktiv Grotesk", sans-serif;
   font-size: 18px;
