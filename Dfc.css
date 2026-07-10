@@ -658,3 +658,78 @@ footer{
     height: 72px;
   }
 }
+
+/* Standard past-project detail layout */
+.project-page {
+  width: 100%;
+  padding: 0;
+}
+
+.project-detail {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 90px);
+  align-items: start;
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 240px 0 100px;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.project-gallery img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0;
+}
+
+.project-gallery img:first-child {
+  grid-column: 1 / -1;
+}
+
+.project-copy h3 {
+  padding-left: 0;
+  margin-bottom: 22px;
+}
+
+.project-copy p {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 22px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.project-copy .project-meta {
+  font-weight: 500;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+}
+
+.project-links h5 {
+  text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  .project-detail {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width: 100%;
+    padding: 180px 5% 60px;
+  }
+
+  .project-copy {
+    order: -1;
+  }
+}
