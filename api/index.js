@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const cheerio = require('cheerio');
 const { db, recordVersion } = require('../lib/db');
 const auth = require('../lib/auth');
 const { PAGES, renderPage, renderProject, buildProjectBody, notFoundHtml } = require('../lib/render');
@@ -179,6 +180,55 @@ async function handleProjects(client, req, res, rest, author) {
       await recordVersion(client, 'project', slug, 'create', projectSnapshot(row), author);
       return res.json({ ok: true, project: row });
     }
+  }
+
+  // Archive a Current Exhibitions column: copy its images + text into a new
+  // past project (two-column layout). The Current page itself is left untouched.
+  if (rest[0] === 'from-current' && req.method === 'POST') {
+    const col = req.body && Number(req.body.column) === 2 ? 2 : 1;
+    const key = `current.column-${col}`;
+    const contentRows = await client`SELECT value FROM content WHERE key = ${key}`;
+    if (!contentRows.length) return res.status(404).json({ error: 'Column content not found' });
+
+    const $ = cheerio.load(`<div id="col">${contentRows[0].value}</div>`);
+    const images = $('#col img').toArray()
+      .map((el) => ({ src: $(el).attr('src') || '', alt: $(el).attr('alt') || '' }))
+      .filter((im) => im.src);
+
+    let title = String((req.body && req.body.title) || '').trim();
+    if (!title) {
+      const h3s = $('#col h3');
+      if (h3s.length) {
+        const firstLine = (h3s.last().html() || '').split(/<br\s*\/?>/i)[0];
+        title = cheerio.load(`<div>${firstLine}</div>`)('div').text().replace(/\s+/g, ' ').trim();
+      }
+      title = title || 'Current exhibition';
+    }
+
+    $('#col img').remove();
+    const copyHtml = ($('#col').html() || '').trim();
+    const galleryHtml = images
+      .map((im) => `      <img src="${escapeHtml(im.src)}" alt="${escapeHtml(im.alt)}">`)
+      .join('\n');
+    const body_html = `<div class="project-detail">
+    <section class="project-gallery" aria-label="${escapeHtml(title)} exhibition images">
+${galleryHtml}
+    </section>
+    <article class="project-copy">
+${copyHtml}
+    </article>
+  </div>`;
+
+    let slug = slugify(title);
+    const taken = await client`SELECT slug FROM projects WHERE slug = ${slug}`;
+    if (taken.length) slug = `${slug}-${crypto.randomBytes(2).toString('hex')}`;
+    const [{ min }] = await client`SELECT COALESCE(MIN(sort_order), 1) AS min FROM projects`;
+    const [row] = await client`
+      INSERT INTO projects (slug, title, status, layout, thumbnail, body_html, sort_order)
+      VALUES (${slug}, ${title}, 'past', 'detail', ${images[0] ? images[0].src : null}, ${body_html}, ${min - 1})
+      RETURNING *`;
+    await recordVersion(client, 'project', slug, 'create', projectSnapshot(row), author);
+    return res.json({ ok: true, project: row });
   }
 
   if (rest[0] === 'reorder' && req.method === 'POST') {

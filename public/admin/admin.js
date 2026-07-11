@@ -200,12 +200,57 @@
           '<a class="btn" href="/' + p.name + '.html" target="_blank">View</a>' +
           (p.name === 'Future' ? '<a class="btn" href="#calendar">Calendar events</a>' : '') +
           (p.name === 'Past' ? '<a class="btn" href="#projects">Manage projects</a>' : '') +
-          '</div></div>';
+          '</div>' +
+          (p.name === 'Current' ? '<div class="row" id="current-move" style="margin-top:10px;flex-direction:column;align-items:stretch;gap:6px"></div>' : '') +
+          '</div>';
       }).join('') +
       '</div>');
     app.querySelectorAll('[data-edit]').forEach(function (b) {
       b.addEventListener('click', function () { location.hash = '#edit-page/' + b.getAttribute('data-edit'); });
     });
+    loadCurrentMoveButtons();
+  }
+
+  // "Move to Past Projects" buttons on the Current Exhibitions card — one per
+  // column, labeled with the exhibition title detected in that column.
+  function loadCurrentMoveButtons() {
+    var holder = document.getElementById('current-move');
+    if (!holder) return;
+    api('GET', '/api/content').then(function (res) {
+      var map = {};
+      res.content.forEach(function (c) { map[c.key] = c; });
+      [1, 2].forEach(function (col) {
+        var c = map['current.column-' + col];
+        if (!c) return;
+        var doc = new DOMParser().parseFromString('<div>' + c.value + '</div>', 'text/html');
+        var h3s = doc.querySelectorAll('h3');
+        var title = '';
+        if (h3s.length) {
+          var firstLine = h3s[h3s.length - 1].innerHTML.split(/<br\s*\/?>/i)[0];
+          var tmp = document.createElement('div');
+          tmp.innerHTML = firstLine;
+          title = tmp.textContent.replace(/\s+/g, ' ').trim();
+        }
+        title = title || ('Column ' + col);
+        var shortTitle = title.length > 30 ? title.slice(0, 28) + '…' : title;
+        var btn = document.createElement('button');
+        btn.className = 'small';
+        btn.textContent = '→ Move “' + shortTitle + '” to Past Projects';
+        btn.title = 'Copies this column’s images and text into a new past project. The Current page is left unchanged.';
+        btn.addEventListener('click', function () {
+          var t = prompt('Title for the new past project:\n(the column is copied — the Current page stays as it is)', title);
+          if (t === null) return;
+          btn.disabled = true;
+          api('POST', '/api/projects/from-current', { column: col, title: t.trim() })
+            .then(function (r) {
+              toast('“' + r.project.title + '” added to Past Projects');
+              location.hash = '#projects';
+            })
+            .catch(function (err) { btn.disabled = false; toast(err.message, true); });
+        });
+        holder.appendChild(btn);
+      });
+    }).catch(function () { /* buttons are a nice-to-have; card still works without them */ });
   }
 
   /* ---------- visual editor (iframe) ---------- */
