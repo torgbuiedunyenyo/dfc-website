@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Farm Commons</title>
+<link rel="stylesheet" type="text/css" href="/Dfc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Story+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="site-header">
+<h1><a class="one" href="/Dfc.html">dream farm commons</a></h1>
+<br><br>
+<header>
+<nav class="fixed-nav-bar">
+<a class="two" href="/About.html">About</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Current.html">Current Exhibitions</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Future.html">Future Projects</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Past.html">Past Projects</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Visit.html">Visit</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Donate.html">Donate</a>
+</nav>
+</header>
+</div>
+<main>
+<div class="container">
+
+<div class="calendar-wrap">
+  <div class="calendar-nav">
+    <button class="cal-arrow" id="cal-prev">&#8592;</button>
+    <h3 id="cal-month-title"></h3>
+    <button class="cal-arrow" id="cal-next">&#8594;</button>
+  </div>
+  <div class="cal-grid">
+    <div class="cal-day-header">Sun</div>
+    <div class="cal-day-header">Mon</div>
+    <div class="cal-day-header">Tue</div>
+    <div class="cal-day-header">Wed</div>
+    <div class="cal-day-header">Thu</div>
+    <div class="cal-day-header">Fri</div>
+    <div class="cal-day-header">Sat</div>
+  </div>
+  <div class="cal-grid" id="cal-days"></div>
+  <div id="cal-events"></div>
+</div>
+
+</div>
+</main>
+
+<script id="dfc-events-data" type="application/json">[]</script>
+<script>
+(function() {
+  var events = [];
+  try {
+    events = JSON.parse(document.getElementById('dfc-events-data').textContent) || [];
+  } catch (e) { events = []; }
+
+  var currentDate = new Date();
+  var viewMonth = currentDate.getMonth();
+  var viewYear = currentDate.getFullYear();
+  var monthNames = ['January','February','March','April','May','June',
+    'July','August','September','October','November','December'];
+
+  function render() {
+    document.getElementById('cal-month-title').textContent =
+      monthNames[viewMonth] + ' ' + viewYear;
+
+    var grid = document.getElementById('cal-days');
+    grid.innerHTML = '';
+
+    var firstDay = new Date(viewYear, viewMonth, 1).getDay();
+    var daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+    for (var i = 0; i < firstDay; i++) {
+      var blank = document.createElement('div');
+      blank.className = 'cal-cell empty';
+      grid.appendChild(blank);
+    }
+
+    for (var d = 1; d <= daysInMonth; d++) {
+      var cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      cell.textContent = d;
+
+      var dateStr = viewYear + '-' +
+        String(viewMonth + 1).padStart(2, '0') + '-' +
+        String(d).padStart(2, '0');
+
+      var hasEvent = events.some(function(e) {
+        return dateStr === e.date;
+      });
+      if (hasEvent) cell.classList.add('has-event');
+
+      var today = new Date();
+      if (d === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
+        cell.classList.add('today');
+      }
+
+      grid.appendChild(cell);
+    }
+
+    var eventsDiv = document.getElementById('cal-events');
+    eventsDiv.innerHTML = '';
+    var monthEvents = events.filter(function(e) {
+      var eStart = new Date(e.date + 'T00:00:00');
+      var eEnd = e.end ? new Date(e.end + 'T00:00:00') : eStart;
+      return (eStart.getMonth() === viewMonth && eStart.getFullYear() === viewYear) ||
+             (eEnd.getMonth() === viewMonth && eEnd.getFullYear() === viewYear);
+    });
+    monthEvents.forEach(function(e) {
+      var div = document.createElement('div');
+      div.className = 'cal-event-item';
+      var start = new Date(e.date + 'T00:00:00');
+      var end = e.end ? new Date(e.end + 'T00:00:00') : null;
+      var label = monthNames[start.getMonth()] + ' ' + start.getDate();
+      if (end && end.getTime() !== start.getTime()) {
+        label += ' – ' + monthNames[end.getMonth()] + ' ' + end.getDate();
+      }
+      var dateSpan = document.createElement('span');
+      dateSpan.className = 'cal-event-date';
+      dateSpan.textContent = label;
+      div.appendChild(dateSpan);
+      div.appendChild(document.createTextNode(' '));
+      if (e.link) {
+        var a = document.createElement('a');
+        a.href = e.link;
+        a.target = '_blank';
+        a.textContent = e.title;
+        div.appendChild(a);
+      } else {
+        div.appendChild(document.createTextNode(e.title));
+      }
+      eventsDiv.appendChild(div);
+    });
+  }
+
+  document.getElementById('cal-prev').addEventListener('click', function() {
+    viewMonth--;
+    if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+    render();
+  });
+  document.getElementById('cal-next').addEventListener('click', function() {
+    viewMonth++;
+    if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+    render();
+  });
+
+  render();
+})();
+</script>
+
+<footer data-cms="global.footer">349 15th Street, Oakland, CA 94612<br>
+Open Fri-Sat 12-6PM and by appointment
+<br>
+<a href="mailto:info@dreamfarmcommons.com">info@dreamfarmcommons.com</a>
+<a href="https://www.instagram.com/dreamfarmcommons/" target="_blank">@dreamfarmcommons</a>
+</footer>
+</body>
+</html>

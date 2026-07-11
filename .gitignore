@@ -22,3 +22,7 @@ test-results/
 *.swp
 *.swo
 *~
+.env*.local
+
+# Node
+node_modules/

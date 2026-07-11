@@ -1,0 +1,91 @@
+/* In-page CMS editor chrome */
+[data-cms-edit] [data-cms] {
+  outline: 1px dashed rgba(66, 245, 188, 0.35);
+  outline-offset: 4px;
+  min-height: 1em;
+  transition: outline-color 0.15s;
+}
+[data-cms-edit] [data-cms]:hover {
+  outline: 2px dashed rgba(66, 245, 188, 0.8);
+}
+[data-cms-edit] [data-cms].cms-editing {
+  outline: 2px solid #42f5bc;
+}
+[data-cms-edit] [data-cms][contenteditable]:focus {
+  outline: 2px solid #42f5bc;
+}
+
+.cms-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30000;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  background: #12103a;
+  border-top: 2px solid #42f5bc;
+  font-family: "Aktiv Grotesk", "Roboto", sans-serif;
+  font-size: 15px;
+  color: white;
+}
+.cms-bar .cms-status { flex: 1; color: #42f5bc; letter-spacing: 1px; }
+.cms-bar button {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid #42f5bc;
+  background: none;
+  color: #42f5bc;
+  cursor: pointer;
+}
+.cms-bar button.cms-primary {
+  background: #42f5bc;
+  color: #12103a;
+  font-weight: 700;
+}
+.cms-bar button:disabled { opacity: 0.4; cursor: default; }
+.cms-bar button:not(:disabled):hover { filter: brightness(1.15); }
+
+.cms-imgbar {
+  position: absolute;
+  z-index: 30001;
+  display: flex;
+  gap: 6px;
+  padding: 5px;
+  background: #12103a;
+  border: 1px solid #42f5bc;
+  border-radius: 8px;
+}
+.cms-imgbar button {
+  font-family: "Aktiv Grotesk", "Roboto", sans-serif;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #201e57;
+  color: #42f5bc;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cms-imgbar button:hover { background: #42f5bc; color: #12103a; }
+
+.cms-toast {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 30002;
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: #42f5bc;
+  color: #12103a;
+  font-family: "Aktiv Grotesk", "Roboto", sans-serif;
+  font-weight: 700;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.4);
+}
+.cms-toast.cms-error { background: #ff7b7b; }
+
+[data-cms-edit] img.cms-uploading { opacity: 0.4; }

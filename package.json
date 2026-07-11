@@ -1,0 +1,13 @@
+{
+  "name": "dfc-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Dream Farm Commons website with database-backed CMS",
+  "scripts": {
+    "seed": "node --env-file=.env.local scripts/seed.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "postgres": "^3.4.5"
+  }
+}

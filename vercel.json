@@ -1,3 +1,23 @@
 {
-  "name": "dfc-website"
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "templates/**",
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  "redirects": [
+    { "source": "/AHNP.html", "destination": "/projects/AHNP.html", "permanent": false },
+    { "source": "/RadT.html", "destination": "/projects/RadT.html", "permanent": false },
+    { "source": "/TW.html", "destination": "/projects/TW.html", "permanent": false },
+    { "source": "/FBM.html", "destination": "/projects/FBM.html", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/api/index?__path=page/Dfc" },
+    { "source": "/index.html", "destination": "/api/index?__path=page/Dfc" },
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/projects/:slug", "destination": "/api/index?__path=page/projects/:slug" },
+    { "source": "/api/:path*", "destination": "/api/index?__path=:path*" },
+    { "source": "/:name.html", "destination": "/api/index?__path=page/:name" }
+  ]
 }

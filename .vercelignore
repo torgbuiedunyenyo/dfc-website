@@ -1,0 +1,10 @@
+.beads
+.memory
+.playwright-mcp
+.git
+DFC_CL_26Feb
+extracted_content
+test-results
+seed-data
+*.log
+.DS_Store

@@ -1,44 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="Dfc.css">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Farm Commons</title>
+<link rel="stylesheet" type="text/css" href="/Dfc.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Story+Script&display=swap" rel="stylesheet">
-
-<title>Dream Farm Commons</title>
-  <meta name="home" content="Dream Farm Commons">
-  <meta name="viewport" content="width=device-width">
 </head>
 <body>
 <div class="site-header">
-<h1> <a class="one" href="Dfc.html">dream farm commons</a> </h1> 
-
+<h1><a class="one" href="/Dfc.html">dream farm commons</a></h1>
 <br><br>
-<header> 
-    <nav class="fixed-nav-bar">
-<a class="two" href="About.html">About</a> 
-<a class="two" href="javascript:void(0)">∞</a> 
-<a class="two" href="Current.html">Current Exhibitions</a>
-<a class="two" href="javascript:void(0)">∞</a> 
-    <a class="two" href="Future.html">Future Projects</a> 
-    <a class="two" href="javascript:void(0)">∞</a> 
-        <a class="two" href="Past.html">Past Projects</a> 
-        <a class="two" href="javascript:void(0)">∞</a> 
-                 <a class="two" href="Visit.html">Visit</a> 
-                 <a class="two" href="javascript:void(0)">∞</a>
-                 <a class="two" href="Donate.html">Donate</a> 
-  </nav>
+<header>
+<nav class="fixed-nav-bar">
+<a class="two" href="/About.html">About</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Current.html">Current Exhibitions</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Future.html">Future Projects</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Past.html">Past Projects</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Visit.html">Visit</a>
+<a class="two" href="javascript:void(0)">∞</a>
+<a class="two" href="/Donate.html">Donate</a>
+</nav>
 </header>
 </div>
 <main>
 <div class="two-column">
 
-<div class="column">
+<div class="column" data-cms="current.column-1">
 <h3>DREAM FARM COMMONS</h3>
-<img src="Images/SzivkuldiLakotelep.png" alt="SzivkuldiLakotelep">
+<img src="/Images/SzivkuldiLakotelep.png" alt="SzivkuldiLakotelep">
 <h3>EXHIBITION BY JUDIT NAVRATIL<br>
 February 14 - 28</h3>
 <p>
@@ -61,9 +57,9 @@ More info about these events and our guests via the links below.<br><br>
 <h5><a href="https://www.juditnavratil.com/" target="_blank">Judit Navratil</a></h5><br>
 </div>
 
-<div class="column">
+<div class="column" data-cms="current.column-2">
 <h3>THE ANNEX</h3>
-<img src="Images/PPHoldingImage.jpg" alt="Annex Exhibition">
+<img src="/Images/PPHoldingImage.jpg" alt="Annex Exhibition">
 <h3>TRACES OF ELSEWHERE<br>
 March 7 - April 12</h3>
 <p>
@@ -86,53 +82,11 @@ Open Fri-Sat 1-6 and by appointment: info@dreamfarmcommons.com<br><br>
 </div>
 </main>
 
-
-<footer>349 15th Street, Oakland, CA 94612<br>
+<footer data-cms="global.footer">349 15th Street, Oakland, CA 94612<br>
 Open Fri-Sat 12-6PM and by appointment
-  <br>
+<br>
 <a href="mailto:info@dreamfarmcommons.com">info@dreamfarmcommons.com</a>
 <a href="https://www.instagram.com/dreamfarmcommons/" target="_blank">@dreamfarmcommons</a>
- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <script src="script/jquery.slides.min.js"></script>
-  <script>
-    $(function() {
-      $('#slides').slidesjs({
-        width: 940,
-        height: 528,
-      });
-    });
-  </script>
-<!--  <script>let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("demo");
-  let captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}</script>
- -->
-
+</footer>
 </body>
 </html>

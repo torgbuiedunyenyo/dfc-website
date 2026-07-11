@@ -1,40 +1,49 @@
 # Dream Farm Commons Website
 
-Static website for [Dream Farm Commons](https://dreamfarmcommons.com), a contemporary art gallery at 349 15th Street, Oakland CA 94612.
+Website + CMS for [Dream Farm Commons](https://dreamfarmcommons.com), a contemporary art gallery at 349 15th Street, Oakland CA 94612.
 
-## Project Structure
+Deployed on Vercel — pushes to `main` deploy automatically. Content lives in a Neon Postgres database and is edited through the built-in admin panel at **`/admin`** — no code changes or deploys needed for day-to-day content edits.
+
+## How content editing works
+
+- **`/admin`** — password-protected admin panel (password is the `ADMIN_PASSWORD` env var on Vercel).
+  - **Pages** — click-to-edit the live pages: text is edited in place, images are replaced by hovering them. Editable regions are the elements marked `data-cms="…"` in `templates/`.
+  - **Projects** — create/reorder/delete past-project pages. New projects use the standard two-column layout (photos left, copy right). The Past Projects grid is generated from this list.
+  - **Calendar** — events shown on the Future Projects page calendar.
+  - **History** — every save is versioned (Google-Docs style). Any version of anything can be previewed and restored; restores are themselves versioned, so nothing is ever lost.
+- Uploaded images are stored in Postgres and served from `/api/media/<id>` with immutable caching. They are downscaled in the browser before upload.
+
+## Architecture
 
 ```
-├── index.html          # Redirect to Dfc.html
-├── Dfc.html            # Home page
-├── About.html          # About page
-├── Current.html        # Current exhibitions
-├── Future.html         # Upcoming projects
-├── Past.html           # Past projects grid (links to projects/)
-├── Visit.html          # Visit info
-├── Donate.html         # Donation page
-├── css/
-│   ├── Dfc.css         # Main stylesheet
-│   └── reset.css       # CSS reset
-├── Images/             # All site images
-├── projects/           # Individual exhibition/project pages (~50 pages)
-├── script/             # jQuery slides plugin
-└── vercel.json         # Vercel deployment config
+├── api/index.js        # Single serverless function: page rendering + JSON API
+├── lib/                # db (schema bootstrap), auth (sessions), render (cheerio templating)
+├── templates/          # HTML page templates; data-cms attributes mark editable regions
+├── public/             # Static assets served as-is (css, Images, fonts, script, admin app)
+│   └── admin/          # Admin SPA + in-page visual editor (vanilla JS, no build step)
+├── scripts/seed.js     # Idempotent migration of original HTML content into the DB
+├── seed-data/          # The original hand-coded project pages (source for the seed)
+└── vercel.json         # Rewrites: all page URLs → /api/index?__path=page/…
 ```
+
+Request flow: static files in `public/` are served directly; every page URL is rewritten to the function, which loads the template, overlays content from Postgres (`content`, `projects`, `events` tables), and returns HTML with a short edge cache (`s-maxage=10`). With `?cmsedit=1` and a valid session, the renderer injects the visual editor.
+
+Database tables: `content` (page regions), `projects`, `events`, `media` (uploaded images), `versions` (full history of every change), `sessions`.
 
 ## Development
 
-This is a plain HTML/CSS site with no build step. Open any HTML file in a browser to preview.
+```bash
+npm install
+vercel env pull            # writes .env.local (DB credentials + ADMIN_PASSWORD)
+vercel dev                 # local server with functions + rewrites
+node --env-file=.env.local scripts/seed.js   # idempotent; safe to re-run
+```
 
-**Deployed on Vercel** — pushes to `main` trigger automatic deployment.
+## Deploying
 
-## Adding a New Exhibition
+```bash
+git push origin main       # Vercel builds and deploys automatically
+```
 
-1. Create a new HTML file in `projects/` (copy an existing one as a template)
-2. Use `../` prefixed paths for shared assets:
-   - CSS: `href="../css/Dfc.css"`
-   - Images: `src="../Images/YourImage.jpg"`
-   - Scripts: `src="../script/jquery.slides.min.js"`
-   - Navigation links: `href="../Past.html"`, `href="../Dfc.html"`, etc.
-3. Add the project's thumbnail and link to `Past.html` (or `Current.html`)
-4. Add images to `Images/`
+- Vercel project: https://vercel.com/handshake1/dfc-website (production: dfc-website-two.vercel.app)
+- Database: Neon Postgres via the Vercel marketplace integration (env vars are managed by the integration; all environments share one database)
