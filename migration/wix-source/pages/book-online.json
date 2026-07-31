@@ -1,0 +1,40 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/book-online",
+  "final_url": "https://www.dreamfarmcommons.com/book-online",
+  "canonical_url": "https://www.dreamfarmcommons.com/book-online",
+  "path": "/book-online",
+  "http_status": 200,
+  "title": "Book Online | Dreamfarmcommons",
+  "meta_description": null,
+  "og_image": null,
+  "plain_text": "Nothing to book right now. Check back soon.",
+  "rich_text": [],
+  "loose_text": [
+    {
+      "index": 0,
+      "text": "Nothing to book right now. Check back soon.",
+      "parent_tag": "span",
+      "parent_class": "s__38MnCt onJQ88M---typography-10-smallTitle onJQ88M---priority-7-primary seSCSq5"
+    }
+  ],
+  "media": [],
+  "links": [],
+  "embeds": [],
+  "ordered_content": [
+    {
+      "type": "loose_text",
+      "index": 0
+    }
+  ],
+  "discovered_pages": [],
+  "asset_urls": [],
+  "counts": {
+    "characters": 43,
+    "rich_text_blocks": 0,
+    "loose_text_nodes": 1,
+    "media": 0,
+    "links": 0,
+    "embeds": 0
+  },
+  "content_sha256": "4439666d84b0bb45f7c04cbdcde246515eeb9a260d6523d76aa6cf13fc7ec80a"
+}

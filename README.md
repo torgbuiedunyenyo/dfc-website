@@ -20,8 +20,10 @@ Deployed on Vercel — pushes to `main` deploy automatically. Content lives in a
 ├── lib/                # db (schema bootstrap), auth (sessions), render (cheerio templating)
 ├── templates/          # HTML page templates; data-cms attributes mark editable regions
 ├── public/             # Static assets served as-is (css, Images, fonts, script, admin app)
+│   ├── ImportedMedia/  # Checksummed copies of the public Wix media
 │   └── admin/          # Admin SPA + in-page visual editor (vanilla JS, no build step)
-├── scripts/seed.js     # Idempotent migration of original HTML content into the DB
+├── migration/          # Auditable Wix snapshot, import artifact, and media maps
+├── scripts/            # CMS seed plus the crawl/build/import/verification tools
 ├── seed-data/          # The original hand-coded project pages (source for the seed)
 └── vercel.json         # Rewrites: all page URLs → /api/index?__path=page/…
 ```
@@ -38,6 +40,21 @@ vercel env pull            # writes .env.local (DB credentials + ADMIN_PASSWORD)
 vercel dev                 # local server with functions + rewrites
 node --env-file=.env.local scripts/seed.js   # idempotent; safe to re-run
 ```
+
+## Public Wix migration
+
+The public Wix site is captured and converted without rewriting its editorial content. The import is idempotent, and every changed database record receives a pre-import version snapshot.
+
+```bash
+npm run crawl:wix            # refresh the public source snapshot
+npm run download:wix-media   # copy available source images into public/ImportedMedia
+npm run build:wix-import     # build semantic CMS content without DB writes
+npm run verify:wix           # verify page coverage, text, image counts, and checksums
+npm run import:wix           # read-only database change plan
+npm run import:wix -- --apply
+```
+
+`migration/wix-media-missing.json` lists source images that Wix itself no longer serves publicly. Exact originals must be exported from the Wix Media Manager rather than replaced with unrelated files.
 
 ## Deploying
 

@@ -13,7 +13,7 @@ const TEMPLATES = path.join(ROOT, 'templates');
 const SEED_PROJECTS = path.join(ROOT, 'seed-data', 'projects');
 const SEED_ROOT = path.join(ROOT, 'seed-data');
 
-const PAGE_TEMPLATES = ['Dfc.html', 'About.html', 'Current.html', 'Future.html', 'Past.html', 'Visit.html', 'Donate.html'];
+const PAGE_TEMPLATES = ['Dfc.html', 'About.html', 'Current.html', 'Future.html', 'Past.html', 'Visit.html', 'Donate.html', 'Shop.html'];
 
 // The Past Projects grid in original display order. file: html file the entry
 // links to (null = stub with no page yet). Grid titles are the curated display titles.

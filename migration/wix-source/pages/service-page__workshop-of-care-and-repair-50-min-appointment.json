@@ -1,0 +1,163 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/service-page/workshop-of-care-and-repair-50-min-appointment",
+  "final_url": "https://www.dreamfarmcommons.com/service-page/workshop-of-care-and-repair-50-min-appointment",
+  "canonical_url": "https://www.dreamfarmcommons.com/service-page/workshop-of-care-and-repair-50-min-appointment",
+  "path": "/service-page/workshop-of-care-and-repair-50-min-appointment",
+  "http_status": 200,
+  "title": "Workshop of Care and Repair — 50-min appointment | Dreamfarmcommons",
+  "meta_description": "Book a 1-on-1 50-minute appointment with Ann Schnake in the Workshop of Care and Repair.",
+  "og_image": null,
+  "plain_text": "HomeService listWorkshop of Care and Repair — 50-min appointmentWorkshop of Care and Repair — 50-min appointment50 min50 min15th StreetBook NowService DescriptionBook a 1-on-1 50-minute appointment with Ann Schnake in the Workshop of Care and Repair.Contact Details349 15th St, Oakland, CA 94612, USAzananovana@gmail.com",
+  "rich_text": [],
+  "loose_text": [
+    {
+      "index": 0,
+      "text": "Workshop of Care and Repair — 50-min appointment",
+      "parent_tag": "span",
+      "parent_class": "sM_QEan"
+    },
+    {
+      "index": 1,
+      "text": "Workshop of Care and Repair — 50-min appointment",
+      "parent_tag": "h1",
+      "parent_class": "sLoPao4 onEzxJb---typography-10-largeTitle onEzxJb---priority-7-primary s__5rkMyh"
+    },
+    {
+      "index": 2,
+      "text": "50 min",
+      "parent_tag": "span",
+      "parent_class": null
+    },
+    {
+      "index": 3,
+      "text": "50 min",
+      "parent_tag": "span",
+      "parent_class": "shMi9QI"
+    },
+    {
+      "index": 4,
+      "text": "15th Street",
+      "parent_tag": "span",
+      "parent_class": "sLoPao4 onEzxJb---typography-11-runningText onEzxJb---priority-7-primary szreLek"
+    },
+    {
+      "index": 5,
+      "text": "Service Description",
+      "parent_tag": "h2",
+      "parent_class": "sLoPao4 onEzxJb---typography-11-runningText onEzxJb---priority-7-primary siptXFP o_IUGOz---location-4-BODY"
+    },
+    {
+      "index": 6,
+      "text": "Book a 1-on-1 50-minute appointment with Ann Schnake in the Workshop of Care and Repair.",
+      "parent_tag": "p",
+      "parent_class": "sLoPao4 onEzxJb---typography-11-runningText onEzxJb---priority-7-primary sPHZGGF oNKl38p---location-4-BODY sF_NA_j"
+    },
+    {
+      "index": 7,
+      "text": "Contact Details",
+      "parent_tag": "h2",
+      "parent_class": "sLoPao4 onEzxJb---typography-11-runningText onEzxJb---priority-7-primary siptXFP o_IUGOz---location-4-BODY"
+    },
+    {
+      "index": 8,
+      "text": "349 15th St, Oakland, CA 94612, USA",
+      "parent_tag": "p",
+      "parent_class": "sLoPao4 onEzxJb---typography-11-runningText onEzxJb---priority-7-primary sPHZGGF oNKl38p---location-4-BODY"
+    },
+    {
+      "index": 9,
+      "text": "zananovana@gmail.com",
+      "parent_tag": "p",
+      "parent_class": "sLoPao4 onEzxJb---typography-11-runningText onEzxJb---priority-7-primary sPHZGGF oNKl38p---location-4-BODY"
+    }
+  ],
+  "media": [],
+  "links": [
+    {
+      "index": 0,
+      "label": "Home",
+      "raw_href": "https://www.dreamfarmcommons.com",
+      "href": "https://www.dreamfarmcommons.com/",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 1,
+      "label": "Service list",
+      "raw_href": "https://www.dreamfarmcommons.com/book-online",
+      "href": "https://www.dreamfarmcommons.com/book-online",
+      "target": null,
+      "rel": null
+    }
+  ],
+  "embeds": [],
+  "ordered_content": [
+    {
+      "type": "link",
+      "index": 0
+    },
+    {
+      "type": "link",
+      "index": 1
+    },
+    {
+      "type": "loose_text",
+      "index": 0
+    },
+    {
+      "type": "loose_text",
+      "index": 1
+    },
+    {
+      "type": "loose_text",
+      "index": 2
+    },
+    {
+      "type": "loose_text",
+      "index": 3
+    },
+    {
+      "type": "loose_text",
+      "index": 4
+    },
+    {
+      "type": "button",
+      "index": 0,
+      "label": "Book Now"
+    },
+    {
+      "type": "loose_text",
+      "index": 5
+    },
+    {
+      "type": "loose_text",
+      "index": 6
+    },
+    {
+      "type": "loose_text",
+      "index": 7
+    },
+    {
+      "type": "loose_text",
+      "index": 8
+    },
+    {
+      "type": "loose_text",
+      "index": 9
+    }
+  ],
+  "discovered_pages": [
+    "https://www.dreamfarmcommons.com/",
+    "https://www.dreamfarmcommons.com/book-online"
+  ],
+  "asset_urls": [],
+  "counts": {
+    "characters": 320,
+    "rich_text_blocks": 0,
+    "loose_text_nodes": 10,
+    "media": 0,
+    "links": 2,
+    "embeds": 0
+  },
+  "content_sha256": "3edc8079ce239d5444c4142a988d9bc322353df91029f3f4ad927d6c75fb6ac9"
+}

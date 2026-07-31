@@ -18,6 +18,9 @@
     { "source": "/admin", "destination": "/admin/index.html" },
     { "source": "/projects/:slug", "destination": "/api/index?__path=page/projects/:slug" },
     { "source": "/api/:path*", "destination": "/api/index?__path=:path*" },
-    { "source": "/:name.html", "destination": "/api/index?__path=page/:name" }
+    { "source": "/:name.html", "destination": "/api/index?__path=page/:name" },
+    { "source": "/product-page/:slug", "destination": "/api/index?__path=legacy/product-page/:slug" },
+    { "source": "/service-page/:slug", "destination": "/api/index?__path=legacy/service-page/:slug" },
+    { "source": "/:legacy", "destination": "/api/index?__path=legacy/:legacy" }
   ]
 }

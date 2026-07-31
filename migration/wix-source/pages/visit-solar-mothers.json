@@ -1,0 +1,42 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/visit-solar-mothers",
+  "final_url": "https://www.dreamfarmcommons.com/visit-solar-mothers",
+  "canonical_url": "https://www.dreamfarmcommons.com/visit-solar-mothers",
+  "path": "/visit-solar-mothers",
+  "http_status": 200,
+  "title": "Visit Solar mothers | Dreamfarmcommons",
+  "meta_description": null,
+  "og_image": null,
+  "plain_text": "",
+  "rich_text": [],
+  "loose_text": [],
+  "media": [],
+  "links": [],
+  "embeds": [
+    {
+      "index": 0,
+      "type": "iframe",
+      "sources": [],
+      "title": "Simpl-e-Schedule",
+      "poster": null,
+      "html": "<iframe class=\"UkML6\" title=\"Simpl-e-Schedule\" aria-label=\"Simpl-e-Schedule\" scrolling=\"no\" allowfullscreen=\"\" allowtransparency=\"true\" allowvr=\"true\" frameborder=\"0\" allow=\"clipboard-write;autoplay;camera;microphone;geolocation;vr\"></iframe>"
+    }
+  ],
+  "ordered_content": [
+    {
+      "type": "embed",
+      "index": 0
+    }
+  ],
+  "discovered_pages": [],
+  "asset_urls": [],
+  "counts": {
+    "characters": 0,
+    "rich_text_blocks": 0,
+    "loose_text_nodes": 0,
+    "media": 0,
+    "links": 0,
+    "embeds": 1
+  },
+  "content_sha256": "0d63922b38f9286c19cb511833d08a09fa3833d5adc76a2a5ebc3a05b4583c90"
+}

@@ -1,0 +1,85 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/liyang-network-teach-in",
+  "final_url": "https://www.dreamfarmcommons.com/liyang-network-teach-in",
+  "canonical_url": "https://www.dreamfarmcommons.com/liyang-network-teach-in",
+  "path": "/liyang-network-teach-in",
+  "http_status": 200,
+  "title": "Liyang Network Teach-In | Dreamfarmcommons",
+  "meta_description": null,
+  "og_image": null,
+  "plain_text": "Liyang Network Teach-In\nThursday, March 5th, 7-9PM\nLiyang Oakland is a community-based solidarity chapter in Oakland, CA amplifying the calls to action of Lumad (indigenous) communities in Mindanao, Philippines.\nThey will be answering questions like: Who are the Lumad? Who are the Alamara? Why are the Lumad in sanctuary? What is the Philippine or US government doing about the attacks?\nLearn more here\nFollow on Instagram @liyang.oakland",
+  "rich_text": [
+    {
+      "index": 0,
+      "id": "comp-k7l700tw",
+      "text": "Liyang Network Teach-In\nThursday, March 5th, 7-9PM\nLiyang Oakland is a community-based solidarity chapter in Oakland, CA amplifying the calls to action of Lumad (indigenous) communities in Mindanao, Philippines.\nThey will be answering questions like: Who are the Lumad? Who are the Alamara? Why are the Lumad in sanctuary? What is the Philippine or US government doing about the attacks?\nLearn more here\nFollow on Instagram @liyang.oakland",
+      "html": "<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:31px;\"><span style=\"font-size:31px;\" class=\"wixui-rich-text__text\">Liyang Network Teach-In</span></h1>\n\n<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:24px;\"><span style=\"font-size:24px;\" class=\"wixui-rich-text__text\">Thursday, March 5th, 7-9PM</span></h1>\n\n<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:15px;\">Liyang Oakland is a community-based solidarity chapter in Oakland, CA amplifying&nbsp;the calls to action of Lumad (indigenous) communities in Mindanao, Philippines.</h1>\n\n<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:15px;\">They will be answering questions like: Who are the Lumad? Who are the Alamara? Why are the Lumad in sanctuary? What&nbsp;is the Philippine or US government doing about the attacks?</h1>\n\n<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:15px;\"><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.liyangnetwork.org/\" target=\"_blank\" class=\"wixui-rich-text__text\">Learn more here</a></span></h1>\n\n<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:15px;\">Follow on Instagram <span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.instagram.com/liyang.oakland/?hl=en\" target=\"_blank\" class=\"wixui-rich-text__text\">@liyang.oakland</a></span></h1>",
+      "sha256": "22d20f367659c3f77d2733e988e8088be96dabaad4d274e40822d4cd724955b7"
+    }
+  ],
+  "loose_text": [],
+  "media": [
+    {
+      "index": 0,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_b6475d4ea02c43bcb3a9db7679eed8e8~mv2.jpg/v1/fill/w_600,h_594,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3716_JPG.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_b6475d4ea02c43bcb3a9db7679eed8e8~mv2.jpg",
+      "srcset": [
+        {
+          "url": "https://static.wixstatic.com/media/2f24a0_b6475d4ea02c43bcb3a9db7679eed8e8~mv2.jpg/v1/fill/w_600,h_594,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3716_JPG.jpg",
+          "descriptor": "1x"
+        },
+        {
+          "url": "https://static.wixstatic.com/media/2f24a0_b6475d4ea02c43bcb3a9db7679eed8e8~mv2.jpg/v1/fill/w_962,h_952,al_c,q_85,enc_avif,quality_auto/IMG_3716_JPG.jpg",
+          "descriptor": "2x"
+        }
+      ],
+      "alt": "IMG_3716.JPG",
+      "width": 600,
+      "height": 594,
+      "linked_href": null
+    }
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "Learn more here",
+      "raw_href": "https://www.liyangnetwork.org/",
+      "href": "https://www.liyangnetwork.org/",
+      "target": "_blank",
+      "rel": null
+    },
+    {
+      "index": 1,
+      "label": "@liyang.oakland",
+      "raw_href": "https://www.instagram.com/liyang.oakland/?hl=en",
+      "href": "https://www.instagram.com/liyang.oakland/?hl=en",
+      "target": "_blank",
+      "rel": null
+    }
+  ],
+  "embeds": [],
+  "ordered_content": [
+    {
+      "type": "rich_text",
+      "index": 0
+    },
+    {
+      "type": "media",
+      "index": 0
+    }
+  ],
+  "discovered_pages": [],
+  "asset_urls": [
+    "https://static.wixstatic.com/media/2f24a0_b6475d4ea02c43bcb3a9db7679eed8e8~mv2.jpg"
+  ],
+  "counts": {
+    "characters": 439,
+    "rich_text_blocks": 1,
+    "loose_text_nodes": 0,
+    "media": 1,
+    "links": 2,
+    "embeds": 0
+  },
+  "content_sha256": "bfefd9b07fb1dc6de18a18549f8ff82e44c11f46c9879d06c9bffe65db3c1cf9"
+}

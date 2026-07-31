@@ -1,0 +1,983 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/past",
+  "final_url": "https://www.dreamfarmcommons.com/past",
+  "canonical_url": "https://www.dreamfarmcommons.com/past",
+  "path": "/past",
+  "http_status": 200,
+  "title": "Past | Dreamfarmcommons",
+  "meta_description": null,
+  "og_image": null,
+  "plain_text": "Exhibitions + ResidenciesFERTILE DREAMS\nLIMB STORIES & OTHER BODILY EXTENSIONS\nALL LAND IS HOLY\nJES YOUNG AIR\nMAST YEAR\nMOM\nKim Anno & SIGNs\na leaf, a gourd, a shell...\nToMore Limb Stories\nMacrowaves\nSalt, Vessels and Tender Emissions\nThinking Outside of the Box\nRASA\nLaura Van Duren\nQuinn Keck\nEncounters\nChaves Smith\nRad Tender\nWyrm Temple\nFood Monument\nWorkshop of Care & Repair\nTHe World is Our Hospital\nAriel Cooper\nSzívküldi Lakótelep:Judit Navratil\nTosha Stimage Residency\n3 years Upstream\nMail Art\nSelected Talks + WorkshopsThe Witness to Witness ProgramLiyang Network Teach-InNew Horizons\"Object-ify\" Ourselves!Innovator IncubatorNeoliberalism & AnxietyOther EventsBorderless Imaginary DinnerPop-Up Bookshop4 ContinentsFORTALEZA = STRENGTH",
+  "rich_text": [
+    {
+      "index": 0,
+      "id": "comp-jsgnbvt0",
+      "text": "Exhibitions + Residencies",
+      "html": "<h1 class=\"font_0 wixui-rich-text__text\" style=\"text-align:center; font-size:15px;\"><span style=\"font-size:20px;\" class=\"wixui-rich-text__text\">Exhibitions +&nbsp;Residencies</span></h1>",
+      "sha256": "d529642fbf09db9ffe140883a7fffc52127a00fa774876caba49ce908391e40b"
+    },
+    {
+      "index": 1,
+      "id": "comp-lw2v4qtu",
+      "text": "To",
+      "html": "<p class=\"font_8 wixui-rich-text__text\" style=\"font-size:15px;\">To</p>",
+      "sha256": "698ea8f6d6f6c1059986e81822a7ded9733d907af6ae0e87707d7e19de2e99e5"
+    },
+    {
+      "index": 2,
+      "id": "comp-k2ql786m",
+      "text": "Selected Talks + Workshops",
+      "html": "<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:20px; line-height:normal; text-align:center;\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-size:20px;\" class=\"wixui-rich-text__text\">Selected Talks + Workshops</span></span></h1>",
+      "sha256": "445868e602735427beae9d52e95de93860b1c086755f5d819cd57ed31545e947"
+    },
+    {
+      "index": 3,
+      "id": "comp-k2ql80ln",
+      "text": "Other Events",
+      "html": "<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:20px; text-align:center;\"><span style=\"font-size:20px;\" class=\"wixui-rich-text__text\">Other Events</span></h1>",
+      "sha256": "912d0421ef6058ea20a4ce44c82d17d3b6e6eea879faa22703cfb954974bf65c"
+    }
+  ],
+  "loose_text": [],
+  "media": [
+    {
+      "index": 0,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_23843dc4cb724c54860c490dbd072e76~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_23843dc4cb724c54860c490dbd072e76~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_23843dc4cb724c54860c490dbd072e76~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 1,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_a8d2d259852a419cb4a3825a7f865e02~mv2.jpg/v1/fill/w_264,h_263,q_90,enc_avif,quality_auto/2f24a0_a8d2d259852a419cb4a3825a7f865e02~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_a8d2d259852a419cb4a3825a7f865e02~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 2,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_40bdfe389c3842a0be48f384dff77257~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_40bdfe389c3842a0be48f384dff77257~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_40bdfe389c3842a0be48f384dff77257~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 3,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_9dbc8df4a56e42e080a9d9fd0a79d347~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_9dbc8df4a56e42e080a9d9fd0a79d347~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_9dbc8df4a56e42e080a9d9fd0a79d347~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 4,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_3164b75618e942b2bfb149f722074368~mv2.jpg/v1/fill/w_264,h_263,q_90,enc_avif,quality_auto/2f24a0_3164b75618e942b2bfb149f722074368~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_3164b75618e942b2bfb149f722074368~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 5,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_fc85d8c1a4a34993a2efc49af2bc1349~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_fc85d8c1a4a34993a2efc49af2bc1349~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_fc85d8c1a4a34993a2efc49af2bc1349~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 6,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_55400279e4834acf86951f871714b111~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_55400279e4834acf86951f871714b111~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_55400279e4834acf86951f871714b111~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 7,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_cc943e32bff34d0893774a175000c9c0~mv2.jpeg/v1/fill/w_264,h_263,q_90,enc_avif,quality_auto/2f24a0_cc943e32bff34d0893774a175000c9c0~mv2.jpeg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_cc943e32bff34d0893774a175000c9c0~mv2.jpeg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 8,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_afe6ec2cb75c4c67a365aa499cc5d064~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_afe6ec2cb75c4c67a365aa499cc5d064~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_afe6ec2cb75c4c67a365aa499cc5d064~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 9,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_1047de4afcf24dbea80074536b24645f~mv2.jpeg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_1047de4afcf24dbea80074536b24645f~mv2.jpeg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_1047de4afcf24dbea80074536b24645f~mv2.jpeg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 10,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_76261e4871024d8a9dd0d29b43abf009~mv2.jpg/v1/fill/w_264,h_263,fp_0.1_0.7,q_90,enc_avif,quality_auto/2f24a0_76261e4871024d8a9dd0d29b43abf009~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_76261e4871024d8a9dd0d29b43abf009~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 11,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_da1354b5ab234085883b98eaf30c102a~mv2.jpeg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_da1354b5ab234085883b98eaf30c102a~mv2.jpeg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_da1354b5ab234085883b98eaf30c102a~mv2.jpeg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 12,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_539ea06ec2a04eaaa010f132d8828ae1~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_539ea06ec2a04eaaa010f132d8828ae1~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_539ea06ec2a04eaaa010f132d8828ae1~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 13,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_fb5e4e4db2124b559801d94b1e99bb1c~mv2.jpeg/v1/fill/w_264,h_263,q_90,enc_avif,quality_auto/2f24a0_fb5e4e4db2124b559801d94b1e99bb1c~mv2.jpeg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_fb5e4e4db2124b559801d94b1e99bb1c~mv2.jpeg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 14,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_82f27ee937a34b168205bf6ce0d67c98~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_82f27ee937a34b168205bf6ce0d67c98~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_82f27ee937a34b168205bf6ce0d67c98~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 15,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_365339358fa84b0aa4d806ec46000821~mv2.jpeg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_365339358fa84b0aa4d806ec46000821~mv2.jpeg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_365339358fa84b0aa4d806ec46000821~mv2.jpeg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 16,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_7ff5718e521f4a59b977444894001300~mv2.jpg/v1/fill/w_264,h_263,q_90,enc_avif,quality_auto/2f24a0_7ff5718e521f4a59b977444894001300~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_7ff5718e521f4a59b977444894001300~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 17,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_ce7e822446134e2f8098313d8a9b2ddc~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_ce7e822446134e2f8098313d8a9b2ddc~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_ce7e822446134e2f8098313d8a9b2ddc~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 18,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_b6475d4ea02c43bcb3a9db7679eed8e8~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_b6475d4ea02c43bcb3a9db7679eed8e8~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_b6475d4ea02c43bcb3a9db7679eed8e8~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 19,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_f307ad293c2f4c5396bc889c7626e795~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_f307ad293c2f4c5396bc889c7626e795~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_f307ad293c2f4c5396bc889c7626e795~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 20,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_de410a551f954b479b12d57d7f0d21bd~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_de410a551f954b479b12d57d7f0d21bd~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_de410a551f954b479b12d57d7f0d21bd~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 21,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_4ccdebd65a1b48248cb5a72f0c558873~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_4ccdebd65a1b48248cb5a72f0c558873~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_4ccdebd65a1b48248cb5a72f0c558873~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 22,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_796a42d859bc44ec9813cea302ac0e1d~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_796a42d859bc44ec9813cea302ac0e1d~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_796a42d859bc44ec9813cea302ac0e1d~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 23,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_52ec50f779044058be99fa06a0da2e67~mv2_d_3906_3058_s_4_2.jpg/v1/fill/w_263,h_263,fp_0.71_0.28,q_90,enc_avif,quality_auto/2f24a0_52ec50f779044058be99fa06a0da2e67~mv2_d_3906_3058_s_4_2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_52ec50f779044058be99fa06a0da2e67~mv2_d_3906_3058_s_4_2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 24,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_9a25938531424f3490628e619ccb483a~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_9a25938531424f3490628e619ccb483a~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_9a25938531424f3490628e619ccb483a~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 25,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_225ac06fd90042e39b516c700404a3c4~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_225ac06fd90042e39b516c700404a3c4~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_225ac06fd90042e39b516c700404a3c4~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 26,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_5b9e928f143b422eabcb48b141ada5ca~mv2.jpg/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_5b9e928f143b422eabcb48b141ada5ca~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_5b9e928f143b422eabcb48b141ada5ca~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    },
+    {
+      "index": 27,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_e1b2dcfe112d400ab0164ec8f1fcca90~mv2.png/v1/fill/w_263,h_263,q_90,enc_avif,quality_auto/2f24a0_e1b2dcfe112d400ab0164ec8f1fcca90~mv2.png",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_e1b2dcfe112d400ab0164ec8f1fcca90~mv2.png",
+      "srcset": [],
+      "alt": "",
+      "width": null,
+      "height": null,
+      "linked_href": null
+    }
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "FERTILE DREAMS",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-right-now-fertile-dreams",
+      "href": "https://www.dreamfarmcommons.com/copy-of-right-now-fertile-dreams",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 1,
+      "label": "LIMB STORIES & OTHER BODILY EXTENSIONS",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-right-now-limb-stories",
+      "href": "https://www.dreamfarmcommons.com/copy-of-right-now-limb-stories",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 2,
+      "label": "ALL LAND IS HOLY",
+      "raw_href": "https://www.dreamfarmcommons.com/about-1",
+      "href": "https://www.dreamfarmcommons.com/about-1",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 3,
+      "label": "JES YOUNG AIR",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-right-now-jes-young-air",
+      "href": "https://www.dreamfarmcommons.com/copy-of-right-now-jes-young-air",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 4,
+      "label": "MAST YEAR",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-right-now-alicia-escott-air",
+      "href": "https://www.dreamfarmcommons.com/copy-of-right-now-alicia-escott-air",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 5,
+      "label": "MOM",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-right-now-mom",
+      "href": "https://www.dreamfarmcommons.com/copy-of-right-now-mom",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 6,
+      "label": "Kim Anno & SIGNs",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-right-now-signs",
+      "href": "https://www.dreamfarmcommons.com/copy-of-right-now-signs",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 7,
+      "label": "a leaf, a gourd, a shell...",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-right-now-olivia-cueva-resid",
+      "href": "https://www.dreamfarmcommons.com/copy-of-right-now-olivia-cueva-resid",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 8,
+      "label": "More Limb Stories",
+      "raw_href": "https://www.dreamfarmcommons.com/nuestra-lucha-es-por-la-vida",
+      "href": "https://www.dreamfarmcommons.com/nuestra-lucha-es-por-la-vida",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 9,
+      "label": "Macrowaves",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-re-worlding-the-unimaginablee",
+      "href": "https://www.dreamfarmcommons.com/copy-of-re-worlding-the-unimaginablee",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 10,
+      "label": "Salt, Vessels and Tender Emissions",
+      "raw_href": "https://www.dreamfarmcommons.com/coming-soon",
+      "href": "https://www.dreamfarmcommons.com/coming-soon",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 11,
+      "label": "Thinking Outside of the Box",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-rickys-tribune-barber-shop",
+      "href": "https://www.dreamfarmcommons.com/copy-of-rickys-tribune-barber-shop",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 12,
+      "label": "RASA",
+      "raw_href": "https://www.dreamfarmcommons.com/coming-soon-1",
+      "href": "https://www.dreamfarmcommons.com/coming-soon-1",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 13,
+      "label": "Laura Van Duren",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-right-now-laura-van-duren",
+      "href": "https://www.dreamfarmcommons.com/copy-of-right-now-laura-van-duren",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 14,
+      "label": "Quinn Keck",
+      "raw_href": "https://www.dreamfarmcommons.com/rickys-tribune-barber-shop",
+      "href": "https://www.dreamfarmcommons.com/rickys-tribune-barber-shop",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 15,
+      "label": "Encounters",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-rasa-1",
+      "href": "https://www.dreamfarmcommons.com/copy-of-rasa-1",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 16,
+      "label": "Chaves Smith",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-quinn-keck",
+      "href": "https://www.dreamfarmcommons.com/copy-of-quinn-keck",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 17,
+      "label": "Rad Tender",
+      "raw_href": "https://www.dreamfarmcommons.com/ariel-cooper",
+      "href": "https://www.dreamfarmcommons.com/ariel-cooper",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 18,
+      "label": "Wyrm Temple",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-annex",
+      "href": "https://www.dreamfarmcommons.com/copy-of-annex",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 19,
+      "label": "Food Monument",
+      "raw_href": "https://www.dreamfarmcommons.com/about-1-1",
+      "href": "https://www.dreamfarmcommons.com/about-1-1",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 20,
+      "label": "Workshop of Care & Repair",
+      "raw_href": "https://www.dreamfarmcommons.com/about-4-1",
+      "href": "https://www.dreamfarmcommons.com/about-4-1",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 21,
+      "label": "Tosha Stimage Residency",
+      "raw_href": "https://www.dreamfarmcommons.com/tosha-stimage-residency",
+      "href": "https://www.dreamfarmcommons.com/tosha-stimage-residency",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 22,
+      "label": "3 years Upstream",
+      "raw_href": "https://www.dreamfarmcommons.com/copy-of-home-2",
+      "href": "https://www.dreamfarmcommons.com/copy-of-home-2",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 23,
+      "label": "Mail Art",
+      "raw_href": "https://www.dreamfarmcommons.com/mail-art-round-3",
+      "href": "https://www.dreamfarmcommons.com/mail-art-round-3",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 24,
+      "label": "The Witness to Witness Program",
+      "raw_href": "https://www.dreamfarmcommons.com/the-witness-to-witness-program",
+      "href": "https://www.dreamfarmcommons.com/the-witness-to-witness-program",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 25,
+      "label": "Liyang Network Teach-In",
+      "raw_href": "https://www.dreamfarmcommons.com/liyang-network-teach-in",
+      "href": "https://www.dreamfarmcommons.com/liyang-network-teach-in",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 26,
+      "label": "New Horizons",
+      "raw_href": "https://www.dreamfarmcommons.com/new-horizons",
+      "href": "https://www.dreamfarmcommons.com/new-horizons",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 27,
+      "label": "\"Object-ify\" Ourselves!",
+      "raw_href": "https://www.dreamfarmcommons.com/object-ify-ourselves",
+      "href": "https://www.dreamfarmcommons.com/object-ify-ourselves",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 28,
+      "label": "Innovator Incubator",
+      "raw_href": "https://www.dreamfarmcommons.com/innovator-incubator",
+      "href": "https://www.dreamfarmcommons.com/innovator-incubator",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 29,
+      "label": "Neoliberalism & Anxiety",
+      "raw_href": "https://www.dreamfarmcommons.com/aesthetics-politics-neoliberalism",
+      "href": "https://www.dreamfarmcommons.com/aesthetics-politics-neoliberalism",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 30,
+      "label": "Borderless Imaginary Dinner",
+      "raw_href": "https://www.dreamfarmcommons.com/borderless-imaginary-dinner",
+      "href": "https://www.dreamfarmcommons.com/borderless-imaginary-dinner",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 31,
+      "label": "Pop-Up Bookshop",
+      "raw_href": "https://www.dreamfarmcommons.com/pop-up-bookshop",
+      "href": "https://www.dreamfarmcommons.com/pop-up-bookshop",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 32,
+      "label": "4 Continents",
+      "raw_href": "https://www.dreamfarmcommons.com/4continents",
+      "href": "https://www.dreamfarmcommons.com/4continents",
+      "target": "_self",
+      "rel": null
+    },
+    {
+      "index": 33,
+      "label": "FORTALEZA = STRENGTH",
+      "raw_href": "https://www.dreamfarmcommons.com/fortaleza-strength",
+      "href": "https://www.dreamfarmcommons.com/fortaleza-strength",
+      "target": "_self",
+      "rel": null
+    }
+  ],
+  "embeds": [],
+  "ordered_content": [
+    {
+      "type": "rich_text",
+      "index": 0
+    },
+    {
+      "type": "media",
+      "index": 0
+    },
+    {
+      "type": "media",
+      "index": 1
+    },
+    {
+      "type": "media",
+      "index": 2
+    },
+    {
+      "type": "media",
+      "index": 3
+    },
+    {
+      "type": "media",
+      "index": 4
+    },
+    {
+      "type": "media",
+      "index": 5
+    },
+    {
+      "type": "media",
+      "index": 6
+    },
+    {
+      "type": "media",
+      "index": 7
+    },
+    {
+      "type": "media",
+      "index": 8
+    },
+    {
+      "type": "media",
+      "index": 9
+    },
+    {
+      "type": "media",
+      "index": 10
+    },
+    {
+      "type": "media",
+      "index": 11
+    },
+    {
+      "type": "media",
+      "index": 12
+    },
+    {
+      "type": "media",
+      "index": 13
+    },
+    {
+      "type": "media",
+      "index": 14
+    },
+    {
+      "type": "media",
+      "index": 15
+    },
+    {
+      "type": "media",
+      "index": 16
+    },
+    {
+      "type": "media",
+      "index": 17
+    },
+    {
+      "type": "link",
+      "index": 0
+    },
+    {
+      "type": "link",
+      "index": 1
+    },
+    {
+      "type": "link",
+      "index": 2
+    },
+    {
+      "type": "link",
+      "index": 3
+    },
+    {
+      "type": "link",
+      "index": 4
+    },
+    {
+      "type": "link",
+      "index": 5
+    },
+    {
+      "type": "link",
+      "index": 6
+    },
+    {
+      "type": "link",
+      "index": 7
+    },
+    {
+      "type": "rich_text",
+      "index": 1
+    },
+    {
+      "type": "link",
+      "index": 8
+    },
+    {
+      "type": "link",
+      "index": 9
+    },
+    {
+      "type": "link",
+      "index": 10
+    },
+    {
+      "type": "link",
+      "index": 11
+    },
+    {
+      "type": "link",
+      "index": 12
+    },
+    {
+      "type": "link",
+      "index": 13
+    },
+    {
+      "type": "link",
+      "index": 14
+    },
+    {
+      "type": "link",
+      "index": 15
+    },
+    {
+      "type": "link",
+      "index": 16
+    },
+    {
+      "type": "link",
+      "index": 17
+    },
+    {
+      "type": "link",
+      "index": 18
+    },
+    {
+      "type": "link",
+      "index": 19
+    },
+    {
+      "type": "link",
+      "index": 20
+    },
+    {
+      "type": "button",
+      "index": 0,
+      "label": "THe World is Our Hospital"
+    },
+    {
+      "type": "button",
+      "index": 1,
+      "label": "Ariel Cooper"
+    },
+    {
+      "type": "button",
+      "index": 2,
+      "label": "Szívküldi Lakótelep:Judit Navratil"
+    },
+    {
+      "type": "link",
+      "index": 21
+    },
+    {
+      "type": "link",
+      "index": 22
+    },
+    {
+      "type": "link",
+      "index": 23
+    },
+    {
+      "type": "rich_text",
+      "index": 2
+    },
+    {
+      "type": "link",
+      "index": 24
+    },
+    {
+      "type": "media",
+      "index": 18
+    },
+    {
+      "type": "media",
+      "index": 19
+    },
+    {
+      "type": "media",
+      "index": 20
+    },
+    {
+      "type": "media",
+      "index": 21
+    },
+    {
+      "type": "media",
+      "index": 22
+    },
+    {
+      "type": "media",
+      "index": 23
+    },
+    {
+      "type": "link",
+      "index": 25
+    },
+    {
+      "type": "link",
+      "index": 26
+    },
+    {
+      "type": "link",
+      "index": 27
+    },
+    {
+      "type": "link",
+      "index": 28
+    },
+    {
+      "type": "link",
+      "index": 29
+    },
+    {
+      "type": "rich_text",
+      "index": 3
+    },
+    {
+      "type": "media",
+      "index": 24
+    },
+    {
+      "type": "media",
+      "index": 25
+    },
+    {
+      "type": "media",
+      "index": 26
+    },
+    {
+      "type": "media",
+      "index": 27
+    },
+    {
+      "type": "link",
+      "index": 30
+    },
+    {
+      "type": "link",
+      "index": 31
+    },
+    {
+      "type": "link",
+      "index": 32
+    },
+    {
+      "type": "link",
+      "index": 33
+    }
+  ],
+  "discovered_pages": [
+    "https://www.dreamfarmcommons.com/copy-of-right-now-fertile-dreams",
+    "https://www.dreamfarmcommons.com/copy-of-right-now-limb-stories",
+    "https://www.dreamfarmcommons.com/about-1",
+    "https://www.dreamfarmcommons.com/copy-of-right-now-jes-young-air",
+    "https://www.dreamfarmcommons.com/copy-of-right-now-alicia-escott-air",
+    "https://www.dreamfarmcommons.com/copy-of-right-now-mom",
+    "https://www.dreamfarmcommons.com/copy-of-right-now-signs",
+    "https://www.dreamfarmcommons.com/copy-of-right-now-olivia-cueva-resid",
+    "https://www.dreamfarmcommons.com/nuestra-lucha-es-por-la-vida",
+    "https://www.dreamfarmcommons.com/copy-of-re-worlding-the-unimaginablee",
+    "https://www.dreamfarmcommons.com/coming-soon",
+    "https://www.dreamfarmcommons.com/copy-of-rickys-tribune-barber-shop",
+    "https://www.dreamfarmcommons.com/coming-soon-1",
+    "https://www.dreamfarmcommons.com/copy-of-right-now-laura-van-duren",
+    "https://www.dreamfarmcommons.com/rickys-tribune-barber-shop",
+    "https://www.dreamfarmcommons.com/copy-of-rasa-1",
+    "https://www.dreamfarmcommons.com/copy-of-quinn-keck",
+    "https://www.dreamfarmcommons.com/ariel-cooper",
+    "https://www.dreamfarmcommons.com/copy-of-annex",
+    "https://www.dreamfarmcommons.com/about-1-1",
+    "https://www.dreamfarmcommons.com/about-4-1",
+    "https://www.dreamfarmcommons.com/tosha-stimage-residency",
+    "https://www.dreamfarmcommons.com/copy-of-home-2",
+    "https://www.dreamfarmcommons.com/mail-art-round-3",
+    "https://www.dreamfarmcommons.com/the-witness-to-witness-program",
+    "https://www.dreamfarmcommons.com/liyang-network-teach-in",
+    "https://www.dreamfarmcommons.com/new-horizons",
+    "https://www.dreamfarmcommons.com/object-ify-ourselves",
+    "https://www.dreamfarmcommons.com/innovator-incubator",
+    "https://www.dreamfarmcommons.com/aesthetics-politics-neoliberalism",
+    "https://www.dreamfarmcommons.com/borderless-imaginary-dinner",
+    "https://www.dreamfarmcommons.com/pop-up-bookshop",
+    "https://www.dreamfarmcommons.com/4continents",
+    "https://www.dreamfarmcommons.com/fortaleza-strength"
+  ],
+  "asset_urls": [
+    "https://static.wixstatic.com/media/2f24a0_23843dc4cb724c54860c490dbd072e76~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_a8d2d259852a419cb4a3825a7f865e02~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_40bdfe389c3842a0be48f384dff77257~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_9dbc8df4a56e42e080a9d9fd0a79d347~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_3164b75618e942b2bfb149f722074368~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_fc85d8c1a4a34993a2efc49af2bc1349~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_55400279e4834acf86951f871714b111~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_cc943e32bff34d0893774a175000c9c0~mv2.jpeg",
+    "https://static.wixstatic.com/media/2f24a0_afe6ec2cb75c4c67a365aa499cc5d064~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_1047de4afcf24dbea80074536b24645f~mv2.jpeg",
+    "https://static.wixstatic.com/media/2f24a0_76261e4871024d8a9dd0d29b43abf009~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_da1354b5ab234085883b98eaf30c102a~mv2.jpeg",
+    "https://static.wixstatic.com/media/2f24a0_539ea06ec2a04eaaa010f132d8828ae1~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_fb5e4e4db2124b559801d94b1e99bb1c~mv2.jpeg",
+    "https://static.wixstatic.com/media/2f24a0_82f27ee937a34b168205bf6ce0d67c98~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_365339358fa84b0aa4d806ec46000821~mv2.jpeg",
+    "https://static.wixstatic.com/media/2f24a0_7ff5718e521f4a59b977444894001300~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_ce7e822446134e2f8098313d8a9b2ddc~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_b6475d4ea02c43bcb3a9db7679eed8e8~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_f307ad293c2f4c5396bc889c7626e795~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_de410a551f954b479b12d57d7f0d21bd~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_4ccdebd65a1b48248cb5a72f0c558873~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_796a42d859bc44ec9813cea302ac0e1d~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_52ec50f779044058be99fa06a0da2e67~mv2_d_3906_3058_s_4_2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_9a25938531424f3490628e619ccb483a~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_225ac06fd90042e39b516c700404a3c4~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_5b9e928f143b422eabcb48b141ada5ca~mv2.jpg",
+    "https://static.wixstatic.com/media/2f24a0_e1b2dcfe112d400ab0164ec8f1fcca90~mv2.png"
+  ],
+  "counts": {
+    "characters": 748,
+    "rich_text_blocks": 4,
+    "loose_text_nodes": 0,
+    "media": 28,
+    "links": 34,
+    "embeds": 0
+  },
+  "content_sha256": "34ef742294cc222b80a1d17ad79e39086ceb5718973bf62b6acd4be3bf548cb0"
+}

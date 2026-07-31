@@ -1,0 +1,103 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/about-3",
+  "final_url": "https://www.dreamfarmcommons.com/about-3",
+  "canonical_url": "https://www.dreamfarmcommons.com/about-3",
+  "path": "/about-3",
+  "http_status": 200,
+  "title": "About | Dreamfarmcommons",
+  "meta_description": null,
+  "og_image": null,
+  "plain_text": "The Full StoryAboutThis is your About Page. It's a great opportunity to give a full background on who you are, what you do and what your website has to offer. Double click on the text box to start editing your content and make sure to add all the relevant details you want to share with site visitors.VisionThis is a Paragraph. Click on \"Edit Text\" or double click on the text box to start editing the content and make sure to add any relevant details or information that you want to share with your visitors.",
+  "rich_text": [
+    {
+      "index": 0,
+      "id": "comp-lmpeo4ku",
+      "text": "The Full Story",
+      "html": "<p class=\"font_6 wixui-rich-text__text\" style=\"font-size:20px; text-align:center; line-height:normal;\"><span style=\"font-size:20px;\" class=\"wixui-rich-text__text\">The Full Story</span></p>",
+      "sha256": "b88d2ef3f6e038e7c3d87c608764c1fdc815262339818e076455840abbf661be"
+    },
+    {
+      "index": 1,
+      "id": "comp-lmpeo4l31",
+      "text": "About",
+      "html": "<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:56px; text-align:center; line-height:normal;\"><span style=\"font-size:56px;\" class=\"wixui-rich-text__text\">About</span></h1>",
+      "sha256": "31b6e592fccb5cddbfc35196da9f7478656937a5b13576c024589fcd0538428f"
+    },
+    {
+      "index": 2,
+      "id": "comp-lmpeo4l5",
+      "text": "This is your About Page. It's a great opportunity to give a full background on who you are, what you do and what your website has to offer. Double click on the text box to start editing your content and make sure to add all the relevant details you want to share with site visitors.",
+      "html": "<p class=\"font_7 wixui-rich-text__text\" style=\"font-size:18px; line-height:1.8em; text-align:center;\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">This is your About Page. It's a great opportunity to give a full background on who you are, what you do and what your website has to offer. Double click on the text box to start editing your content and make sure to add all the relevant details you want to share with site visitors.</span></p>",
+      "sha256": "0c85849eb2c5eeef1bb6f7112abac2db76f29c93a065cc72d479dc81eb0d0808"
+    },
+    {
+      "index": 3,
+      "id": "comp-lmpeo4mb",
+      "text": "Vision",
+      "html": "<h2 class=\"font_2 wixui-rich-text__text\" style=\"font-size:38px; text-align:center; line-height:normal;\"><span style=\"font-size:38px;\" class=\"wixui-rich-text__text\">Vision</span></h2>",
+      "sha256": "0634f7605ed1eb9734ba6a7ad29c5e66be3ffca3a4ab2ef73d0c7d14f0b9cfdf"
+    },
+    {
+      "index": 4,
+      "id": "comp-lmpeo4me",
+      "text": "This is a Paragraph. Click on \"Edit Text\" or double click on the text box to start editing the content and make sure to add any relevant details or information that you want to share with your visitors.",
+      "html": "<p class=\"font_8 wixui-rich-text__text\" style=\"font-size:16px; line-height:1.8em; text-align:center;\"><span style=\"font-size:16px;\" class=\"wixui-rich-text__text\">This is a Paragraph. Click on \"Edit Text\" or double click on the text box to start editing the content and make sure to add any relevant details or information that you want to share with your visitors.</span></p>",
+      "sha256": "e54b17c75e5b74a4dd1b5631087e51d33d78934702a882c2e675a4549e8cefdc"
+    }
+  ],
+  "loose_text": [],
+  "media": [
+    {
+      "index": 0,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/a3c153_bbf1019446e34069a3b96c18f172e810~mv2.jpg/v1/fill/w_122,h_67,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/a3c153_bbf1019446e34069a3b96c18f172e810~mv2.jpg",
+      "original_src": "https://static.wixstatic.com/media/a3c153_bbf1019446e34069a3b96c18f172e810~mv2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": 489,
+      "height": 550,
+      "linked_href": null
+    }
+  ],
+  "links": [],
+  "embeds": [],
+  "ordered_content": [
+    {
+      "type": "rich_text",
+      "index": 0
+    },
+    {
+      "type": "rich_text",
+      "index": 1
+    },
+    {
+      "type": "rich_text",
+      "index": 2
+    },
+    {
+      "type": "rich_text",
+      "index": 3
+    },
+    {
+      "type": "rich_text",
+      "index": 4
+    },
+    {
+      "type": "media",
+      "index": 0
+    }
+  ],
+  "discovered_pages": [],
+  "asset_urls": [
+    "https://static.wixstatic.com/media/a3c153_bbf1019446e34069a3b96c18f172e810~mv2.jpg"
+  ],
+  "counts": {
+    "characters": 509,
+    "rich_text_blocks": 5,
+    "loose_text_nodes": 0,
+    "media": 1,
+    "links": 0,
+    "embeds": 0
+  },
+  "content_sha256": "a386ee7cabaa641a9f200a86d2dcf3ce15940bccfdd2b25cf15fe8d4f7635de0"
+}

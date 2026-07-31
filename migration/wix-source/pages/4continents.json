@@ -1,0 +1,100 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/4continents",
+  "final_url": "https://www.dreamfarmcommons.com/4continents",
+  "canonical_url": "https://www.dreamfarmcommons.com/4Continents",
+  "path": "/4continents",
+  "http_status": 200,
+  "title": "4 Continents | Dreamfarmcommons",
+  "meta_description": null,
+  "og_image": null,
+  "plain_text": "​\nSaturday, November 16, 2019 at 10 AM – 1 PM4 Continents: A Virtual Reality Moment and Meal\n4 artists in 4 countries from 4 different continents have been working for several months building a virtual environment to be experienced with audience, creating a collaborative artwork and synchronicity of actions. Come to Dream Farm to enter that virtual world and eat breakfast here in Oakland. A similar event will be happening in Nigeria, Argentina, and France.\n4 continents VR is a project that seeks to explore new heights in the realm of collaborative technology.\nContact us on sixervr@gmail.com to RSVP or learn more about this project.",
+  "rich_text": [
+    {
+      "index": 0,
+      "id": "comp-k3osinwt",
+      "text": "​\nSaturday, November 16, 2019 at 10 AM – 1 PM",
+      "html": "<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:15px;\"><span class=\"wixGuard wixui-rich-text__text\">​</span></h1>\n\n<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:22px;\"><span style=\"font-size:22px;\" class=\"wixui-rich-text__text\">Saturday, November 16, 2019 at 10 AM – 1 PM</span></h1>",
+      "sha256": "4d940ffb7a651ce1700508fdbcacd91596d46ecf0c2c8a05a39e8379a2b9cefa"
+    },
+    {
+      "index": 1,
+      "id": "comp-k3osinxl",
+      "text": "4 Continents: A Virtual Reality Moment and Meal\n4 artists in 4 countries from 4 different continents have been working for several months building a virtual environment to be experienced with audience, creating a collaborative artwork and synchronicity of actions. Come to Dream Farm to enter that virtual world and eat breakfast here in Oakland. A similar event will be happening in Nigeria, Argentina, and France.\n4 continents VR is a project that seeks to explore new heights in the realm of collaborative technology.\nContact us on sixervr@gmail.com to RSVP or learn more about this project.",
+      "html": "<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:25px;\"><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.facebook.com/events/779589485815985/\" target=\"_blank\" class=\"wixui-rich-text__text\"><span style=\"font-size:25px;\" class=\"wixui-rich-text__text\">4 Continents: A Virtual Reality Moment and Meal</span></a></span></h1>\n\n<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:20px;\"><span style=\"font-size:15px;\" class=\"wixui-rich-text__text\">4 artists in 4 countries from 4 different continents have been working for several months building a virtual environment to be experienced with audience, creating a collaborative artwork and synchronicity of actions. Come to Dream Farm to enter that virtual world and eat breakfast here in Oakland. A similar event will be happening in Nigeria, Argentina, and France.<br class=\"wixui-rich-text__text\">\n4 continents VR is a project that seeks to explore new heights in the realm of collaborative technology.</span></h1>\n\n<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:20px;\"><br class=\"wixui-rich-text__text\">\nContact us on sixervr@gmail.com to RSVP or learn more about this project.</h1>",
+      "sha256": "2067b09923d63f90b53d7d44775bef03eaf6757e3c6923a417c869bb053f887f"
+    }
+  ],
+  "loose_text": [],
+  "media": [
+    {
+      "index": 0,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_225ac06fd90042e39b516c700404a3c4~mv2.jpg/v1/fill/w_600,h_338,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/4%20continents%20VR.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_225ac06fd90042e39b516c700404a3c4~mv2.jpg",
+      "srcset": [
+        {
+          "url": "https://static.wixstatic.com/media/2f24a0_225ac06fd90042e39b516c700404a3c4~mv2.jpg/v1/fill/w_600,h_338,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/4%20continents%20VR.jpg",
+          "descriptor": "1x"
+        },
+        {
+          "url": "https://static.wixstatic.com/media/2f24a0_225ac06fd90042e39b516c700404a3c4~mv2.jpg/v1/fill/w_1198,h_675,al_c,q_85,enc_avif,quality_auto/4%20continents%20VR.jpg",
+          "descriptor": "2x"
+        }
+      ],
+      "alt": "4 continents VR.jpg",
+      "width": 600,
+      "height": 338,
+      "linked_href": "https://www.facebook.com/events/779589485815985/"
+    }
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": null,
+      "raw_href": "https://www.facebook.com/events/779589485815985/",
+      "href": "https://www.facebook.com/events/779589485815985/",
+      "target": "_blank",
+      "rel": null
+    },
+    {
+      "index": 1,
+      "label": "4 Continents: A Virtual Reality Moment and Meal",
+      "raw_href": "https://www.facebook.com/events/779589485815985/",
+      "href": "https://www.facebook.com/events/779589485815985/",
+      "target": "_blank",
+      "rel": null
+    }
+  ],
+  "embeds": [],
+  "ordered_content": [
+    {
+      "type": "rich_text",
+      "index": 0
+    },
+    {
+      "type": "link",
+      "index": 0
+    },
+    {
+      "type": "media",
+      "index": 0
+    },
+    {
+      "type": "rich_text",
+      "index": 1
+    }
+  ],
+  "discovered_pages": [],
+  "asset_urls": [
+    "https://static.wixstatic.com/media/2f24a0_225ac06fd90042e39b516c700404a3c4~mv2.jpg"
+  ],
+  "counts": {
+    "characters": 639,
+    "rich_text_blocks": 2,
+    "loose_text_nodes": 0,
+    "media": 1,
+    "links": 2,
+    "embeds": 0
+  },
+  "content_sha256": "397c4e22c83f02790d25e789dc68bbf4a2ea9a8b6b487b9d150f6bd8cf607e53"
+}

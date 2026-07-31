@@ -1,0 +1,193 @@
+{
+  "generated_at": "2026-07-31T23:50:13.497Z",
+  "unavailable_count": 15,
+  "note": "These image URLs are also unavailable on the public Wix source site. Recover exact originals from the Wix Media Manager.",
+  "missing": [
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_02825c2d3a6c4d3eb03a9b662b225822~mv2.jpg/v1/crop/x_189,y_304,w_3282,h_1547/fill/w_860,h_412,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_E0569_JPG.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/carissa-lillian-clark",
+          "media_index": 0,
+          "alt": "IMG_E0569.JPG",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_02825c2d3a6c4d3eb03a9b662b225822~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_ac58a847a26647c287396e4bff395cf0~mv2.jpg/v1/fill/w_806,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2f24a0_ac58a847a26647c287396e4bff395cf0~mv2.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/cat-lauigan-residency",
+          "media_index": 6,
+          "alt": "",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_ac58a847a26647c287396e4bff395cf0~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_36c7cb9ade374501bcd9aea2bd59b00c~mv2.jpg/v1/fill/w_1084,h_728,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bea%2C%20mia%20judit%20image_edited.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/coming-soon",
+          "media_index": 0,
+          "alt": "bea, mia judit image_edited.jpg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_36c7cb9ade374501bcd9aea2bd59b00c~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_66266458a27d41d1a03ba95d781fb07d~mv2.jpeg/v1/fill/w_446,h_446,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/foodbankmonument.jpeg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/copy-of-home-1",
+          "media_index": 1,
+          "alt": "foodbankmonument.jpeg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_66266458a27d41d1a03ba95d781fb07d~mv2.jpeg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_259aee53b028492d91c21b60f8e2a3d8~mv2.jpg/v1/fill/w_772,h_1030,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/red%20house%20mock%20up_edited-1.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/copy-of-indigo-cotton",
+          "media_index": 5,
+          "alt": "red house mock up_edited-1.jpg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_259aee53b028492d91c21b60f8e2a3d8~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_9e0d75e0c40d44b48c283e4dc2a70d7a~mv2.jpeg/v1/fill/w_812,h_948,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/VEXED%20INSURRECTion.jpeg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/copy-of-rickys-tribune-barber-shop-1",
+          "media_index": 0,
+          "alt": "VEXED INSURRECTion.jpeg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_9e0d75e0c40d44b48c283e4dc2a70d7a~mv2.jpeg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_2a780c242f374092befaf48246582708~mv2.jpeg/v1/fill/w_812,h_948,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/first%202%20layers%20002_%20copy.jpeg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/copy-of-rickys-tribune-barber-shop-2",
+          "media_index": 0,
+          "alt": "first 2 layers 002_ copy.jpeg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_2a780c242f374092befaf48246582708~mv2.jpeg"
+        },
+        {
+          "source_path": "/rickys-tribune-barber-shop",
+          "media_index": 0,
+          "alt": "first 2 layers 002_ copy.jpeg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_2a780c242f374092befaf48246582708~mv2.jpeg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_40e9f4ad057e4946805cf63a6508c708~mv2.jpg/v1/fill/w_884,h_1178,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/quilt%20pocket.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/copy-of-right-now-jes-young-air",
+          "media_index": 1,
+          "alt": "quilt pocket.jpg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_40e9f4ad057e4946805cf63a6508c708~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_4c549c621069431ea179204025c6875b~mv2.jpg/v1/fill/w_786,h_686,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Copy%20of%20lucky%20quilt%20detail%20(high%20res)%20(1)_edited.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/copy-of-right-now-jes-young-air",
+          "media_index": 2,
+          "alt": "Copy of lucky quilt detail (high res) (1)_edited.jpg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_4c549c621069431ea179204025c6875b~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_aafba98b4ace4479a7731e3dc4acefff~mv2.jpeg/v1/fill/w_828,h_1078,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/reveal%201%20jpg.jpeg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/copy-of-right-now-laura-van-duren",
+          "media_index": 1,
+          "alt": "reveal 1 jpg.jpeg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_aafba98b4ace4479a7731e3dc4acefff~mv2.jpeg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_9d8a8da0ca054e6f8c4bbcf43c0c05ed~mv2.jpg/v1/fill/w_748,h_746,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Anti-Gravity%20Suit%20by%20Selby%20Sohn.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/copy-of-right-now-limb-stories",
+          "media_index": 8,
+          "alt": "Anti-Gravity Suit by Selby Sohn.jpg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_9d8a8da0ca054e6f8c4bbcf43c0c05ed~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_0d4f510c354743198e17dfca70e97088~mv2.jpg/v1/crop/x_0,y_171,w_992,h_1144/fill/w_890,h_1026,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_7533.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/copy-of-right-now-to-the-naked-eye",
+          "media_index": 1,
+          "alt": "IMG_7533.jpg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_0d4f510c354743198e17dfca70e97088~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_28693ab762084c41b9458388e0bb47b6~mv2.jpg/v1/fill/w_790,h_530,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Showerhead.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/monuments-of-memory",
+          "media_index": 7,
+          "alt": "Showerhead.jpg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_28693ab762084c41b9458388e0bb47b6~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_3342fb5e4e0e47c6ba1ae8173b949316~mv2.jpg/v1/crop/x_1248,y_689,w_2497,h_1777/fill/w_776,h_552,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/hands%20in%20window.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/nuestra-lucha-es-por-la-vida",
+          "media_index": 2,
+          "alt": "hands in window.jpg",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_3342fb5e4e0e47c6ba1ae8173b949316~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "source_url": "https://static.wixstatic.com/media/2f24a0_b2cf7545ce114ce78743429b860735f2~mv2.jpg/v1/fill/w_147,h_102,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/2f24a0_b2cf7545ce114ce78743429b860735f2~mv2.jpg",
+      "error": "403 ",
+      "uses": [
+        {
+          "source_path": "/shop",
+          "media_index": 1,
+          "alt": "",
+          "original_src": "https://static.wixstatic.com/media/2f24a0_b2cf7545ce114ce78743429b860735f2~mv2.jpg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/about-1-1",
+  "final_url": "https://www.dreamfarmcommons.com/about-1-1",
+  "canonical_url": "https://www.dreamfarmcommons.com/about-1-1",
+  "path": "/about-1-1",
+  "http_status": 200,
+  "title": "Food Monument | Dreamfarmcommons",
+  "meta_description": null,
+  "og_image": null,
+  "plain_text": "November 21, 6-8PM\nFood Monument As part of Rad Tender exhibition DFC joined in the National Action of Fall of Freedom-- artists all over the country doing actions to decry the maddness and assaults to democracy, immigrants and food safety. We built a pyramid of canned goods that were brought to Dream Farm Commons on Friday and sharedthis food with our 15th St Neighbors, who have been facing food insecurity ,all deeply appreciated.\nWe additionally raised over $1000 100%contributed directly to a local foodbank that has been deeply involved in supporting service workers over the last 50 + years",
+  "rich_text": [
+    {
+      "index": 0,
+      "id": "comp-mklop640",
+      "text": "November 21, 6-8PM\nFood Monument",
+      "html": "<p class=\"font_8 wixui-rich-text__text\" style=\"line-height:normal; font-size:27px;\"><span style=\"font-size:27px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">November 21, 6-8PM</span></span></p>\n\n<p class=\"font_8 wixui-rich-text__text\" style=\"line-height:normal; font-size:27px;\"><span style=\"font-size:27px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">Food Monument</span></span></p>",
+      "sha256": "afe8f0c22b65bbcf357ba123042d30cbee007897738e8781dd3c1e2705e3b772"
+    },
+    {
+      "index": 1,
+      "id": "comp-mklolk2m",
+      "text": "As part of Rad Tender exhibition DFC joined in the National Action of Fall of Freedom-- artists all over the country doing actions to decry the maddness and assaults to democracy, immigrants and food safety. We built a pyramid of canned goods that were brought to Dream Farm Commons on Friday and sharedthis food with our 15th St Neighbors, who have been facing food insecurity ,all deeply appreciated.\nWe additionally raised over $1000 100%contributed directly to a local foodbank that has been deeply involved in supporting service workers over the last 50 + years",
+      "html": "<p class=\"font_8 wixui-rich-text__text\" style=\"line-height:normal; font-size:15px;\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">&nbsp;As part of Rad Tender exhibition DFC joined in the National Action&nbsp; of Fall of Freedom-- artists all over the country doing actions to decry the maddness and assaults to democracy, immigrants and food safety. We built a pyramid of canned goods&nbsp; that were brought to Dream Farm Commons on Friday and sharedthis food with our 15th St Neighbors, who have been facing food insecurity ,all deeply appreciated.</span></p>\n\n<p class=\"font_8 wixui-rich-text__text\" style=\"line-height:normal; font-size:15px;\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">We additionally raised over $1000 100%contributed directly to a local foodbank that has been deeply involved in supporting service workers over the last 50 + years</span></p>",
+      "sha256": "3b6a01d911a591993197888454151a5ce93bef8058ec7182defc49c07c4ed460"
+    }
+  ],
+  "loose_text": [],
+  "media": [
+    {
+      "index": 0,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_cc943e32bff34d0893774a175000c9c0~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/foodbankmonument.jpeg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_cc943e32bff34d0893774a175000c9c0~mv2.jpeg",
+      "srcset": [
+        {
+          "url": "https://static.wixstatic.com/media/2f24a0_cc943e32bff34d0893774a175000c9c0~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/foodbankmonument.jpeg",
+          "descriptor": "1x"
+        },
+        {
+          "url": "https://static.wixstatic.com/media/2f24a0_cc943e32bff34d0893774a175000c9c0~mv2.jpeg/v1/fill/w_1200,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/foodbankmonument.jpeg",
+          "descriptor": "2x"
+        }
+      ],
+      "alt": "foodbankmonument.jpeg",
+      "width": 600,
+      "height": 600,
+      "linked_href": null
+    }
+  ],
+  "links": [],
+  "embeds": [],
+  "ordered_content": [
+    {
+      "type": "media",
+      "index": 0
+    },
+    {
+      "type": "rich_text",
+      "index": 0
+    },
+    {
+      "type": "rich_text",
+      "index": 1
+    }
+  ],
+  "discovered_pages": [],
+  "asset_urls": [
+    "https://static.wixstatic.com/media/2f24a0_cc943e32bff34d0893774a175000c9c0~mv2.jpeg"
+  ],
+  "counts": {
+    "characters": 599,
+    "rich_text_blocks": 2,
+    "loose_text_nodes": 0,
+    "media": 1,
+    "links": 0,
+    "embeds": 0
+  },
+  "content_sha256": "ea976131d5bc89915f9138769cf2269dd34c3b3f36717f7a995803fa24a9a7f0"
+}

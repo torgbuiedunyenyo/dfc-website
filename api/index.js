@@ -33,6 +33,7 @@ async function route(client, req, res, segs) {
   const [head, ...rest] = segs;
 
   if (head === 'page') return handlePage(client, req, res, rest);
+  if (head === 'legacy') return handleLegacy(client, req, res, rest);
   if (head === 'auth') return handleAuth(client, req, res, rest);
   if (head === 'events') return handleEvents(client, req, res, rest);
   if (head === 'media') return handleMedia(client, req, res, rest);
@@ -47,6 +48,30 @@ async function route(client, req, res, segs) {
   if (head === 'versions') return handleVersions(client, req, res, rest, author);
 
   return res.status(404).json({ error: 'Not found' });
+}
+
+async function handleLegacy(client, req, res, rest) {
+  const sourcePath = `/${rest.join('/')}`.replace(/\/$/, '') || '/';
+  const pageMap = {
+    '/about': 'About',
+    '/right-now-1': 'Current',
+    '/about-5': 'Current',
+    '/about-1-2': 'Future',
+    '/past': 'Past',
+    '/contact': 'Visit',
+    '/how-to-support': 'Donate',
+    '/shop': 'Shop',
+  };
+  let html = null;
+  if (pageMap[sourcePath]) {
+    html = await renderPage(client, pageMap[sourcePath]);
+  } else {
+    const rows = await client`SELECT slug FROM projects WHERE source_path = ${sourcePath}`;
+    if (rows[0]) html = await renderProject(client, rows[0].slug);
+  }
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.setHeader('Cache-Control', html == null ? NO_CACHE : PAGE_CACHE);
+  return html == null ? res.status(404).send(notFoundHtml()) : res.status(200).send(html);
 }
 
 /* ---------- pages ---------- */
@@ -141,6 +166,8 @@ function projectSnapshot(p) {
   return {
     slug: p.slug, title: p.title, status: p.status, layout: p.layout,
     thumbnail: p.thumbnail, body_html: p.body_html, sort_order: p.sort_order,
+    category: p.category, source_path: p.source_path,
+    source_url: p.source_url, source_hash: p.source_hash,
   };
 }
 
@@ -148,7 +175,8 @@ async function handleProjects(client, req, res, rest, author) {
   if (!rest.length) {
     if (req.method === 'GET') {
       const rows = await client`
-        SELECT slug, title, status, layout, thumbnail, sort_order,
+        SELECT slug, title, status, layout, thumbnail, sort_order, category,
+               source_path, source_url, source_hash,
                (length(trim(body_html)) > 0) AS has_body, updated_at
         FROM projects ORDER BY sort_order ASC, id ASC`;
       return res.json({ projects: rows });
@@ -258,9 +286,10 @@ ${copyHtml}
     const layout = b.layout !== undefined && ['detail', 'single'].includes(b.layout) ? b.layout : project.layout;
     const thumbnail = b.thumbnail !== undefined ? (b.thumbnail || null) : project.thumbnail;
     const body_html = b.body_html !== undefined ? String(b.body_html) : project.body_html;
+    const category = b.category !== undefined ? (b.category || null) : project.category;
     const [row] = await client`
       UPDATE projects SET title = ${title}, status = ${status}, layout = ${layout},
-        thumbnail = ${thumbnail}, body_html = ${body_html}, updated_at = now()
+        thumbnail = ${thumbnail}, body_html = ${body_html}, category = ${category}, updated_at = now()
       WHERE slug = ${slug} RETURNING *`;
     await recordVersion(client, 'project', slug, 'update', projectSnapshot(row), author);
     return res.json({ ok: true, project: row });
@@ -408,10 +437,14 @@ async function handleVersions(client, req, res, rest, author) {
         ON CONFLICT (key) DO UPDATE SET kind = ${s.kind || 'html'}, value = ${s.value}, updated_at = now()`;
     } else if (v.entity_type === 'project') {
       await client`
-        INSERT INTO projects (slug, title, status, layout, thumbnail, body_html, sort_order)
-        VALUES (${s.slug}, ${s.title}, ${s.status}, ${s.layout}, ${s.thumbnail}, ${s.body_html}, ${s.sort_order})
+        INSERT INTO projects (slug, title, status, layout, thumbnail, body_html, sort_order,
+                              category, source_path, source_url, source_hash)
+        VALUES (${s.slug}, ${s.title}, ${s.status}, ${s.layout}, ${s.thumbnail}, ${s.body_html}, ${s.sort_order},
+                ${s.category || null}, ${s.source_path || null}, ${s.source_url || null}, ${s.source_hash || null})
         ON CONFLICT (slug) DO UPDATE SET title = ${s.title}, status = ${s.status}, layout = ${s.layout},
-          thumbnail = ${s.thumbnail}, body_html = ${s.body_html}, sort_order = ${s.sort_order}, updated_at = now()`;
+          thumbnail = ${s.thumbnail}, body_html = ${s.body_html}, sort_order = ${s.sort_order},
+          category = ${s.category || null}, source_path = ${s.source_path || null}, source_url = ${s.source_url || null},
+          source_hash = ${s.source_hash || null}, updated_at = now()`;
     } else if (v.entity_type === 'event') {
       await client`
         INSERT INTO events (id, title, start_date, end_date, link, published)

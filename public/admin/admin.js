@@ -13,6 +13,7 @@
     { name: 'Past', label: 'Past Projects', desc: 'Grid is managed in the Projects tab' },
     { name: 'Visit', label: 'Visit', desc: 'Directions & accessibility info' },
     { name: 'Donate', label: 'Donate', desc: 'Print fundraiser, Patreon, Venmo' },
+    { name: 'Shop', label: 'Shop', desc: 'Art shop and product links' },
   ];
 
   /* ---------- utilities ---------- */

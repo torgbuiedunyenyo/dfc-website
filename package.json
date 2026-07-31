@@ -4,6 +4,11 @@
   "private": true,
   "description": "Dream Farm Commons website with database-backed CMS",
   "scripts": {
+    "build:wix-import": "node scripts/build-wix-import.js",
+    "crawl:wix": "node scripts/crawl-wix.js",
+    "download:wix-media": "node scripts/download-wix-media.js",
+    "import:wix": "node --env-file=.env.local scripts/import-wix.js",
+    "verify:wix": "node scripts/verify-wix-migration.js",
     "seed": "node --env-file=.env.local scripts/seed.js"
   },
   "dependencies": {

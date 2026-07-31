@@ -1,0 +1,99 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/new-horizons",
+  "final_url": "https://www.dreamfarmcommons.com/new-horizons",
+  "canonical_url": "https://www.dreamfarmcommons.com/new-horizons",
+  "path": "/new-horizons",
+  "http_status": 200,
+  "title": "New Horizons | Dreamfarmcommons",
+  "meta_description": null,
+  "og_image": null,
+  "plain_text": "Friday, October 11, 2019\n7:00 PM – 9:00 PMNew Horizons\nA DeColonial-Politico- Aesthetic-Imaginary, a discourse, conversation and performance with Ignacio Valera and Beatriz EscobarWe are excited to pair Ignacio Valero, California College of the Arts professor and amazing futuristic thinker, with visual and performance artist artist Beatriz Escobar and see what they come up with! As they have both been traveling this is what we know: Ignacio has recently been thinking and writing about the Emotariat, the colonization of our emotions and new imaginaries. Beatriz has been contemplating decolonizing the horizon, as an invitation to rethink modern paradigms of linearity and predictability. There will be talk, there will be performance and there will be visuality.",
+  "rich_text": [
+    {
+      "index": 0,
+      "id": "comp-k43fj76i",
+      "text": "Friday, October 11, 2019\n7:00 PM – 9:00 PM",
+      "html": "<p class=\"font_8 wixui-rich-text__text\" style=\"font-size:18px;\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">Friday,&nbsp;October 11, 2019</span></p>\n\n<p class=\"font_8 wixui-rich-text__text\" style=\"font-size:18px;\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">7:00 PM – 9:00 PM</span></p>",
+      "sha256": "569e749e0a3c8960be47ec5f20c26eaae847e417ee2df0aa1d63974a9403be8a"
+    },
+    {
+      "index": 1,
+      "id": "comp-k43fljxc",
+      "text": "New Horizons\nA DeColonial-Politico- Aesthetic-Imaginary, a discourse, conversation and performance with Ignacio Valera and Beatriz Escobar",
+      "html": "<h3 class=\"font_3 wixui-rich-text__text\" style=\"font-size:35px;\"><span style=\"font-size:35px;\" class=\"wixui-rich-text__text\">New Horizons</span></h3>\n\n<h3 class=\"font_3 wixui-rich-text__text\" style=\"font-size:20px;\"><span style=\"font-size:20px;\" class=\"wixui-rich-text__text\">A DeColonial-Politico- Aesthetic-Imaginary, a discourse, conversation and&nbsp;performance with Ignacio Valera and&nbsp;<span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"http://beatrizescobar.net/\" target=\"_blank\" class=\"wixui-rich-text__text\">Beatriz Escobar</a></span></span></h3>",
+      "sha256": "b0e4c216709e895612183c2abcfb4df4b95cbd64a94d53b9d88f7387f366c136"
+    },
+    {
+      "index": 2,
+      "id": "comp-k43fsx7i",
+      "text": "We are excited to pair Ignacio Valero, California College of the Arts professor and amazing futuristic thinker, with visual and performance artist artist Beatriz Escobar and see what they come up with! As they have both been traveling this is what we know: Ignacio has recently been thinking and writing about the Emotariat, the colonization of our emotions and new imaginaries. Beatriz has been contemplating decolonizing the horizon, as an invitation to rethink modern paradigms of linearity and predictability. There will be talk, there will be performance and there will be visuality.",
+      "html": "<h1 class=\"font_0 wixui-rich-text__text\" style=\"font-size:15px;\">We are excited to pair Ignacio Valero,&nbsp;&nbsp;California College of the Arts professor and amazing futuristic thinker, with visual&nbsp; and&nbsp;performance artist artist&nbsp;Beatriz Escobar and see what they come up with!&nbsp;As they&nbsp;have both been traveling&nbsp; this is what we &nbsp;know: Ignacio has recently been thinking and writing about&nbsp;the&nbsp;Emotariat,&nbsp;the colonization of our emotions and new imaginaries. Beatriz&nbsp;has been contemplating decolonizing the horizon, as an invitation to rethink modern paradigms of linearity and predictability. There will be talk,&nbsp;there will be performance and there will be visuality.</h1>",
+      "sha256": "03ad89ebc6772c390ca58552cd571bc44c23dc3ca28c79f871c3924fa5b2c778"
+    }
+  ],
+  "loose_text": [],
+  "media": [
+    {
+      "index": 0,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_9c3ee027b4de47f5af9990142681d8e9~mv2.jpeg/v1/fill/w_600,h_105,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/https___cdn_evbuc_com_images_73857347_27.jpeg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_9c3ee027b4de47f5af9990142681d8e9~mv2.jpeg",
+      "srcset": [
+        {
+          "url": "https://static.wixstatic.com/media/2f24a0_9c3ee027b4de47f5af9990142681d8e9~mv2.jpeg/v1/fill/w_600,h_105,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/https___cdn_evbuc_com_images_73857347_27.jpeg",
+          "descriptor": "1x"
+        },
+        {
+          "url": "https://static.wixstatic.com/media/2f24a0_9c3ee027b4de47f5af9990142681d8e9~mv2.jpeg/v1/fill/w_1008,h_176,al_c,lg_1,q_80,enc_avif,quality_auto/https___cdn_evbuc_com_images_73857347_27.jpeg",
+          "descriptor": "2x"
+        }
+      ],
+      "alt": "https___cdn.evbuc.com_images_73857347_27",
+      "width": 600,
+      "height": 105,
+      "linked_href": null
+    }
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "Beatriz Escobar",
+      "raw_href": "http://beatrizescobar.net/",
+      "href": "http://beatrizescobar.net/",
+      "target": "_blank",
+      "rel": null
+    }
+  ],
+  "embeds": [],
+  "ordered_content": [
+    {
+      "type": "rich_text",
+      "index": 0
+    },
+    {
+      "type": "media",
+      "index": 0
+    },
+    {
+      "type": "rich_text",
+      "index": 1
+    },
+    {
+      "type": "rich_text",
+      "index": 2
+    }
+  ],
+  "discovered_pages": [],
+  "asset_urls": [
+    "https://static.wixstatic.com/media/2f24a0_9c3ee027b4de47f5af9990142681d8e9~mv2.jpeg"
+  ],
+  "counts": {
+    "characters": 768,
+    "rich_text_blocks": 3,
+    "loose_text_nodes": 0,
+    "media": 1,
+    "links": 1,
+    "embeds": 0
+  },
+  "content_sha256": "81a79882ee8f25472cfabd346efbce8a19ec14f860de11ebd7144f3aad66bae7"
+}

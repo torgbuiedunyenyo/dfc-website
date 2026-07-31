@@ -1,0 +1,216 @@
+{
+  "source_url": "https://www.dreamfarmcommons.com/gallery",
+  "final_url": "https://www.dreamfarmcommons.com/gallery",
+  "canonical_url": "https://www.dreamfarmcommons.com/gallery",
+  "path": "/gallery",
+  "http_status": 200,
+  "title": "Gallery | Dreamfarmcommons",
+  "meta_description": null,
+  "og_image": null,
+  "plain_text": "",
+  "rich_text": [],
+  "loose_text": [],
+  "media": [
+    {
+      "index": 0,
+      "type": "image",
+      "src": "https://static.wixstatic.com/media/2f24a0_b6eb72e036c8467f932a362c4a50f3ec~mv2_d_6000_4000_s_4_2.jpg/v1/fill/w_143,h_96,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/2f24a0_b6eb72e036c8467f932a362c4a50f3ec~mv2_d_6000_4000_s_4_2.jpg",
+      "original_src": "https://static.wixstatic.com/media/2f24a0_b6eb72e036c8467f932a362c4a50f3ec~mv2_d_6000_4000_s_4_2.jpg",
+      "srcset": [],
+      "alt": "",
+      "width": 796,
+      "height": 604,
+      "linked_href": null
+    }
+  ],
+  "links": [
+    {
+      "index": 0,
+      "label": "Slide  11",
+      "raw_href": "./#comp-jkg19c3i",
+      "href": "https://www.dreamfarmcommons.com/#comp-jkg19c3i",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 1,
+      "label": "Slide  10",
+      "raw_href": "./#comp-jkeedyal",
+      "href": "https://www.dreamfarmcommons.com/#comp-jkeedyal",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 2,
+      "label": "Slide  9",
+      "raw_href": "./#comp-jkedrese",
+      "href": "https://www.dreamfarmcommons.com/#comp-jkedrese",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 3,
+      "label": "Maria talk",
+      "raw_href": "./#comp-jhmn5im9",
+      "href": "https://www.dreamfarmcommons.com/#comp-jhmn5im9",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 4,
+      "label": "Copy of Slide  1",
+      "raw_href": "./#comp-jhwnw6ls",
+      "href": "https://www.dreamfarmcommons.com/#comp-jhwnw6ls",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 5,
+      "label": "Slide  1",
+      "raw_href": "./#comp-jhmljvhg",
+      "href": "https://www.dreamfarmcommons.com/#comp-jhmljvhg",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 6,
+      "label": "Copy of Slide  1",
+      "raw_href": "./#comp-jhwnwd4t",
+      "href": "https://www.dreamfarmcommons.com/#comp-jhwnwd4t",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 7,
+      "label": "Stacey - Grave Concerns",
+      "raw_href": "./#comp-jhmljvhx",
+      "href": "https://www.dreamfarmcommons.com/#comp-jhmljvhx",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 8,
+      "label": "Sharon Mitigate",
+      "raw_href": "./#comp-jhmm87kn",
+      "href": "https://www.dreamfarmcommons.com/#comp-jhmm87kn",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 9,
+      "label": "mom",
+      "raw_href": "./#comp-jhmnduh9",
+      "href": "https://www.dreamfarmcommons.com/#comp-jhmnduh9",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 10,
+      "label": "Copy of Sharon Mitigate",
+      "raw_href": "./#comp-jhmnk77r",
+      "href": "https://www.dreamfarmcommons.com/#comp-jhmnk77r",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 11,
+      "label": "Slide  12",
+      "raw_href": "./#comp-jplajz7v",
+      "href": "https://www.dreamfarmcommons.com/#comp-jplajz7v",
+      "target": null,
+      "rel": null
+    },
+    {
+      "index": 12,
+      "label": "Slide  13",
+      "raw_href": "./#comp-jplakcf8",
+      "href": "https://www.dreamfarmcommons.com/#comp-jplakcf8",
+      "target": null,
+      "rel": null
+    }
+  ],
+  "embeds": [],
+  "ordered_content": [
+    {
+      "type": "button",
+      "index": 0,
+      "label": "Previous"
+    },
+    {
+      "type": "button",
+      "index": 1,
+      "label": "Next"
+    },
+    {
+      "type": "media",
+      "index": 0
+    },
+    {
+      "type": "link",
+      "index": 0
+    },
+    {
+      "type": "link",
+      "index": 1
+    },
+    {
+      "type": "link",
+      "index": 2
+    },
+    {
+      "type": "link",
+      "index": 3
+    },
+    {
+      "type": "link",
+      "index": 4
+    },
+    {
+      "type": "link",
+      "index": 5
+    },
+    {
+      "type": "link",
+      "index": 6
+    },
+    {
+      "type": "link",
+      "index": 7
+    },
+    {
+      "type": "link",
+      "index": 8
+    },
+    {
+      "type": "link",
+      "index": 9
+    },
+    {
+      "type": "link",
+      "index": 10
+    },
+    {
+      "type": "link",
+      "index": 11
+    },
+    {
+      "type": "link",
+      "index": 12
+    }
+  ],
+  "discovered_pages": [
+    "https://www.dreamfarmcommons.com/"
+  ],
+  "asset_urls": [
+    "https://static.wixstatic.com/media/2f24a0_b6eb72e036c8467f932a362c4a50f3ec~mv2_d_6000_4000_s_4_2.jpg"
+  ],
+  "counts": {
+    "characters": 0,
+    "rich_text_blocks": 0,
+    "loose_text_nodes": 0,
+    "media": 1,
+    "links": 13,
+    "embeds": 0
+  },
+  "content_sha256": "f6ff4b8bd7b11048b994111cc7aa8bb413f86840184afa9dfb5442df1a80e8cf"
+}
