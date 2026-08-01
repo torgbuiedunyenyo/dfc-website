@@ -13,18 +13,20 @@ Make the new Dream Farm Commons CMS site a faithful, complete, well-formatted pr
 
 ## Current state
 
-- Branch: `main`, initially synchronized with `origin/main` at `8fa0522`.
+- Branch: `main`; the completed migration was published to GitHub in commit `73b0919` and deployed by Vercel.
 - The new site is a database-backed Vercel/Neon CMS with page content regions, projects, events, media, and version history.
-- The live CMS now contains 105 project rows. Thirty-four are the source site's current curated Past projects; 71 are in the fuller archive. Ninety-five records are source-backed and carry source paths and checksums.
+- The live CMS now contains 105 project rows. Thirty-four are the source site's current curated Past projects; 71 are in the fuller archive. Ninety-five records are source-backed and carry source paths and checksums. The Past overview lists only the 34 projects on the original Past page; archive pages remain available through their direct and legacy URLs without being added to that grid.
 - The current Wix sitemap exposes 94 public page URLs, six store-product URLs, and one booking-service URL; internal-link discovery raises the complete public crawl to 104 pages.
 - The current Wix `/past` page contains 34 linked project/event items under multiple sections and 28 images. Its current curation differs materially from the new site's seeded Past grid.
 - Raw page-specific Wix content can be isolated under `#PAGES_CONTAINER`, including rich text, images, links, and embeds.
 - The auditable source snapshot contains 202,607 visible characters, 498 rich-text blocks, 431 media occurrences, 268 links, and two embeds.
 - The converter produced 95 project pages and nine top-level source mappings with no text or image-count integrity errors.
 - 406 unique source image variants (41.3 MB) are now stored under `public/ImportedMedia` with source URL, byte size, and SHA-256 mappings.
-- Fifteen unique Wix image URLs are unavailable on the public source site. They affect 16 page occurrences and are listed with exact filenames and page paths in `migration/wix-media-missing.json`.
+- Fifteen unique Wix image files remain unavailable after trying every supplied responsive URL and each original-media URL. They affect 16 page occurrences and are listed with exact filenames, attempted URLs, and page paths in `migration/wix-media-missing.json`. Seven of them occur inside projects currently linked from the original Past page; the others are in preserved archive/store pages.
 - The database import has been applied. Every changed entity received a pre-import restore snapshot; repeated imports now report no content changes.
 - Local QA passed for all 104 legacy source paths, desktop 50/50 independently scrolling project columns, mobile stacking, Past row alignment, and the About/Current/Future/Donate/Shop pages.
+- A production visual audit loaded and captured all 103 canonical pages (eight top-level pages and 95 source-backed project/store/service pages). No horizontal overflow or true image-ratio distortion was found. All 406 downloaded images were also decoded and visually reviewed in contact sheets; none are corrupt or unintentionally stretched.
+- Production QA passed on `https://dfc-website-two.vercel.app/` for the homepage, Past, a representative project, Current, About, Future, Donate, Shop, legacy source paths, local imported media, and the corrected address/parking content.
 - `DFC_CL_26Feb/` is an existing untracked user-owned backup and must remain untouched and uncommitted.
 - `bd ready` currently reports that no beads database exists in this repository; do not initialize one merely for this migration.
 
@@ -42,4 +44,3 @@ Make the new Dream Farm Commons CMS site a faithful, complete, well-formatted pr
 
 1. Export or grant Wix Media Manager access for the 15 unavailable images in `migration/wix-media-missing.json`.
 2. Add those exact originals to the media map and rerun the verified idempotent import.
-3. Commit and push `main`, verify the Vercel deployment, and re-run representative production checks.
