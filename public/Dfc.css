@@ -694,17 +694,6 @@ footer{
   font-weight: 500;
 }
 
-.home-source-content {
-  margin-top: 40px;
-}
-
-.home-source-content .source-content-copy {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  text-align: center;
-}
-
 .future-source-content {
   display: block;
   margin-bottom: 80px;
@@ -876,10 +865,6 @@ footer{
   .about-source-gallery {
     grid-template-columns: 1fr;
     width: 100%;
-  }
-
-  .home-source-content .source-content-copy {
-    grid-template-columns: 1fr;
   }
 
   .donate-source-content,
