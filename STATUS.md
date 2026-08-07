@@ -28,6 +28,7 @@ Make the new Dream Farm Commons CMS site a faithful, complete, well-formatted pr
 - A production visual audit loaded and captured all 103 canonical pages (eight top-level pages and 95 source-backed project/store/service pages). No horizontal overflow or true image-ratio distortion was found. All 406 downloaded images were also decoded and visually reviewed in contact sheets; none are corrupt or unintentionally stretched.
 - Production QA passed on `https://dfc-website-two.vercel.app/` for the homepage, Past, a representative project, Current, About, Future, Donate, Shop, legacy source paths, local imported media, and the corrected address/parking content.
 - The raw Wix homepage content block is retained in the migration manifest and CMS history for fidelity, but is intentionally not rendered: it duplicated the new site's existing Current/Future navigation and reproduced the source site's broken grid formatting beneath the homepage hero.
+- On 2026-08-07, `about.intro` and `about.bios` were restored from their pre-Wix CMS snapshots at the user's request. The Wix import must not overwrite these two new-site-authored regions again unless explicitly requested; the intro image, read-more label, and mailing-list region were left unchanged.
 - `DFC_CL_26Feb/` is an existing untracked user-owned backup and must remain untouched and uncommitted.
 - `bd ready` currently reports that no beads database exists in this repository; do not initialize one merely for this migration.
 
