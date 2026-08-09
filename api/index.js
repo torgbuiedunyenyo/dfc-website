@@ -60,7 +60,6 @@ async function handleLegacy(client, req, res, rest) {
     '/past': 'Past',
     '/contact': 'Visit',
     '/how-to-support': 'Donate',
-    '/shop': 'Shop',
   };
   let html = null;
   if (pageMap[sourcePath]) {

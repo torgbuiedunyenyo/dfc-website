@@ -695,8 +695,7 @@ footer{
   margin-bottom: 80px;
 }
 
-.donate-source-content,
-.shop-source-content {
+.donate-source-content {
   padding-top: 240px;
 }
 
@@ -863,8 +862,7 @@ footer{
     width: 100%;
   }
 
-  .donate-source-content,
-  .shop-source-content {
+  .donate-source-content {
     padding-top: 180px;
   }
 
