@@ -608,10 +608,6 @@ footer{
 }
 
 /* Verbatim content imported from the public Wix site */
-.donate-legacy {
-  display: none;
-}
-
 .source-content-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

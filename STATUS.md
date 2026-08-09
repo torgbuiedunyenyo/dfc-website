@@ -29,6 +29,7 @@ Make the new Dream Farm Commons CMS site a faithful, complete, well-formatted pr
 - Production QA passed on `https://dfc-website-two.vercel.app/` for the homepage, Past, a representative project, Current, About, Future, Donate, Shop, legacy source paths, local imported media, and the corrected address/parking content.
 - The raw Wix homepage content block is retained in the migration manifest and CMS history for fidelity, but is intentionally not rendered: it duplicated the new site's existing Current/Future navigation and reproduced the source site's broken grid formatting beneath the homepage hero.
 - On 2026-08-07, `about.intro` and `about.bios` were restored from their pre-Wix CMS snapshots at the user's request. The Wix import must not overwrite these two new-site-authored regions again unless explicitly requested; the intro image, read-more label, and mailing-list region were left unchanged.
+- On 2026-08-09, the Donate page was restored to its pre-Wix new-site layout and CMS regions. The imported `donate.source-content` remains archived in the CMS but is no longer rendered. No pre-Wix Shop page exists in Git, the preserved backup, or CMS history; its only non-Wix state is the `ART SHOP` placeholder added with the Wix migration, so Shop was left unchanged pending direction.
 - `DFC_CL_26Feb/` is an existing untracked user-owned backup and must remain untouched and uncommitted.
 - `bd ready` currently reports that no beads database exists in this repository; do not initialize one merely for this migration.
 
