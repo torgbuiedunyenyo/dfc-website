@@ -224,7 +224,7 @@ td{
 .container{
     width: 90%;
     padding-left: 10%;
-    padding-top: 340px;
+    padding-top: 220px;
     padding-bottom: 80px;
 }
 
@@ -234,7 +234,12 @@ td{
     width: 90%;
     padding-left: 5%;
     padding-right: 5%;
-    padding-top: 260px;
+    padding-top: 220px;
+}
+
+.donate-hero {
+  text-align: center;
+  padding-top: 220px;
 }
 
 .column {
@@ -263,6 +268,25 @@ p{
     padding-left: 2%;
     text-align: justify;
     padding-top: 20px;
+}
+
+blockquote {
+  margin: 20px 0;
+  padding: 6px 0 6px 22px;
+  border-left: 3px solid #42f5bc;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+img.cms-image-block {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 24px auto;
 }
 
 img{
@@ -484,6 +508,10 @@ footer{
     padding-right: 5%;
     padding-top: 140px;
     width: 100%;
+  }
+
+  .donate-hero {
+    padding-top: 180px;
   }
 
   .column {

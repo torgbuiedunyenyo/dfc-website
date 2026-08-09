@@ -23,25 +23,40 @@
   z-index: 30000;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 12px 20px;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px;
   background: #12103a;
   border-top: 2px solid #42f5bc;
   font-family: "Aktiv Grotesk", "Roboto", sans-serif;
   font-size: 15px;
   color: white;
 }
-.cms-bar .cms-status { flex: 1; color: #42f5bc; letter-spacing: 1px; }
+.cms-bar .cms-status { flex: 1 1 260px; color: #42f5bc; letter-spacing: 1px; }
 .cms-bar button {
   font-family: inherit;
   font-size: 15px;
-  padding: 8px 18px;
+  padding: 7px 12px;
   border-radius: 8px;
   border: 1px solid #42f5bc;
   background: none;
   color: #42f5bc;
   cursor: pointer;
 }
+.cms-bar select {
+  min-height: 34px;
+  padding: 6px 28px 6px 9px;
+  border: 1px solid #42f5bc;
+  border-radius: 8px;
+  background: #201e57;
+  color: #42f5bc;
+  font: inherit;
+  cursor: pointer;
+}
+.cms-bar select:disabled { opacity: 0.4; cursor: default; }
+.cms-bar .cms-bold,
+.cms-bar .cms-italic,
+.cms-bar .cms-underline { min-width: 36px; padding-left: 9px; padding-right: 9px; }
 .cms-bar button.cms-primary {
   background: #42f5bc;
   color: #12103a;
@@ -89,3 +104,8 @@
 .cms-toast.cms-error { background: #ff7b7b; }
 
 [data-cms-edit] img.cms-uploading { opacity: 0.4; }
+
+@media (max-width: 900px) {
+  .cms-bar { max-height: 42vh; overflow-y: auto; }
+  .cms-bar .cms-status { flex-basis: 100%; }
+}
