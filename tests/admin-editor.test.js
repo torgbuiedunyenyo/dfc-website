@@ -56,3 +56,40 @@ test('inserted image blocks are persisted while editor-only upload buttons are s
   assert.match(siteCss, /img\.cms-image-block\s*\{/);
   assert.match(siteCss, /blockquote\s*\{/);
 });
+
+test('current exhibitions are stacked scroll regions with links to each gallery space', async () => {
+  const client = async () => [];
+  const html = await renderPage(client, 'Current');
+  const $ = cheerio.load(html);
+
+  assert.equal($('.current-exhibitions > .current-exhibition').length, 2);
+  assert.equal($('.current-section-links a[href="#main-gallery"]').text(), 'Main Gallery');
+  assert.equal($('.current-section-links a[href="#annex"]').text(), 'The Annex');
+  assert.equal($('#main-gallery').attr('data-cms'), 'current.column-1');
+  assert.equal($('#annex').attr('data-cms'), 'current.column-2');
+
+  const siteCss = fs.readFileSync(path.join(root, 'public/Dfc.css'), 'utf8');
+  assert.match(siteCss, /\.current-exhibitions\s*\{[^}]*display:\s*grid/s);
+  assert.match(siteCss, /\.current-exhibition\s*\{[^}]*max-height:[^;}]+;[^}]*overflow-y:\s*auto/s);
+});
+
+test('home and shared footers retain the gallery address after CMS content is applied', async () => {
+  const client = async () => [
+    { key: 'home.footer', kind: 'html', value: 'Home hours and contact links' },
+    { key: 'global.footer', kind: 'html', value: 'Shared hours and contact links' },
+  ];
+
+  for (const page of ['Dfc', 'Current']) {
+    const html = await renderPage(client, page);
+    const $ = cheerio.load(html);
+    assert.match($('footer').text(), /349 15th Street, Oakland, CA 94612/);
+    assert.match($('footer').text(), page === 'Dfc' ? /Home hours/ : /Shared hours/);
+  }
+});
+
+test('admin events are newest-first while the public calendar stays chronological', () => {
+  const apiSource = fs.readFileSync(path.join(root, 'api/index.js'), 'utf8');
+  const renderSource = fs.readFileSync(path.join(root, 'lib/render.js'), 'utf8');
+  assert.match(apiSource, /FROM events ORDER BY start_date DESC, id DESC/);
+  assert.match(renderSource, /FROM events WHERE published = true ORDER BY start_date ASC/);
+});

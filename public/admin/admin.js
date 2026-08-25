@@ -8,7 +8,7 @@
   var PAGE_DEFS = [
     { name: 'Dfc', label: 'Home', desc: 'Landing page & hero image' },
     { name: 'About', label: 'About', desc: 'Intro, member bios, mailing list' },
-    { name: 'Current', label: 'Current Exhibitions', desc: 'Two exhibition columns' },
+    { name: 'Current', label: 'Current Exhibitions', desc: 'Main Gallery and Annex sections' },
     { name: 'Future', label: 'Future Projects', desc: 'Calendar page (events managed in Calendar tab)' },
     { name: 'Past', label: 'Past Projects', desc: 'Grid is managed in the Projects tab' },
     { name: 'Visit', label: 'Visit', desc: 'Directions & accessibility info' },

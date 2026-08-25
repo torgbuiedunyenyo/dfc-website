@@ -317,7 +317,7 @@ async function handleEvents(client, req, res, rest, authorFromCaller) {
     const rows = await client`
       SELECT id, title, to_char(start_date, 'YYYY-MM-DD') AS start_date,
              to_char(end_date, 'YYYY-MM-DD') AS end_date, link, published
-      FROM events ORDER BY start_date ASC, id ASC`;
+      FROM events ORDER BY start_date DESC, id DESC`;
     res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=10, stale-while-revalidate=300');
     return res.json({ events: rows });
   }

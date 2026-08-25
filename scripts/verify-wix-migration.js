@@ -110,7 +110,7 @@ for (const item of Object.values(mediaMap.entries)) {
 
 const visitTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'Visit.html'), 'utf8');
 const homeTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'Dfc.html'), 'utf8');
-assert(!homeTemplate.includes('349 15th Street'), 'the address must stay off the homepage');
+assert(homeTemplate.includes('349 15th Street'), 'the homepage footer must include the gallery address');
 assert(visitTemplate.includes('Paid metered street parking is available every day of the week.'), 'the user-corrected parking policy must be preserved');
 assert(!/free (?:on Sundays|after 6PM)/i.test(visitTemplate), 'outdated free-parking language must not return');
 

@@ -260,6 +260,64 @@ td{
     padding-left: 0;
 }
 
+/* Current exhibitions: space index with stacked, independently scrolling shows */
+.current-page {
+  width: 100%;
+  padding: 0;
+}
+
+.current-layout {
+  display: grid;
+  grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
+  gap: clamp(30px, 5vw, 72px);
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 220px 0 70px;
+  align-items: start;
+}
+
+.current-section-links {
+  position: sticky;
+  top: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 10px;
+}
+
+.current-section-links a {
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.current-section-links a:focus-visible,
+.current-exhibition:focus-visible {
+  outline: 2px solid #42f5bc;
+  outline-offset: 5px;
+}
+
+.current-exhibitions {
+  display: grid;
+  gap: 56px;
+  min-width: 0;
+}
+
+.current-exhibition {
+  max-height: calc(100vh - 280px);
+  min-height: 280px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scroll-margin-top: 220px;
+  padding: 0 20px 28px 0;
+  border-bottom: 1px solid #42f5bc66;
+}
+
+.current-exhibition:last-child {
+  border-bottom: 0;
+}
+
 p{
     font-family:"Roboto";
     font-size: 19px;
@@ -517,6 +575,39 @@ footer{
   .column {
     max-height: none;
     overflow-y: visible;
+  }
+
+  .current-layout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    width: 100%;
+    padding: 180px 5% 50px;
+  }
+
+  .current-section-links {
+    top: 180px;
+    z-index: 10;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    padding: 12px 0;
+    background-color: #201e57;
+  }
+
+  .current-section-links a {
+    font-size: 18px;
+  }
+
+  .current-exhibitions {
+    gap: 42px;
+  }
+
+  .current-exhibition {
+    max-height: 70vh;
+    min-height: 240px;
+    overflow-y: auto;
+    scroll-margin-top: 250px;
+    padding-right: 10px;
   }
 
   table {
