@@ -90,8 +90,23 @@ for (const [sourcePath, keys] of Object.entries(topPageRegions)) {
 for (const item of migration.curated_past) {
   assert(projectByPath.has(item.source_path), `/past links to an unmigrated project: ${item.source_path}`);
 }
-assert.equal(migration.curated_past.filter((item) => item.thumbnail).length, sourceByPath.get('/past').media.length,
-  '/past thumbnail count differs from the source');
+const curatedPastThumbnails = migration.curated_past.filter((item) => item.thumbnail).map((item) => item.thumbnail);
+const sourcePastThumbnails = sourceByPath.get('/past').media.map((item) => {
+  const mapped = mediaMap.entries[item.src] || mediaMap.entries[item.original_src];
+  return mapped && mapped.local_url;
+});
+assert.equal(curatedPastThumbnails.length, 25,
+  '/past must retain the 25 source images visually paired with linked projects');
+assert.equal(new Set(curatedPastThumbnails).size, curatedPastThumbnails.length,
+  '/past project thumbnails must not be reused across unrelated cards');
+for (const thumbnail of curatedPastThumbnails) {
+  assert(sourcePastThumbnails.includes(thumbnail), `/past thumbnail is not from the source grid: ${thumbnail}`);
+}
+assert.deepEqual(
+  sourcePastThumbnails.filter((thumbnail) => !curatedPastThumbnails.includes(thumbnail)),
+  sourcePastThumbnails.slice(2, 5),
+  '/past should omit only the three gallery images belonging to unlinked lightbox items',
+);
 
 const missingUrls = new Set(missingMedia.missing.map((item) => item.source_url));
 const remoteRendered = [...renderedImageUrls].filter((url) => /^https?:/i.test(url));

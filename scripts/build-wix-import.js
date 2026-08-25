@@ -99,6 +99,45 @@ const SLUG_OVERRIDES = {
   '/bloodroot': 'Bloodroot',
 };
 
+// Wix renders the Past page's project labels as independently positioned
+// elements over several image galleries. Their DOM/source order does not
+// describe which label is sitting on which image. Pairing the two arrays by
+// index shifted almost every thumbnail onto an unrelated project.
+//
+// These indices record the actual visual pairings in the captured /past page:
+// 0-17 are Exhibitions + Residencies, 18-23 are Talks + Workshops, and 24-27
+// are Other Events. Three gallery images (2, 3, and 4) belong to lightbox-only
+// items rather than the linked project list, while nine linked projects have
+// no source-grid image and therefore fall back to their own first project
+// image later in the build.
+const PAST_THUMBNAIL_MEDIA_INDEX = {
+  '/copy-of-home-2': 0,
+  '/about-4-1': 1,
+  '/ariel-cooper': 5,
+  '/copy-of-annex': 6,
+  '/about-1-1': 7,
+  '/copy-of-rasa-1': 8,
+  '/rickys-tribune-barber-shop': 9,
+  '/copy-of-quinn-keck': 10,
+  '/copy-of-right-now-laura-van-duren': 11,
+  '/copy-of-rickys-tribune-barber-shop': 12,
+  '/coming-soon-1': 13,
+  '/coming-soon': 14,
+  '/copy-of-re-worlding-the-unimaginablee': 15,
+  '/nuestra-lucha-es-por-la-vida': 16,
+  '/copy-of-right-now-olivia-cueva-resid': 17,
+  '/liyang-network-teach-in': 18,
+  '/the-witness-to-witness-program': 19,
+  '/new-horizons': 20,
+  '/object-ify-ourselves': 21,
+  '/aesthetics-politics-neoliberalism': 22,
+  '/innovator-incubator': 23,
+  '/fortaleza-strength': 24,
+  '/4continents': 25,
+  '/borderless-imaginary-dinner': 26,
+  '/pop-up-bookshop': 27,
+};
+
 const SECTION_NAMES = new Set([
   'Exhibitions + Residencies',
   'Selected Talks + Workshops',
@@ -375,7 +414,7 @@ function buildContentRegions(byPath) {
 }
 
 function pastIndex(page) {
-  const groups = new Map([...SECTION_NAMES].map((name) => [name, { name, links: [], images: [] }]));
+  const groups = new Map([...SECTION_NAMES].map((name) => [name, { name, links: [] }]));
   let section = null;
   for (const item of page.ordered_content || []) {
     if (item.type === 'rich_text') {
@@ -384,21 +423,19 @@ function pastIndex(page) {
     } else if (section && item.type === 'link') {
       const link = page.links[item.index];
       if (link && link.label && link.href) groups.get(section).links.push(link);
-    } else if (section && item.type === 'media') {
-      const media = page.media[item.index];
-      if (media) groups.get(section).images.push(media);
     }
   }
 
   const result = [];
   for (const group of groups.values()) {
-    group.links.forEach((link, index) => {
+    group.links.forEach((link) => {
       const sourcePath = new URL(link.href).pathname.replace(/\/$/, '') || '/';
+      const thumbnailIndex = PAST_THUMBNAIL_MEDIA_INDEX[sourcePath];
       result.push({
         source_path: sourcePath,
         title: normalizeText(link.label),
         category: group.name,
-        thumbnail: group.images[index] ? bestImageSource(group.images[index]) : null,
+        thumbnail: thumbnailIndex == null ? null : bestImageSource(page.media[thumbnailIndex]),
       });
     });
   }
