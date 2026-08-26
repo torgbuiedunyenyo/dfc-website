@@ -17,7 +17,7 @@ test('edit-mode pages load the visual editor without altering CMS region content
   assert.equal($('body').attr('data-cms-page'), 'About');
   assert.equal($('link[href="/admin/editor.css"]').length, 1);
   assert.equal($('script[src="/admin/editor.js"]').length, 1);
-  assert.match($('[data-cms="about.intro"]').text(), /Originally founded in 2018/);
+  assert.match($('[data-cms="about.intro"]').text(), /Founded by Ann Schnake, Robert Gomez Hernandez, and Stacey Goodman in 2018/);
 });
 
 test('visual editor exposes the required block, font, alignment, and image controls', () => {
@@ -92,4 +92,46 @@ test('admin events are newest-first while the public calendar stays chronologica
   const renderSource = fs.readFileSync(path.join(root, 'lib/render.js'), 'utf8');
   assert.match(apiSource, /FROM events ORDER BY start_date DESC, id DESC/);
   assert.match(renderSource, /FROM events WHERE published = true ORDER BY start_date ASC/);
+});
+
+test('page presentation adjustments apply to CMS-backed colleague feedback', async () => {
+  const client = async () => [
+    {
+      key: 'about.intro',
+      kind: 'html',
+      value: 'Originally founded in 2018, the dream became a shared gathering place.',
+    },
+    {
+      key: 'current.column-1',
+      kind: 'html',
+      value: '<h3>DREAM FARM COMMONS</h3><p>Main gallery exhibition.</p>',
+    },
+    {
+      key: 'visit.body',
+      kind: 'html',
+      value: '<p>Restrooms are downstairs by elevator.</p><img src="/Images/Dfcstreetview.jpg" alt="Street View">',
+    },
+  ];
+
+  const about = cheerio.load(await renderPage(client, 'About'));
+  assert.match(about('[data-cms="about.intro"]').text(), /Founded by Ann Schnake, Robert Gomez Hernandez, and Stacey Goodman in 2018/);
+
+  const current = cheerio.load(await renderPage(client, 'Current'));
+  assert.equal(current('[data-cms="current.column-1"] h3').first().text(), 'IN MAIN GALLERY');
+
+  const visit = cheerio.load(await renderPage(client, 'Visit'));
+  assert.match(visit('.visit-highlight').text(), /349 15th Street, Oakland, CA 94612/);
+  assert.match(visit('[data-cms="visit.body"]').text(), /one step up to the elevator/);
+  assert.equal(visit('.visit-access-note').nextAll('img').length, 1);
+});
+
+test('site colors are controlled by a reusable muted palette', () => {
+  const siteCss = fs.readFileSync(path.join(root, 'public/Dfc.css'), 'utf8');
+  for (const token of ['--site-bg', '--site-header-bg', '--site-accent', '--site-text', '--site-muted', '--site-border']) {
+    assert.ok(siteCss.includes(token), `missing palette token: ${token}`);
+  }
+  assert.match(siteCss, /body\s*\{[^}]*background-color:\s*var\(--site-bg\)/s);
+  assert.match(siteCss, /\.site-header\s*\{[^}]*background-color:\s*var\(--site-bg\)/s);
+  assert.match(siteCss, /\.future-source-content \.source-content-media\s*\{[^}]*grid-template-columns:\s*repeat\(4/s);
+  assert.match(siteCss, /\.donate-intro\s*\{[^}]*padding-bottom:\s*14px/s);
 });
