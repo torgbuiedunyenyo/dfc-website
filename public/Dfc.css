@@ -48,17 +48,17 @@
 }
 
 :root {
-  --site-bg: #d8d6cc;
-  --site-header-bg: rgba(216, 214, 204, 0.94);
-  --site-accent: #3d6254;
-  --site-text: #26362f;
-  --site-muted: #60706a;
-  --site-border: #f2efe6;
-  --site-hover: #1f4e43;
-  --site-accent-soft: rgba(61, 98, 84, 0.12);
-  --site-accent-border: rgba(61, 98, 84, 0.4);
-  --site-overlay: rgba(38, 54, 47, 0.94);
-  --site-shadow: rgba(24, 32, 29, 0.35);
+  --site-bg: #ded8cc;
+  --site-header-bg: rgba(222, 216, 204, 0.94);
+  --site-accent: #28636b;
+  --site-text: #2d3334;
+  --site-muted: #52605e;
+  --site-border: #f4f0e7;
+  --site-hover: #1c5159;
+  --site-accent-soft: rgba(40, 99, 107, 0.12);
+  --site-accent-border: rgba(40, 99, 107, 0.4);
+  --site-overlay: rgba(45, 51, 52, 0.94);
+  --site-shadow: rgba(30, 35, 36, 0.35);
 }
 
 .story-script-regular {
