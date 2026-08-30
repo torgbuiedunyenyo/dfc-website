@@ -55,9 +55,9 @@ async function handleLegacy(client, req, res, rest) {
   const sourcePath = `/${rest.join('/')}`.replace(/\/$/, '') || '/';
   const pageMap = {
     '/about': 'About',
-    '/right-now-1': 'Current',
     '/about-5': 'Current',
-    '/about-1-2': 'Future',
+    '/about-1-2': 'Current',
+    '/hereafter': 'Future',
     '/past': 'Past',
     '/contact': 'Visit',
     '/how-to-support': 'Donate',

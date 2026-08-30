@@ -15,6 +15,9 @@ const { db, getSql, recordVersion } = require('../lib/db');
 
 const IMPORT_FILE = path.join(__dirname, '..', 'migration', 'wix-import.json');
 const AUTHOR = 'Past gallery repair 2026-08-30';
+// Locally advanced programming can legitimately add projects that the Wix
+// Past gallery has not caught up with yet. Never archive these as "stale."
+const PRESERVED_LOCAL_PAST_SLUGS = new Set(['GENIUS-LOCI']);
 
 function projectSnapshot(project) {
   return {
@@ -69,7 +72,10 @@ async function main() {
     .filter((desired) => existingBySlug.has(desired.slug))
     .map((desired) => ({ desired, existing: existingBySlug.get(desired.slug) }))
     .filter(({ desired, existing }) => !sameGridFields(existing, desired));
-  const desiredSlugs = new Set(desiredProjects.map((project) => project.slug));
+  const desiredSlugs = new Set([
+    ...desiredProjects.map((project) => project.slug),
+    ...PRESERVED_LOCAL_PAST_SLUGS,
+  ]);
   const stalePast = existingProjects.filter((project) => project.status === 'past' && !desiredSlugs.has(project.slug));
 
   console.log(JSON.stringify({
@@ -128,8 +134,12 @@ async function main() {
   await getSql().end();
 }
 
-main().catch(async (error) => {
-  console.error(error);
-  try { await getSql().end(); } catch (_) {}
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(async (error) => {
+    console.error(error);
+    try { await getSql().end(); } catch (_) {}
+    process.exit(1);
+  });
+}
+
+module.exports = { PRESERVED_LOCAL_PAST_SLUGS };

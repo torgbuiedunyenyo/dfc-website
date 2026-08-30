@@ -10,6 +10,7 @@
     "download:wix-media": "node scripts/download-wix-media.js",
     "import:wix": "node --env-file=.env.local scripts/import-wix.js",
     "repair:past-grid": "node --env-file=.env.local scripts/repair-past-grid.js",
+    "update:programming": "node --env-file=.env.local scripts/update-programming-cycle.js",
     "verify:wix": "node scripts/verify-wix-migration.js",
     "seed": "node --env-file=.env.local scripts/seed.js"
   },

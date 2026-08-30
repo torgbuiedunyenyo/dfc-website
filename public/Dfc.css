@@ -744,6 +744,10 @@ footer{
   gap: 16px;
 }
 
+.source-content-media--stacked {
+  grid-template-columns: 1fr;
+}
+
 .source-content-media > :first-child {
   grid-column: 1 / -1;
 }
