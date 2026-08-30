@@ -203,55 +203,91 @@
           (p.name === 'Past' ? '<a class="btn" href="#projects">Manage projects</a>' : '') +
           '</div>' +
           (p.name === 'Current' ? '<div class="row" id="current-move" style="margin-top:10px;flex-direction:column;align-items:stretch;gap:6px"></div>' : '') +
+          (p.name === 'Future' ? '<div class="row" id="future-move" style="margin-top:10px;flex-direction:column;align-items:stretch;gap:6px"></div>' : '') +
           '</div>';
       }).join('') +
       '</div>');
     app.querySelectorAll('[data-edit]').forEach(function (b) {
       b.addEventListener('click', function () { location.hash = '#edit-page/' + b.getAttribute('data-edit'); });
     });
-    loadCurrentMoveButtons();
+    loadMoveButtons();
   }
 
-  // "Move to Past Projects" buttons on the Current Exhibitions card — one per
-  // column, labeled with the exhibition title detected in that column.
-  function loadCurrentMoveButtons() {
-    var holder = document.getElementById('current-move');
-    if (!holder) return;
+  var COLUMN_NAMES = { 1: 'Main Gallery', 2: 'The Annex' };
+
+  function textOfHtml(html) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent.replace(/\s+/g, ' ').trim();
+  }
+
+  function shorten(title) {
+    return title.length > 30 ? title.slice(0, 28) + '…' : title;
+  }
+
+  // Move buttons on the Pages tab: Current column → Past project, and
+  // Future section → Current column. Labeled with the detected show title.
+  function loadMoveButtons() {
+    var curHolder = document.getElementById('current-move');
+    var futHolder = document.getElementById('future-move');
+    if (!curHolder && !futHolder) return;
     api('GET', '/api/content').then(function (res) {
       var map = {};
       res.content.forEach(function (c) { map[c.key] = c; });
-      [1, 2].forEach(function (col) {
+
+      if (curHolder) [1, 2].forEach(function (col) {
         var c = map['current.column-' + col];
         if (!c) return;
         var doc = new DOMParser().parseFromString('<div>' + c.value + '</div>', 'text/html');
         var h3s = doc.querySelectorAll('h3');
         var title = '';
         if (h3s.length) {
-          var firstLine = h3s[h3s.length - 1].innerHTML.split(/<br\s*\/?>/i)[0];
-          var tmp = document.createElement('div');
-          tmp.innerHTML = firstLine;
-          title = tmp.textContent.replace(/\s+/g, ' ').trim();
+          title = textOfHtml(h3s[h3s.length - 1].innerHTML.split(/<br\s*\/?>/i)[0]);
         }
         title = title || ('Column ' + col);
-        var shortTitle = title.length > 30 ? title.slice(0, 28) + '…' : title;
         var btn = document.createElement('button');
         btn.className = 'small';
-        btn.textContent = '→ Move “' + shortTitle + '” to Past Projects';
-        btn.title = 'Copies this column’s images and text into a new past project. The Current page is left unchanged.';
+        btn.textContent = '→ Move “' + shorten(title) + '” (' + COLUMN_NAMES[col] + ') to Past Projects';
+        btn.title = 'Moves this column’s images and text into a new past project and clears the column. Undoable from History.';
         btn.addEventListener('click', function () {
-          var t = prompt('Title for the new past project:\n(the column is copied — the Current page stays as it is)', title);
+          var t = prompt('Title for the new past project:\n(the column is cleared — undoable from History)', title);
           if (t === null) return;
           btn.disabled = true;
           api('POST', '/api/projects/from-current', { column: col, title: t.trim() })
             .then(function (r) {
-              toast('“' + r.project.title + '” added to Past Projects');
+              toast('“' + r.project.title + '” moved to Past Projects');
               location.hash = '#projects';
             })
             .catch(function (err) { btn.disabled = false; toast(err.message, true); });
         });
-        holder.appendChild(btn);
+        curHolder.appendChild(btn);
       });
-    }).catch(function () { /* buttons are a nice-to-have; card still works without them */ });
+
+      if (futHolder && map['future.source-content']) {
+        var doc2 = new DOMParser().parseFromString('<div>' + map['future.source-content'].value + '</div>', 'text/html');
+        var futTitle = '';
+        var nodes = doc2.querySelectorAll('h1,h2,h3,p');
+        for (var i = 0; i < nodes.length && !futTitle; i++) futTitle = textOfHtml(nodes[i].innerHTML);
+        futTitle = futTitle || 'Future content';
+        [1, 2].forEach(function (col) {
+          var btn = document.createElement('button');
+          btn.className = 'small';
+          btn.textContent = '→ Move “' + shorten(futTitle) + '” to Current: ' + COLUMN_NAMES[col];
+          btn.title = 'Moves the Future Projects section into this Current Exhibitions column and clears the Future page. Undoable from History.';
+          btn.addEventListener('click', function () {
+            if (!confirm('Move “' + futTitle + '” into Current Exhibitions (' + COLUMN_NAMES[col] + ')?\n\nThis replaces that column and clears the Future Projects section. Both can be undone from History.')) return;
+            btn.disabled = true;
+            api('POST', '/api/content/move-future', { column: col })
+              .then(function () {
+                toast('“' + futTitle + '” moved to Current Exhibitions');
+                renderPages();
+              })
+              .catch(function (err) { btn.disabled = false; toast(err.message, true); });
+          });
+          futHolder.appendChild(btn);
+        });
+      }
+    }).catch(function () { /* buttons are a nice-to-have; cards still work without them */ });
   }
 
   /* ---------- visual editor (iframe) ---------- */

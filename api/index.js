@@ -3,6 +3,7 @@ const cheerio = require('cheerio');
 const { db, recordVersion } = require('../lib/db');
 const auth = require('../lib/auth');
 const { PAGES, renderPage, renderProject, buildProjectBody, notFoundHtml } = require('../lib/render');
+const { venueHeader, clearedColumn, futureToColumn, CLEARED_FUTURE } = require('../lib/move');
 
 const PAGE_CACHE = 'public, max-age=0, s-maxage=10, stale-while-revalidate=300';
 const NO_CACHE = 'private, no-store';
@@ -151,6 +152,34 @@ async function handleContent(client, req, res, rest, author) {
     }
     return res.json({ ok: true, saved: changes.length });
   }
+
+  // Move the Future Projects section into a Current Exhibitions column:
+  // images + copy land under the column's venue header, and the Future
+  // section is cleared. Both keys are version-recorded before and after.
+  if (rest[0] === 'move-future' && req.method === 'POST') {
+    const col = req.body && Number(req.body.column) === 2 ? 2 : 1;
+    const targetKey = `current.column-${col}`;
+    const futRows = await client`SELECT value FROM content WHERE key = 'future.source-content'`;
+    if (!futRows.length) return res.status(404).json({ error: 'Future content not found' });
+    const curRows = await client`SELECT value FROM content WHERE key = ${targetKey}`;
+    const oldColumn = curRows.length ? curRows[0].value : '';
+    const venue = venueHeader(oldColumn) || (col === 2 ? 'THE ANNEX' : 'DREAM FARM COMMONS');
+    const newColumn = futureToColumn(futRows[0].value, venue);
+
+    if (curRows.length) {
+      await recordVersion(client, 'content', targetKey, 'update', { key: targetKey, kind: 'html', value: oldColumn }, author);
+    }
+    await client`
+      INSERT INTO content (key, kind, value, updated_at) VALUES (${targetKey}, 'html', ${newColumn}, now())
+      ON CONFLICT (key) DO UPDATE SET kind = 'html', value = ${newColumn}, updated_at = now()`;
+    await recordVersion(client, 'content', targetKey, 'update', { key: targetKey, kind: 'html', value: newColumn }, author);
+
+    await recordVersion(client, 'content', 'future.source-content', 'update', { key: 'future.source-content', kind: 'html', value: futRows[0].value }, author);
+    await client`
+      UPDATE content SET value = ${CLEARED_FUTURE}, updated_at = now() WHERE key = 'future.source-content'`;
+    await recordVersion(client, 'content', 'future.source-content', 'update', { key: 'future.source-content', kind: 'html', value: CLEARED_FUTURE }, author);
+    return res.json({ ok: true });
+  }
   return res.status(404).json({ error: 'Not found' });
 }
 
@@ -209,8 +238,9 @@ async function handleProjects(client, req, res, rest, author) {
     }
   }
 
-  // Archive a Current Exhibitions column: copy its images + text into a new
-  // past project (two-column layout). The Current page itself is left untouched.
+  // Move a Current Exhibitions column to Past: copy its images + text into a
+  // new past project (two-column layout), then clear the column down to its
+  // venue header. Both steps are version-recorded so they can be undone.
   if (rest[0] === 'from-current' && req.method === 'POST') {
     const col = req.body && Number(req.body.column) === 2 ? 2 : 1;
     const key = `current.column-${col}`;
@@ -255,6 +285,13 @@ ${copyHtml}
       VALUES (${slug}, ${title}, 'past', 'detail', ${images[0] ? images[0].src : null}, ${body_html}, ${min - 1})
       RETURNING *`;
     await recordVersion(client, 'project', slug, 'create', projectSnapshot(row), author);
+
+    // Snapshot the column as it was (restorable), then clear it.
+    await recordVersion(client, 'content', key, 'update', { key, kind: 'html', value: contentRows[0].value }, author);
+    const cleared = clearedColumn(contentRows[0].value);
+    await client`
+      UPDATE content SET value = ${cleared}, updated_at = now() WHERE key = ${key}`;
+    await recordVersion(client, 'content', key, 'update', { key, kind: 'html', value: cleared }, author);
     return res.json({ ok: true, project: row });
   }
 

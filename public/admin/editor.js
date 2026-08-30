@@ -23,11 +23,6 @@
       '<option value="h1">Heading 1</option><option value="h2">Heading 2</option>' +
       '<option value="h3">Heading 3</option><option value="blockquote">Quote</option>' +
     '</select>' +
-    '<select class="cms-font" aria-label="Font" title="Font">' +
-      '<option value="">Default font</option><option value="Melodrama">Melodrama</option>' +
-      '<option value="Aktiv Grotesk">Aktiv Grotesk</option><option value="Roboto">Roboto</option>' +
-      '<option value="Lato">Lato</option><option value="Story Script">Story Script</option>' +
-    '</select>' +
     '<button type="button" class="cms-bold" aria-label="Bold" title="Bold"><strong>B</strong></button>' +
     '<button type="button" class="cms-italic" aria-label="Italic" title="Italic"><em>I</em></button>' +
     '<button type="button" class="cms-underline" aria-label="Underline" title="Underline"><u>U</u></button>' +
@@ -51,13 +46,12 @@
   var delBlockBtn = bar.querySelector('.cms-delblock');
   var addImageBtn = bar.querySelector('.cms-addimage');
   var blockStyleSelect = bar.querySelector('.cms-blockstyle');
-  var fontSelect = bar.querySelector('.cms-font');
   var alignSelect = bar.querySelector('.cms-align');
   var boldBtn = bar.querySelector('.cms-bold');
   var italicBtn = bar.querySelector('.cms-italic');
   var underlineBtn = bar.querySelector('.cms-underline');
 
-  var textControls = [blockStyleSelect, fontSelect, alignSelect, boldBtn, italicBtn, underlineBtn];
+  var textControls = [blockStyleSelect, alignSelect, boldBtn, italicBtn, underlineBtn];
 
   function refreshBar() {
     var n = Object.keys(dirty).length;
@@ -73,12 +67,9 @@
     if (lastTextBlock) {
       var tag = lastTextBlock.tagName.toLowerCase();
       blockStyleSelect.value = ['p', 'h1', 'h2', 'h3', 'blockquote'].indexOf(tag) >= 0 ? tag : '';
-      var inlineFont = lastTextBlock.style.fontFamily.replace(/["']/g, '');
-      fontSelect.value = ['Melodrama', 'Aktiv Grotesk', 'Roboto', 'Lato', 'Story Script'].indexOf(inlineFont) >= 0 ? inlineFont : '';
       alignSelect.value = lastTextBlock.style.textAlign || '';
     } else {
       blockStyleSelect.value = '';
-      fontSelect.value = '';
       alignSelect.value = '';
     }
   }
@@ -257,10 +248,6 @@
 
   blockStyleSelect.addEventListener('change', function () {
     replaceTextBlock(blockStyleSelect.value);
-    refreshBar();
-  });
-  fontSelect.addEventListener('change', function () {
-    wrapSelection('span', 'fontFamily', fontSelect.value || '');
     refreshBar();
   });
   alignSelect.addEventListener('change', function () {
@@ -461,6 +448,17 @@
       n.removeAttribute('contenteditable');
     });
     Array.prototype.slice.call(clone.querySelectorAll('.cms-bar, .cms-imgbar, .cms-toast, .cms-addimg')).forEach(function (n) {
+      n.remove();
+    });
+    // The site's fonts are fixed (Melodrama headers, Aktiv Grotesk/Roboto
+    // body) — strip any custom font that snuck in via paste or old edits.
+    Array.prototype.slice.call(clone.querySelectorAll('[style]')).forEach(function (n) {
+      n.style.removeProperty('font-family');
+      if (!n.getAttribute('style')) n.removeAttribute('style');
+    });
+    Array.prototype.slice.call(clone.querySelectorAll('font')).forEach(function (n) {
+      var parent = n.parentNode;
+      while (n.firstChild) parent.insertBefore(n.firstChild, n);
       n.remove();
     });
     return clone.innerHTML;

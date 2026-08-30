@@ -20,7 +20,7 @@ test('edit-mode pages load the visual editor without altering CMS region content
   assert.match($('[data-cms="about.intro"]').text(), /Originally founded in 2018/);
 });
 
-test('visual editor exposes the required block, font, alignment, and image controls', () => {
+test('visual editor exposes block, alignment, and image controls but no font picker', () => {
   const source = fs.readFileSync(path.join(root, 'public/admin/editor.js'), 'utf8');
 
   for (const control of [
@@ -29,12 +29,6 @@ test('visual editor exposes the required block, font, alignment, and image contr
     'Heading 2',
     'Heading 3',
     'Quote',
-    'cms-font',
-    'Melodrama',
-    'Aktiv Grotesk',
-    'Roboto',
-    'Lato',
-    'Story Script',
     'cms-align',
     'cms-bold',
     'cms-italic',
@@ -43,6 +37,13 @@ test('visual editor exposes the required block, font, alignment, and image contr
   ]) {
     assert.ok(source.includes(control), `missing editor control: ${control}`);
   }
+
+  // Fonts are locked to the site defaults: no font picker, and saved HTML
+  // is scrubbed of custom font styling.
+  assert.ok(!source.includes('cms-font'), 'font picker should be removed');
+  assert.ok(!source.includes("wrapSelection('span', 'fontFamily'"), 'font wrapping should be removed');
+  assert.match(source, /removeProperty\('font-family'\)/);
+  assert.match(source, /querySelectorAll\('font'\)/);
 });
 
 test('inserted image blocks are persisted while editor-only upload buttons are stripped', () => {
