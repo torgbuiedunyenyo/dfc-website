@@ -221,12 +221,8 @@
     return tmp.textContent.replace(/\s+/g, ' ').trim();
   }
 
-  function shorten(title) {
-    return title.length > 30 ? title.slice(0, 28) + '…' : title;
-  }
-
   // Move buttons on the Pages tab: Current column → Past project, and
-  // Future section → Current column. Labeled with the detected show title.
+  // Future section → Current column.
   function loadMoveButtons() {
     var curHolder = document.getElementById('current-move');
     var futHolder = document.getElementById('future-move');
@@ -238,19 +234,20 @@
       if (curHolder) [1, 2].forEach(function (col) {
         var c = map['current.column-' + col];
         if (!c) return;
+        // Best-effort default for the title prompt only — the admin always
+        // sees and can rewrite it before anything is created.
         var doc = new DOMParser().parseFromString('<div>' + c.value + '</div>', 'text/html');
         var h3s = doc.querySelectorAll('h3');
-        var title = '';
+        var suggested = '';
         if (h3s.length) {
-          title = textOfHtml(h3s[h3s.length - 1].innerHTML.split(/<br\s*\/?>/i)[0]);
+          suggested = textOfHtml(h3s[h3s.length - 1].innerHTML.split(/<br\s*\/?>/i)[0]);
         }
-        title = title || ('Column ' + col);
         var btn = document.createElement('button');
         btn.className = 'small';
-        btn.textContent = '→ Move “' + shorten(title) + '” (' + COLUMN_NAMES[col] + ') to Past Projects';
+        btn.textContent = '→ Move ' + COLUMN_NAMES[col] + ' show to Past Projects';
         btn.title = 'Moves this column’s images and text into a new past project and clears the column. Undoable from History.';
         btn.addEventListener('click', function () {
-          var t = prompt('Title for the new past project:\n(the column is cleared — undoable from History)', title);
+          var t = prompt('Title for the new past project:\n(the column is cleared — undoable from History)', suggested);
           if (t === null) return;
           btn.disabled = true;
           api('POST', '/api/projects/from-current', { column: col, title: t.trim() })
@@ -264,22 +261,17 @@
       });
 
       if (futHolder && map['future.source-content']) {
-        var doc2 = new DOMParser().parseFromString('<div>' + map['future.source-content'].value + '</div>', 'text/html');
-        var futTitle = '';
-        var nodes = doc2.querySelectorAll('h1,h2,h3,p');
-        for (var i = 0; i < nodes.length && !futTitle; i++) futTitle = textOfHtml(nodes[i].innerHTML);
-        futTitle = futTitle || 'Future content';
         [1, 2].forEach(function (col) {
           var btn = document.createElement('button');
           btn.className = 'small';
-          btn.textContent = '→ Move “' + shorten(futTitle) + '” to Current: ' + COLUMN_NAMES[col];
+          btn.textContent = '→ Move Future content to Current: ' + COLUMN_NAMES[col];
           btn.title = 'Moves the Future Projects section into this Current Exhibitions column and clears the Future page. Undoable from History.';
           btn.addEventListener('click', function () {
-            if (!confirm('Move “' + futTitle + '” into Current Exhibitions (' + COLUMN_NAMES[col] + ')?\n\nThis replaces that column and clears the Future Projects section. Both can be undone from History.')) return;
+            if (!confirm('Move the Future Projects content into Current Exhibitions (' + COLUMN_NAMES[col] + ')?\n\nThis replaces that column and clears the Future Projects section. Both can be undone from History.')) return;
             btn.disabled = true;
             api('POST', '/api/content/move-future', { column: col })
               .then(function () {
-                toast('“' + futTitle + '” moved to Current Exhibitions');
+                toast('Future content moved to Current Exhibitions');
                 renderPages();
               })
               .catch(function (err) { btn.disabled = false; toast(err.message, true); });
