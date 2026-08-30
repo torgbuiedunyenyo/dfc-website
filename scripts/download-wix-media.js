@@ -17,6 +17,7 @@ const OUTPUT_DIR = path.join(ROOT, 'public', 'ImportedMedia');
 const MAP_FILE = path.join(ROOT, 'migration', 'wix-media-map.json');
 const MISSING_FILE = path.join(ROOT, 'migration', 'wix-media-missing.json');
 const CONCURRENCY = 6;
+const { tiles: PAST_GRID_TILES } = require('../migration/wix-past-grid');
 
 function digest(value, length = 24) {
   return crypto.createHash('sha256').update(value).digest('hex').slice(0, length);
@@ -58,21 +59,33 @@ function sourceCandidates(media) {
 function loadUses() {
   const manifest = JSON.parse(fs.readFileSync(path.join(SNAPSHOT_DIR, 'manifest.json'), 'utf8'));
   const uses = new Map();
+  function addUse(sourceUrl, candidates, use) {
+    if (!uses.has(sourceUrl)) uses.set(sourceUrl, { candidates: [], uses: [] });
+    const record = uses.get(sourceUrl);
+    record.candidates = [...new Set([...record.candidates, ...candidates.filter(Boolean)])];
+    record.uses.push(use);
+  }
   for (const entry of manifest.pages) {
     const page = JSON.parse(fs.readFileSync(path.join(SNAPSHOT_DIR, entry.file), 'utf8'));
     for (const media of page.media || []) {
       if (media.type !== 'image' || !media.src || media.src.startsWith('data:')) continue;
       const sourceUrl = bestSource(media);
-      if (!uses.has(sourceUrl)) uses.set(sourceUrl, { candidates: [], uses: [] });
-      const record = uses.get(sourceUrl);
-      record.candidates = [...new Set([...record.candidates, ...sourceCandidates(media)])];
-      record.uses.push({
+      addUse(sourceUrl, sourceCandidates(media), {
         source_path: page.path,
         media_index: media.index,
         alt: media.alt || '',
         original_src: media.original_src || null,
       });
     }
+  }
+  for (const tile of PAST_GRID_TILES) {
+    addUse(tile.source_url, [tile.source_url, tile.source_url.replace(/\/v1\/.*$/, '')], {
+      source_path: '/past',
+      media_index: tile.order,
+      alt: tile.title,
+      original_src: tile.source_url.replace(/\/v1\/.*$/, ''),
+      visual_gallery_tile: true,
+    });
   }
   return uses;
 }

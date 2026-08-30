@@ -52,6 +52,8 @@ npm run build:wix-import     # build semantic CMS content without DB writes
 npm run verify:wix           # verify page coverage, text, image counts, and checksums
 npm run import:wix           # read-only database change plan
 npm run import:wix -- --apply
+npm run repair:past-grid     # compare CMS ordering/images to the audited 70-tile gallery
+npm run repair:past-grid -- --apply
 ```
 
 `migration/wix-media-missing.json` lists source images that Wix itself no longer serves publicly. Exact originals must be exported from the Wix Media Manager rather than replaced with unrelated files.

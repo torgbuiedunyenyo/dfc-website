@@ -12,6 +12,7 @@ const migration = JSON.parse(fs.readFileSync(path.join(ROOT, 'migration', 'wix-i
 const manifest = JSON.parse(fs.readFileSync(path.join(SOURCE_DIR, 'manifest.json'), 'utf8'));
 const mediaMap = JSON.parse(fs.readFileSync(path.join(ROOT, 'migration', 'wix-media-map.json'), 'utf8'));
 const missingMedia = JSON.parse(fs.readFileSync(path.join(ROOT, 'migration', 'wix-media-missing.json'), 'utf8'));
+const { tiles: pastGridTiles } = require('../migration/wix-past-grid');
 
 function normalize(value) {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\s+/g, ' ').trim();
@@ -26,7 +27,7 @@ const sourceByPath = new Map(sourcePages.map((page) => [page.path, page]));
 const projectByPath = new Map(migration.projects.map((project) => [project.source_path, project]));
 const accounted = new Set([
   ...Object.values(migration.top_level_sources),
-  ...migration.projects.map((project) => project.source_path),
+  ...migration.projects.map((project) => project.source_path).filter(Boolean),
 ]);
 
 assert.equal(manifest.errors.length, 0, 'source crawl must have no request errors');
@@ -34,15 +35,21 @@ assert.equal(manifest.crawled_page_count, 104, 'expected public source page coun
 assert.equal(accounted.size, manifest.crawled_page_count, 'every crawled source page must have a destination');
 for (const page of sourcePages) assert(accounted.has(page.path), `unmapped source page: ${page.path}`);
 assert.equal(migration.integrity_errors.length, 0, 'build reported content-integrity errors');
-assert.equal(migration.curated_past_count, 34, 'current source Past link count changed');
+assert.equal(migration.curated_past_count, 70, 'fully rendered source Past tile count changed');
 assert.deepEqual(
   Object.fromEntries(['Exhibitions + Residencies', 'Selected Talks + Workshops', 'Other Events']
     .map((category) => [category, migration.curated_past.filter((item) => item.category === category).length])),
-  { 'Exhibitions + Residencies': 24, 'Selected Talks + Workshops': 6, 'Other Events': 4 },
+  { 'Exhibitions + Residencies': 60, 'Selected Talks + Workshops': 6, 'Other Events': 4 },
 );
+assert.deepEqual(migration.curated_past.map((item) => item.title), pastGridTiles.map((item) => item.title));
+assert.deepEqual(migration.curated_past.map((item) => item.media_id), pastGridTiles.map((item) => item.media_id));
 
 const renderedImageUrls = new Set();
 for (const project of migration.projects) {
+  if (!project.source_path) {
+    assert.equal(project.body_html, '', `${project.slug}: gallery-only tile must not invent detail content`);
+    continue;
+  }
   const source = sourceByPath.get(project.source_path);
   assert(source, `missing source for ${project.slug}`);
   const $ = cheerio.load(project.body_html);
@@ -88,25 +95,18 @@ for (const [sourcePath, keys] of Object.entries(topPageRegions)) {
 }
 
 for (const item of migration.curated_past) {
-  assert(projectByPath.has(item.source_path), `/past links to an unmigrated project: ${item.source_path}`);
+  if (item.source_path) assert(projectByPath.has(item.source_path), `/past links to an unmigrated project: ${item.source_path}`);
+  else assert(migration.projects.some((project) => project.slug === item.slug), `/past is missing gallery-only tile: ${item.slug}`);
 }
-const curatedPastThumbnails = migration.curated_past.filter((item) => item.thumbnail).map((item) => item.thumbnail);
-const sourcePastThumbnails = sourceByPath.get('/past').media.map((item) => {
-  const mapped = mediaMap.entries[item.src] || mediaMap.entries[item.original_src];
-  return mapped && mapped.local_url;
-});
-assert.equal(curatedPastThumbnails.length, 25,
-  '/past must retain the 25 source images visually paired with linked projects');
+const curatedPastThumbnails = migration.curated_past.map((item) => item.thumbnail);
+assert.equal(curatedPastThumbnails.length, 70, '/past must retain every fully rendered source gallery image');
 assert.equal(new Set(curatedPastThumbnails).size, curatedPastThumbnails.length,
   '/past project thumbnails must not be reused across unrelated cards');
-for (const thumbnail of curatedPastThumbnails) {
-  assert(sourcePastThumbnails.includes(thumbnail), `/past thumbnail is not from the source grid: ${thumbnail}`);
+for (const item of migration.curated_past) {
+  const mapped = mediaMap.entries[item.source_url];
+  assert(mapped, `/past gallery image is not downloaded: ${item.source_url}`);
+  assert.equal(item.thumbnail, mapped.local_url, `/past tile image changed: ${item.title}`);
 }
-assert.deepEqual(
-  sourcePastThumbnails.filter((thumbnail) => !curatedPastThumbnails.includes(thumbnail)),
-  sourcePastThumbnails.slice(2, 5),
-  '/past should omit only the three gallery images belonging to unlinked lightbox items',
-);
 
 const missingUrls = new Set(missingMedia.missing.map((item) => item.source_url));
 const remoteRendered = [...renderedImageUrls].filter((url) => /^https?:/i.test(url));

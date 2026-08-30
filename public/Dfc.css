@@ -861,11 +861,15 @@ footer{
   padding: 0 10px 30px;
 }
 
-.past-archive td > img {
+.past-card-image {
+  display: block;
+  margin: 20px auto 24px;
+}
+
+.past-card-image > img {
   display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
-  margin: 20px auto 24px;
   object-fit: cover;
 }
 

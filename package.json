@@ -9,7 +9,7 @@
     "crawl:wix": "node scripts/crawl-wix.js",
     "download:wix-media": "node scripts/download-wix-media.js",
     "import:wix": "node --env-file=.env.local scripts/import-wix.js",
-    "repair:past-thumbnails": "node --env-file=.env.local scripts/repair-past-thumbnails.js",
+    "repair:past-grid": "node --env-file=.env.local scripts/repair-past-grid.js",
     "verify:wix": "node scripts/verify-wix-migration.js",
     "seed": "node --env-file=.env.local scripts/seed.js"
   },
