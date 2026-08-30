@@ -296,13 +296,106 @@
     currentImg = img;
     var inGallery = !!img.closest('.project-gallery');
     var standalone = img.hasAttribute('data-cms');
-    imgbar.innerHTML = '<button type="button" data-act="replace">Replace image</button>' +
-      (!standalone ? '<button type="button" data-act="add">+ Add image after</button>' : '') +
-      (!standalone || inGallery ? '<button type="button" data-act="remove">Remove</button>' : '');
+    // Standalone image slots (home hero, about portrait, …) have a fixed
+    // place in the layout: replace only. Images inside free-form regions get
+    // the full move/size/placement controls.
+    var html = '<button type="button" data-act="replace">Replace image</button>';
+    if (!standalone) {
+      html +=
+        '<button type="button" data-act="add">+ Add image after</button>' +
+        '<button type="button" data-act="moveup" title="Move image earlier on the page">↑ Move</button>' +
+        '<button type="button" data-act="movedown" title="Move image later on the page">↓ Move</button>' +
+        '<select class="cms-imgsize" title="Image size">' +
+          '<option value="">Size…</option><option value="default">Default</option>' +
+          '<option value="25%">Small (¼ width)</option><option value="50%">Medium (½ width)</option>' +
+          '<option value="75%">Large (¾ width)</option><option value="full">Full width</option>' +
+        '</select>' +
+        (!inGallery
+          ? '<select class="cms-imgplace" title="How the image sits in the text">' +
+            '<option value="">Placement…</option><option value="inline">In line with text</option>' +
+            '<option value="left">Left — text wraps</option><option value="right">Right — text wraps</option>' +
+            '<option value="center">Centered</option>' +
+            '</select>'
+          : '') +
+        '<button type="button" data-act="remove">Remove</button>';
+    } else if (inGallery) {
+      html += '<button type="button" data-act="remove">Remove</button>';
+    }
+    imgbar.innerHTML = html;
+    var sizeSel = imgbar.querySelector('.cms-imgsize');
+    if (sizeSel) {
+      var w = img.style.width;
+      sizeSel.value = w === '100%' ? 'full'
+        : ['25%', '50%', '75%'].indexOf(w) >= 0 ? w
+        : w ? '' : 'default';
+    }
+    var placeSel = imgbar.querySelector('.cms-imgplace');
+    if (placeSel) {
+      placeSel.value = img.style.float === 'left' ? 'left'
+        : img.style.float === 'right' ? 'right'
+        : img.style.display === 'block' ? 'center' : 'inline';
+    }
     var r = img.getBoundingClientRect();
     imgbar.style.display = 'flex';
     imgbar.style.left = Math.max(8, r.left + window.scrollX + 8) + 'px';
     imgbar.style.top = (r.top + window.scrollY + 8) + 'px';
+  }
+
+  // Move an image earlier/later in the page: past its previous/next sibling,
+  // or out of its wrapping element when already at that edge.
+  function moveImg(img, dir) {
+    var region = img.closest('[data-cms]');
+    if (!region) return;
+    var sib = dir < 0 ? img.previousElementSibling : img.nextElementSibling;
+    while (sib && /(^|\s)cms-/.test(sib.className || '')) {
+      sib = dir < 0 ? sib.previousElementSibling : sib.nextElementSibling;
+    }
+    if (sib) {
+      sib.parentElement.insertBefore(img, dir < 0 ? sib : sib.nextElementSibling);
+    } else {
+      var parent = img.parentElement;
+      if (!parent || parent === region || !region.contains(parent)) return;
+      parent.parentElement.insertBefore(img, dir < 0 ? parent : parent.nextElementSibling);
+    }
+    markRegionDirty(img);
+    showImgbar(img);
+  }
+
+  function tidyImgStyle(img) {
+    if (!img.getAttribute('style')) img.removeAttribute('style');
+    markRegionDirty(img);
+    showImgbar(img);
+  }
+
+  function setImgSize(img, val) {
+    if (!val) {
+      img.style.removeProperty('width');
+      img.style.removeProperty('grid-column');
+    } else if (val === 'full') {
+      img.style.width = '100%';
+      // In the two-column project gallery "full" means the whole row.
+      if (img.closest('.project-gallery')) img.style.gridColumn = '1 / -1';
+    } else {
+      img.style.width = val;
+      img.style.removeProperty('grid-column');
+    }
+    tidyImgStyle(img);
+  }
+
+  function setImgPlace(img, val) {
+    ['float', 'display', 'margin', 'margin-left', 'margin-right', 'margin-bottom'].forEach(function (prop) {
+      img.style.removeProperty(prop);
+    });
+    if (val === 'left' || val === 'right') {
+      img.style.float = val;
+      img.style[val === 'left' ? 'marginRight' : 'marginLeft'] = '16px';
+      img.style.marginBottom = '8px';
+      if (!img.style.width) img.style.width = '50%';
+    } else if (val === 'center') {
+      img.style.display = 'block';
+      img.style.margin = '16px auto';
+    }
+    tidyImgStyle(img);
   }
 
   document.addEventListener('mouseover', function (e) {
@@ -328,11 +421,23 @@
       currentImg.parentElement.insertBefore(neu, currentImg.nextSibling);
       markRegionDirty(neu);
     });
+    if (act === 'moveup') moveImg(currentImg, -1);
+    if (act === 'movedown') moveImg(currentImg, 1);
     if (act === 'remove') {
       var img = currentImg;
       imgbar.style.display = 'none';
       markRegionDirty(img);
       img.remove();
+    }
+  });
+
+  imgbar.addEventListener('change', function (e) {
+    if (!currentImg) return;
+    if (e.target.className === 'cms-imgsize' && e.target.value) {
+      setImgSize(currentImg, e.target.value === 'default' ? '' : e.target.value);
+    }
+    if (e.target.className === 'cms-imgplace' && e.target.value) {
+      setImgPlace(currentImg, e.target.value);
     }
   });
 

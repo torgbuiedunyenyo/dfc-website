@@ -69,8 +69,10 @@
   position: absolute;
   z-index: 30001;
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   padding: 5px;
+  max-width: 420px;
   background: #12103a;
   border: 1px solid #42f5bc;
   border-radius: 8px;
@@ -87,6 +89,16 @@
   white-space: nowrap;
 }
 .cms-imgbar button:hover { background: #42f5bc; color: #12103a; }
+.cms-imgbar select {
+  font-family: "Aktiv Grotesk", "Roboto", sans-serif;
+  font-size: 13px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: none;
+  background: #201e57;
+  color: #42f5bc;
+  cursor: pointer;
+}
 
 .cms-toast {
   position: fixed;

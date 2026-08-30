@@ -94,3 +94,26 @@ test('admin events are newest-first while the public calendar stays chronologica
   assert.match(apiSource, /FROM events ORDER BY start_date DESC, id DESC/);
   assert.match(renderSource, /FROM events WHERE published = true ORDER BY start_date ASC/);
 });
+
+test('image toolbar offers move, size, and placement controls for free-form regions only', () => {
+  const source = fs.readFileSync(path.join(root, 'public/admin/editor.js'), 'utf8');
+
+  for (const control of [
+    'data-act="moveup"',
+    'data-act="movedown"',
+    'cms-imgsize',
+    'cms-imgplace',
+    'Full width',
+    'text wraps',
+  ]) {
+    assert.ok(source.includes(control), `missing image control: ${control}`);
+  }
+
+  // Fixed image slots (standalone data-cms images) stay replace-only.
+  assert.match(source, /var standalone = img\.hasAttribute\('data-cms'\)/);
+  assert.match(source, /if \(!standalone\) \{/);
+  // "Full width" spans the whole row inside the two-column gallery grid.
+  assert.match(source, /gridColumn = '1 \/ -1'/);
+  // Wrap placements give the image a width so text actually flows beside it.
+  assert.match(source, /img\.style\.float = val/);
+});
