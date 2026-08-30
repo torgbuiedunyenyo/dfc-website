@@ -7,7 +7,7 @@ const cheerio = require('cheerio');
 
 const cycle = require('../migration/programming-cycle-2026-08-30');
 const wixImport = require('../migration/wix-import.json');
-const { futureTitle, futureToColumn } = require('../lib/move');
+const { futureToColumn } = require('../lib/move');
 const { renderPage } = require('../lib/render');
 const { PRESERVED_LOCAL_PAST_SLUGS } = require('../scripts/repair-past-grid');
 
@@ -21,12 +21,17 @@ function normalize(value) {
     .trim();
 }
 
+function contentTitle(value) {
+  const $ = cheerio.load(value || '');
+  return $('h1,h2,h3,p').first().text().replace(/\s+/g, ' ').trim();
+}
+
 test('Here After preserves the exact live Coming Soon text and both source images', () => {
   const $ = cheerio.load(cycle.future.html);
   $('br').replaceWith('\n');
 
   assert.equal(normalize($.root().text()), normalize(cycle.future.expected_visible_text));
-  assert.equal(futureTitle(cycle.future.html), 'Here After');
+  assert.equal(contentTitle(cycle.future.html), 'Here After');
   assert.deepEqual(
     $('.source-content-media img').toArray().map((img) => $(img).attr('src')),
     cycle.future.images.map((image) => image.local_url),
@@ -47,7 +52,7 @@ test('Here After preserves the exact live Coming Soon text and both source image
 test('SEA CHANGE becomes the Current main-gallery content without losing its imported media or copy', () => {
   const seaChange = wixImport.content_regions.find((region) => region.key === 'future.source-content');
   assert.ok(seaChange, 'missing audited SEA CHANGE source region');
-  assert.equal(futureTitle(seaChange.value), 'SEA CHANGE');
+  assert.equal(contentTitle(seaChange.value), 'SEA CHANGE');
 
   const current = futureToColumn(seaChange.value, 'DREAM FARM COMMONS');
   const source = cheerio.load(seaChange.value);

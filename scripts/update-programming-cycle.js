@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { db, getSql, recordVersion } = require('../lib/db');
-const { futureToColumn, futureTitle } = require('../lib/move');
+const { futureToColumn } = require('../lib/move');
 const cycle = require('../migration/programming-cycle-2026-08-30');
 const wixImport = require('../migration/wix-import.json');
 
@@ -45,10 +45,15 @@ function validateAssets() {
   }
 }
 
+function contentTitle(value) {
+  const match = String(value || '').match(/<(?:h1|h2|h3|p)\b[^>]*>([\s\S]*?)<\/(?:h1|h2|h3|p)>/i);
+  return match ? match[1].replace(/<[^>]+>/g, ' ').replace(/&nbsp;/gi, ' ').replace(/\s+/g, ' ').trim() : '';
+}
+
 function sourceSeaChangeHtml() {
   const region = wixImport.content_regions.find((item) => item.key === 'future.source-content');
   if (!region) throw new Error('The audited Wix artifact does not contain SEA CHANGE');
-  if (futureTitle(region.value) !== cycle.current.title) {
+  if (contentTitle(region.value) !== cycle.current.title) {
     throw new Error(`Expected ${cycle.current.title} in the audited Wix artifact`);
   }
   return region.value;
@@ -58,7 +63,7 @@ function shortDescription(key, value) {
   return {
     key,
     chars: value.length,
-    title: futureTitle(value) || value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 80),
+    title: contentTitle(value) || value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 80),
   };
 }
 
