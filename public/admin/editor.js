@@ -409,6 +409,9 @@
     currentImg = null;
   }
   document.addEventListener('click', function (e) {
+    // Toolbar buttons are rebuilt mid-click by showImgbar; their detached
+    // targets would otherwise read as "outside" and deselect the image.
+    if (!e.target.isConnected) return;
     if (e.target.tagName === 'IMG' && isEditableImg(e.target)) return showImgbar(e.target);
     if (!imgbar.contains(e.target)) hideImgbar();
   });
