@@ -293,6 +293,8 @@
   }
 
   function showImgbar(img) {
+    if (currentImg && currentImg !== img) currentImg.classList.remove('cms-img-selected');
+    img.classList.add('cms-img-selected');
     currentImg = img;
     var inGallery = !!img.closest('.project-gallery');
     var standalone = img.hasAttribute('data-cms');
@@ -398,16 +400,17 @@
     tidyImgStyle(img);
   }
 
-  document.addEventListener('mouseover', function (e) {
-    if (e.target.tagName === 'IMG' && isEditableImg(e.target)) showImgbar(e.target);
-  });
-  document.addEventListener('mouseout', function (e) {
-    if (e.target.tagName === 'IMG' && e.relatedTarget && !imgbar.contains(e.relatedTarget)) {
-      // keep bar until pointer leaves both image and bar
-    }
-  });
+  // Click an image to select it. (Hover selection proved unsafe: moving an
+  // image shifts the layout, a different image slides under the stationary
+  // pointer, and the toolbar silently retargets it.)
+  function hideImgbar() {
+    imgbar.style.display = 'none';
+    if (currentImg) currentImg.classList.remove('cms-img-selected');
+    currentImg = null;
+  }
   document.addEventListener('click', function (e) {
-    if (!imgbar.contains(e.target) && e.target.tagName !== 'IMG') imgbar.style.display = 'none';
+    if (e.target.tagName === 'IMG' && isEditableImg(e.target)) return showImgbar(e.target);
+    if (!imgbar.contains(e.target)) hideImgbar();
   });
 
   imgbar.addEventListener('click', function (e) {
@@ -425,7 +428,7 @@
     if (act === 'movedown') moveImg(currentImg, 1);
     if (act === 'remove') {
       var img = currentImg;
-      imgbar.style.display = 'none';
+      hideImgbar();
       markRegionDirty(img);
       img.remove();
     }
@@ -554,6 +557,10 @@
     });
     Array.prototype.slice.call(clone.querySelectorAll('.cms-bar, .cms-imgbar, .cms-toast, .cms-addimg')).forEach(function (n) {
       n.remove();
+    });
+    Array.prototype.slice.call(clone.querySelectorAll('.cms-img-selected')).forEach(function (n) {
+      n.classList.remove('cms-img-selected');
+      if (!n.getAttribute('class')) n.removeAttribute('class');
     });
     // The site's fonts are fixed (Melodrama headers, Aktiv Grotesk/Roboto
     // body) — strip any custom font that snuck in via paste or old edits.

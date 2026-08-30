@@ -121,3 +121,8 @@
   .cms-bar { max-height: 42vh; overflow-y: auto; }
   .cms-bar .cms-status { flex-basis: 100%; }
 }
+
+img.cms-img-selected {
+  outline: 2px solid #42f5bc;
+  outline-offset: 2px;
+}

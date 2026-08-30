@@ -116,4 +116,9 @@ test('image toolbar offers move, size, and placement controls for free-form regi
   assert.match(source, /gridColumn = '1 \/ -1'/);
   // Wrap placements give the image a width so text actually flows beside it.
   assert.match(source, /img\.style\.float = val/);
+  // Images are selected by click (hover retargeted after layout shifts) and
+  // the selection outline class never reaches saved HTML.
+  assert.ok(!/mouseover/.test(source.split('image toolbar')[1] || source), 'image toolbar must not use hover selection');
+  assert.match(source, /cms-img-selected/);
+  assert.match(source, /classList\.remove\('cms-img-selected'\)/);
 });
