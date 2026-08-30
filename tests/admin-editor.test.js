@@ -122,3 +122,9 @@ test('image toolbar offers move, size, and placement controls for free-form regi
   assert.match(source, /cms-img-selected/);
   assert.match(source, /classList\.remove\('cms-img-selected'\)/);
 });
+
+test('admin has no Shop card and reads calendar events with a cache-buster', () => {
+  const source = fs.readFileSync(path.join(root, 'public/admin/admin.js'), 'utf8');
+  assert.ok(!source.includes("'Shop'"), 'Shop page was removed from the site; admin must not list it');
+  assert.match(source, /\/api\/events\?ts=/, 'admin must bypass the CDN cache when listing events');
+});

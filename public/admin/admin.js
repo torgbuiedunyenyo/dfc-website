@@ -13,7 +13,6 @@
     { name: 'Past', label: 'Past Projects', desc: 'Grid is managed in the Projects tab' },
     { name: 'Visit', label: 'Visit', desc: 'Directions & accessibility info' },
     { name: 'Donate', label: 'Donate', desc: 'Print fundraiser, Patreon, Venmo' },
-    { name: 'Shop', label: 'Shop', desc: 'Art shop and product links' },
   ];
 
   /* ---------- utilities ---------- */
@@ -552,7 +551,9 @@
 
   function renderCalendar() {
     shell('calendar', '<h2>Calendar</h2><div class="loading">loading…</div>');
-    api('GET', '/api/events').then(function (res) {
+    // Cache-bust: /api/events is CDN-cached for the public site (up to 5 min
+    // stale-while-revalidate), which made just-saved events invisible here.
+    api('GET', '/api/events?ts=' + Date.now()).then(function (res) {
       var events = res.events;
       var html =
         '<h2>Calendar</h2>' +
