@@ -103,6 +103,65 @@
     refreshBar();
   });
 
+  /* ---------- paste sanitizing ----------
+     Pasted rich text may carry fonts, colors, highlights, and block wrappers
+     the toolbar has no controls for — and a pasted <div> inside a <p> region
+     splits the paragraph and breaks the page styling. Only keep what the
+     toolbar can produce: bold/italic/underline, links, and line breaks. */
+
+  var PASTE_INLINE = { STRONG: 1, B: 1, EM: 1, I: 1, U: 1, A: 1 };
+  var PASTE_DROP = { SCRIPT: 1, STYLE: 1, TEMPLATE: 1, NOSCRIPT: 1, IMG: 1, PICTURE: 1, SVG: 1, IFRAME: 1, VIDEO: 1, AUDIO: 1, OBJECT: 1, EMBED: 1, BUTTON: 1, INPUT: 1, SELECT: 1, TEXTAREA: 1 };
+  var PASTE_BLOCK = { P: 1, DIV: 1, H1: 1, H2: 1, H3: 1, H4: 1, H5: 1, H6: 1, LI: 1, UL: 1, OL: 1, BLOCKQUOTE: 1, TR: 1, TABLE: 1, SECTION: 1, ARTICLE: 1, HEADER: 1, FOOTER: 1, FIGURE: 1, PRE: 1, HR: 1 };
+
+  function escText(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function flattenPasteNode(node) {
+    if (node.nodeType === 3) return escText(node.nodeValue);
+    if (node.nodeType !== 1) return '';
+    var tag = node.tagName;
+    if (PASTE_DROP[tag]) return '';
+    if (tag === 'BR') return '<br>';
+    var inner = '';
+    for (var c = node.firstChild; c; c = c.nextSibling) inner += flattenPasteNode(c);
+    if (PASTE_INLINE[tag]) {
+      if (!inner.replace(/<br>/g, '').trim()) return inner;
+      if (tag === 'A') {
+        var href = node.getAttribute('href') || '';
+        if (!/^(https?:|mailto:|\/)/i.test(href)) return inner;
+        return '<a href="' + escText(href) + '">' + inner + '</a>';
+      }
+      var t = tag === 'B' ? 'strong' : tag === 'I' ? 'em' : tag.toLowerCase();
+      return '<' + t + '>' + inner + '</' + t + '>';
+    }
+    if (PASTE_BLOCK[tag]) return inner.replace(/<br>/g, '').trim() ? inner + '<br><br>' : inner;
+    return inner; // spans, fonts, marks, everything else: unwrap
+  }
+
+  function sanitizePastedHtml(html) {
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    return flattenPasteNode(doc.body)
+      .replace(/(?:\s*<br>\s*){3,}/g, '<br><br>')
+      .replace(/^(?:\s*<br>\s*)+/, '')
+      .replace(/(?:\s*<br>\s*)+$/, '')
+      .trim();
+  }
+
+  document.addEventListener('paste', function (e) {
+    var region = e.target.closest ? e.target.closest('[data-cms]') : null;
+    if (!region || region.getAttribute('data-cms-type') === 'image') return;
+    e.preventDefault();
+    var html = e.clipboardData ? e.clipboardData.getData('text/html') : '';
+    var text = e.clipboardData ? e.clipboardData.getData('text/plain') : '';
+    var clean = html ? sanitizePastedHtml(html)
+      : escText(text).replace(/\r?\n\r?\n/g, '<br><br>').replace(/\r?\n/g, '<br>');
+    if (!clean) return;
+    document.execCommand('insertHTML', false, clean);
+    dirty[region.getAttribute('data-cms')] = true;
+    refreshBar();
+  });
+
   function elementForNode(node) {
     return node && (node.nodeType === 1 ? node : node.parentElement);
   }
@@ -558,17 +617,19 @@
     Array.prototype.slice.call(clone.querySelectorAll('[contenteditable]')).forEach(function (n) {
       n.removeAttribute('contenteditable');
     });
-    Array.prototype.slice.call(clone.querySelectorAll('.cms-bar, .cms-imgbar, .cms-toast, .cms-addimg')).forEach(function (n) {
+    Array.prototype.slice.call(clone.querySelectorAll('.cms-bar, .cms-imgbar, .cms-toast, .cms-addimg, .cms-placeholder')).forEach(function (n) {
       n.remove();
     });
     Array.prototype.slice.call(clone.querySelectorAll('.cms-img-selected')).forEach(function (n) {
       n.classList.remove('cms-img-selected');
       if (!n.getAttribute('class')) n.removeAttribute('class');
     });
-    // The site's fonts are fixed (Melodrama headers, Aktiv Grotesk/Roboto
-    // body) — strip any custom font that snuck in via paste or old edits.
+    // The site's look is fixed (Melodrama headers, Aktiv Grotesk/Roboto body,
+    // white on indigo) — strip styling the toolbar has no control for, so
+    // junk from pastes or old edits washes out on the next save.
+    var JUNK_STYLES = ['font-family', 'font-size', 'font', 'color', 'background', 'background-color', 'letter-spacing', 'line-height', 'white-space', 'text-indent'];
     Array.prototype.slice.call(clone.querySelectorAll('[style]')).forEach(function (n) {
-      n.style.removeProperty('font-family');
+      JUNK_STYLES.forEach(function (prop) { n.style.removeProperty(prop); });
       if (!n.getAttribute('style')) n.removeAttribute('style');
     });
     Array.prototype.slice.call(clone.querySelectorAll('font')).forEach(function (n) {

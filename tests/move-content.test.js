@@ -21,21 +21,18 @@ const FUTURE = `<div class="source-content-grid">
   </article>
 </div>`;
 
-test('should keep only the venue header and a placeholder when a current column is cleared', () => {
+test('should keep only the venue header when a current column is cleared', () => {
   assert.equal(venueHeader(COLUMN), 'DREAM FARM COMMONS');
   const cleared = clearedColumn(COLUMN);
   const $ = cheerio.load(cleared);
   assert.equal($('h3').text(), 'DREAM FARM COMMONS');
   assert.equal($('img').length, 0);
-  assert.match($('p').text(), /coming soon/i);
+  assert.ok(!/coming soon/i.test(cleared), 'placeholder is injected by the renderer, never saved');
   assert.ok(!/MARGO/.test(cleared), 'moved show copy must not remain in the column');
 });
 
-test('should clear a header-less column to just the placeholder paragraph', () => {
-  const cleared = clearedColumn('<p>only text</p>');
-  const $ = cheerio.load(cleared);
-  assert.equal($('h3').length, 0);
-  assert.match($('p').text(), /coming soon/i);
+test('should clear a header-less column to empty content', () => {
+  assert.equal(clearedColumn('<p>only text</p>'), '');
 });
 
 test('should reshape future source content into a column with venue header, images, then copy', () => {

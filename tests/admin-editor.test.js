@@ -42,7 +42,7 @@ test('visual editor exposes block, alignment, and image controls but no font pic
   // is scrubbed of custom font styling.
   assert.ok(!source.includes('cms-font'), 'font picker should be removed');
   assert.ok(!source.includes("wrapSelection('span', 'fontFamily'"), 'font wrapping should be removed');
-  assert.match(source, /removeProperty\('font-family'\)/);
+  assert.match(source, /JUNK_STYLES = \['font-family', 'font-size', 'font', 'color', 'background', 'background-color'/);
   assert.match(source, /querySelectorAll\('font'\)/);
 });
 
@@ -129,15 +129,29 @@ test('admin has no Shop card and reads calendar events with a cache-buster', () 
   assert.match(source, /\/api\/events\?ts=/, 'admin must bypass the CDN cache when listing events');
 });
 
-test('an empty gallery space still renders publicly with its header and a placeholder', async () => {
+test('an empty gallery space renders its header and placeholder in both public and edit views', async () => {
   const client = async () => [
     { key: 'current.column-2', kind: 'html', value: '<h3>THE ANNEX</h3>' },
   ];
-  const html = await renderPage(client, 'Current');
-  const $ = cheerio.load(html);
+  for (const editMode of [false, true]) {
+    const html = await renderPage(client, 'Current', { editMode });
+    const $ = cheerio.load(html);
+    assert.equal($('.current-exhibitions > .current-exhibition').length, 2, 'both spaces render');
+    assert.equal($('.current-section-links a[href="#annex"]').text(), 'The Annex', 'nav link kept');
+    assert.match($('#annex h3').text(), /THE ANNEX/);
+    assert.match($('#annex p.cms-placeholder').text(), /coming soon/i, 'placeholder visible, editMode=' + editMode);
+  }
+  // saves must never persist the placeholder
+  const editor = fs.readFileSync(path.join(root, 'public/admin/editor.js'), 'utf8');
+  assert.match(editor, /cms-addimg, \.cms-placeholder'/);
+});
 
-  assert.equal($('.current-exhibitions > .current-exhibition').length, 2, 'both spaces render');
-  assert.equal($('.current-section-links a[href="#annex"]').text(), 'The Annex', 'nav link kept');
-  assert.match($('#annex h3').text(), /THE ANNEX/);
-  assert.match($('#annex p').text(), /coming soon/i);
+test('pasted rich text is flattened to toolbar-supported formatting only', () => {
+  const source = fs.readFileSync(path.join(root, 'public/admin/editor.js'), 'utf8');
+  assert.match(source, /addEventListener\('paste'/);
+  assert.match(source, /sanitizePastedHtml/);
+  assert.match(source, /PASTE_INLINE = \{ STRONG: 1, B: 1, EM: 1, I: 1, U: 1, A: 1 \}/);
+  // block wrappers are flattened so a pasted <div> can never split a <p) region
+  assert.match(source, /PASTE_BLOCK/);
+  assert.match(source, /execCommand\('insertHTML'/);
 });
