@@ -128,3 +128,16 @@ test('admin has no Shop card and reads calendar events with a cache-buster', () 
   assert.ok(!source.includes("'Shop'"), 'Shop page was removed from the site; admin must not list it');
   assert.match(source, /\/api\/events\?ts=/, 'admin must bypass the CDN cache when listing events');
 });
+
+test('an empty gallery space still renders publicly with its header and a placeholder', async () => {
+  const client = async () => [
+    { key: 'current.column-2', kind: 'html', value: '<h3>THE ANNEX</h3>' },
+  ];
+  const html = await renderPage(client, 'Current');
+  const $ = cheerio.load(html);
+
+  assert.equal($('.current-exhibitions > .current-exhibition').length, 2, 'both spaces render');
+  assert.equal($('.current-section-links a[href="#annex"]').text(), 'The Annex', 'nav link kept');
+  assert.match($('#annex h3').text(), /THE ANNEX/);
+  assert.match($('#annex p').text(), /coming soon/i);
+});
