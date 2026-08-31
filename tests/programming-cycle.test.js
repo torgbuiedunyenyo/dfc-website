@@ -62,7 +62,7 @@ test('SEA CHANGE becomes the Current main-gallery content without losing its imp
   assert.match(moved.root().text(), /Visitors are encouraged to visit each three-week phase/);
 });
 
-test('an intentionally empty Annex disappears publicly but remains editable', async () => {
+test('an intentionally empty Annex remains visible with a public placeholder and stays editable', async () => {
   const rows = [
     { key: 'current.column-1', kind: 'html', value: '<h3>DREAM FARM COMMONS</h3><p>SEA CHANGE</p>' },
     { key: 'current.column-2', kind: 'html', value: '<h3>THE ANNEX</h3>' },
@@ -70,9 +70,10 @@ test('an intentionally empty Annex disappears publicly but remains editable', as
   const client = async () => rows;
 
   const publicPage = cheerio.load(await renderPage(client, 'Current'));
-  assert.equal(publicPage('.current-exhibition').length, 1);
-  assert.equal(publicPage('#annex').length, 0);
-  assert.equal(publicPage('.current-section-links a[href="#annex"]').length, 0);
+  assert.equal(publicPage('.current-exhibition').length, 2);
+  assert.equal(publicPage('#annex').length, 1);
+  assert.equal(publicPage('.current-section-links a[href="#annex"]').length, 1);
+  assert.match(publicPage('#annex .cms-placeholder').text(), /coming soon/i);
 
   const editorPage = cheerio.load(await renderPage(client, 'Current', { editMode: true }));
   assert.equal(editorPage('.current-exhibition').length, 2);

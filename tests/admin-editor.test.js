@@ -4,7 +4,7 @@ const path = require('node:path');
 const test = require('node:test');
 const cheerio = require('cheerio');
 
-const { renderPage } = require('../lib/render');
+const { PAGES, renderPage, renderProject } = require('../lib/render');
 
 const root = path.join(__dirname, '..');
 
@@ -86,6 +86,58 @@ test('home and shared footers retain the gallery address after CMS content is ap
     assert.match($('footer').text(), /349 15th Street, Oakland, CA 94612/);
     assert.match($('footer').text(), page === 'Dfc' ? /Home hours/ : /Shared hours/);
   }
+});
+
+test('every public page has one accessible Mailchimp signup immediately above its footer', async () => {
+  const client = async () => [];
+
+  for (const page of Object.keys(PAGES)) {
+    const html = await renderPage(client, page);
+    const $ = cheerio.load(html);
+    const signup = $('.newsletter-signup');
+    const form = signup.find('form.newsletter-signup__form');
+
+    assert.equal(signup.length, 1, `${page} should have one signup section`);
+    assert.equal($('footer').prev().is('.newsletter-signup'), true, `${page} signup should sit above the footer`);
+    assert.equal(form.attr('action'), 'https://dreamfarmcommons.us18.list-manage.com/subscribe/post');
+    assert.equal(form.attr('method'), 'post');
+    assert.equal(form.attr('target'), 'mailchimp-signup');
+    assert.equal(form.find('input[name="u"]').attr('value'), 'b8ff844e25e27b150bd35536c');
+    assert.equal(form.find('input[name="id"]').attr('value'), '5fb357c21c');
+    assert.equal(form.find('input[name="MERGE0"][type="email"]').is('[required]'), true);
+    assert.equal(form.find('input[name="b_name"][tabindex="-1"]').length, 1);
+    assert.equal(form.find('button[type="submit"]').text(), 'Subscribe');
+  }
+
+  const about = cheerio.load(await renderPage(client, 'About'));
+  assert.equal(about('.about-mailing-list').length, 0, 'the obsolete email-us callout should not compete with the form');
+});
+
+test('project pages receive the same newsletter signup without changing project content', async () => {
+  let query = 0;
+  const client = async () => {
+    query += 1;
+    if (query === 1) {
+      return [{
+        slug: 'sample-project', title: 'Sample Project', layout: 'detail',
+        body_html: '<article><p>Project copy remains intact.</p></article>',
+      }];
+    }
+    return [];
+  };
+
+  const html = await renderProject(client, 'sample-project');
+  const $ = cheerio.load(html);
+  assert.match($('main').text(), /Project copy remains intact/);
+  assert.equal($('.newsletter-signup').length, 1);
+  assert.equal($('footer').prev().is('.newsletter-signup'), true);
+});
+
+test('newsletter signup styling preserves the desktop split and stacks the form on small screens', () => {
+  const css = fs.readFileSync(path.join(root, 'public/Dfc.css'), 'utf8');
+  assert.match(css, /\.newsletter-signup__inner\s*\{[^}]*grid-template-columns:\s*minmax\(0, 0\.9fr\) minmax\(360px, 1\.1fr\)/s);
+  assert.match(css, /@media screen and \(max-width: 768px\)[\s\S]*?\.newsletter-signup__inner\s*\{[^}]*grid-template-columns:\s*1fr/s);
+  assert.match(css, /@media screen and \(max-width: 480px\)[\s\S]*?\.newsletter-signup__form\s*\{[^}]*grid-template-columns:\s*1fr/s);
 });
 
 test('admin events are newest-first while the public calendar stays chronological', () => {
