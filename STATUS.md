@@ -13,6 +13,7 @@ Make the new Dream Farm Commons CMS site a faithful, complete, well-formatted pr
 
 ## Current state
 
+- On 2026-09-05, the public stylesheet changed to the approved warm paper (`#F4F1EA`) and moss green (`#405638`) palette. Only color declarations changed; typography, layout, spacing, shapes, content, and artwork remain unchanged. The 24 existing tests and Vercel build passed; desktop/mobile browser comparisons across all seven main pages confirmed identical element geometry. The two colors have a 7.14:1 contrast ratio. A pre-existing horizontal overflow on Future at 390px remains outside this color-only scope. Beads issue creation is unavailable because its database lacks an issue prefix; no database was initialized.
 - Branch: `main`; pushes deploy automatically through Vercel.
 - The new site is a database-backed Vercel/Neon CMS with page content regions, projects, events, media, and version history.
 - The Past overview contains the source site's complete 70-tile visual gallery in its exact rendered order—60 Exhibitions + Residencies, six Selected Talks + Workshops, and four Other Events—plus GENIUS LOCI as an intentional new first tile that Wix has not archived yet. Source-backed archive pages remain available through their direct and legacy URLs.
