@@ -5,6 +5,7 @@
   "description": "Dream Farm Commons website with database-backed CMS",
   "scripts": {
     "test": "node --test tests/*.test.js",
+    "test:integration": "node --test --test-timeout=120000 tests/integration/*.test.js",
     "build:wix-import": "node scripts/build-wix-import.js",
     "crawl:wix": "node scripts/crawl-wix.js",
     "download:wix-media": "node scripts/download-wix-media.js",

@@ -96,7 +96,7 @@
         String(d).padStart(2, '0');
 
       var hasEvent = events.some(function(e) {
-        return dateStr === e.date;
+        return dateStr >= e.date && dateStr <= (e.end || e.date);
       });
       if (hasEvent) cell.classList.add('has-event');
 
@@ -113,8 +113,9 @@
     var monthEvents = events.filter(function(e) {
       var eStart = new Date(e.date + 'T00:00:00');
       var eEnd = e.end ? new Date(e.end + 'T00:00:00') : eStart;
-      return (eStart.getMonth() === viewMonth && eStart.getFullYear() === viewYear) ||
-             (eEnd.getMonth() === viewMonth && eEnd.getFullYear() === viewYear);
+      var monthStart = new Date(viewYear, viewMonth, 1);
+      var nextMonth = new Date(viewYear, viewMonth + 1, 1);
+      return eStart < nextMonth && eEnd >= monthStart;
     });
     monthEvents.forEach(function(e) {
       var div = document.createElement('div');

@@ -643,6 +643,12 @@ footer{
   outline: none;
 }
 
+.newsletter-signup__form button:focus-visible,
+.image-lightbox__close:focus-visible {
+  outline: 2px solid #405638;
+  outline-offset: 4px;
+}
+
 .newsletter-signup__note {
   grid-column: 1 / -1;
   color: #405638;
@@ -725,11 +731,11 @@ footer{
     grid-template-columns: 1fr;
     gap: 26px;
     width: 100%;
-    padding: 180px 5% 50px;
+    padding: max(180px, calc(var(--site-header-bottom, 240px) + 16px)) 5% 50px;
   }
 
   .current-section-links {
-    top: 180px;
+    top: calc(var(--site-header-bottom, 240px) + 16px);
     z-index: 10;
     flex-direction: row;
     flex-wrap: wrap;
@@ -750,7 +756,7 @@ footer{
     max-height: 70vh;
     min-height: 240px;
     overflow-y: auto;
-    scroll-margin-top: 250px;
+    scroll-margin-top: calc(var(--site-header-bottom, 240px) + 100px);
     padding-right: 10px;
   }
 
@@ -830,6 +836,21 @@ footer{
 
 /* Small mobile devices */
 @media screen and (max-width: 480px) {
+  .calendar-nav {
+    gap: 8px;
+  }
+
+  .calendar-nav h3 {
+    min-width: 0;
+    flex: 1;
+    letter-spacing: 1px;
+  }
+
+  .cal-arrow {
+    flex: 0 0 44px;
+    padding: 8px 0;
+  }
+
   h1 {
     font-size: 28px;
     padding-left: 10px;
@@ -1257,5 +1278,4 @@ body.lightbox-open {
 .image-lightbox__close:focus-visible {
   border-color: #405638;
   color: #405638;
-  outline: none;
 }

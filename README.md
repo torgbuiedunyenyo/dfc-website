@@ -41,6 +41,16 @@ vercel dev                 # local server with functions + rewrites
 node --env-file=.env.local scripts/seed.js   # idempotent; safe to re-run
 ```
 
+## Regression checks
+
+Run `npm test` for the fast tests. Run `npm run test:integration` for API and
+browser regression checks. The integration suite requires PostgreSQL binaries
+(`initdb`, `pg_ctl`), OpenSSL, and `agent-browser` on `PATH`. It starts and removes
+its own local PostgreSQL cluster and HTTP server; it never loads `.env.local`
+or writes to production. It covers unpublished-content access, malformed
+cookies, mobile navigation and calendars, keyboard focus, and edits made while
+real save requests are pending.
+
 ## Public Wix migration
 
 The public Wix site is captured and converted without rewriting its editorial content. The import is idempotent, and every changed database record receives a pre-import version snapshot.

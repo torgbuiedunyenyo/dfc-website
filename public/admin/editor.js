@@ -7,6 +7,7 @@
   var pageName = body.getAttribute('data-cms-page');
   var projectSlug = body.getAttribute('data-cms-slug');
   var dirty = {}; // key -> true
+  var saving = false;
   var lastRegion = null;
   var lastBlock = null;
   var lastTextBlock = null;
@@ -56,9 +57,10 @@
   function refreshBar() {
     var n = Object.keys(dirty).length;
     var label = scope === 'project' ? 'project: ' + projectSlug : 'page: ' + (pageName || '');
-    statusEl.textContent = 'EDITING ' + label + (n ? ' — ' + n + ' unsaved region' + (n > 1 ? 's' : '') : ' — click any text or image');
-    saveBtn.disabled = !n;
-    discardBtn.disabled = !n;
+    statusEl.textContent = saving ? 'Saving…' : 'EDITING ' + label + (n ? ' — ' + n + ' unsaved region' + (n > 1 ? 's' : '') : ' — click any text or image');
+    saveBtn.disabled = saving || !n;
+    discardBtn.disabled = saving || !n;
+    exitBtn.disabled = saving;
     var blockOk = !!lastBlock;
     dupBtn.disabled = !blockOk;
     delBlockBtn.disabled = !blockOk;
@@ -625,7 +627,7 @@
       if (!n.getAttribute('class')) n.removeAttribute('class');
     });
     // The site's look is fixed (Melodrama headers, Aktiv Grotesk/Roboto body,
-    // white on indigo) — strip styling the toolbar has no control for, so
+    // moss green on warm paper) — strip styling the toolbar has no control for, so
     // junk from pastes or old edits washes out on the next save.
     var JUNK_STYLES = ['font-family', 'font-size', 'font', 'color', 'background', 'background-color', 'letter-spacing', 'line-height', 'white-space', 'text-indent'];
     Array.prototype.slice.call(clone.querySelectorAll('[style]')).forEach(function (n) {
@@ -641,30 +643,39 @@
   }
 
   saveBtn.addEventListener('click', function () {
+    if (saving) return;
     var keys = Object.keys(dirty);
     if (!keys.length) return;
-    saveBtn.disabled = true;
-    statusEl.textContent = 'Saving…';
+    var submitted = collectContentChanges(keys);
+    saving = true;
+    refreshBar();
 
     var done = function () {
-      dirty = {};
-      toast('Saved ✓');
-      setTimeout(function () { location.reload(); }, 500);
+      var current = collectContentChanges(keys);
+      submitted.forEach(function (saved) {
+        if (current.some(function (now) { return now.key === saved.key && now.kind === saved.kind && now.value === saved.value; })) {
+          delete dirty[saved.key];
+        }
+      });
+      saving = false;
+      refreshBar();
+      toast(Object.keys(dirty).length ? 'Saved. Newer edits are still unsaved.' : 'Saved ✓');
     };
     var fail = function (err) {
+      saving = false;
       toast((err && err.message) || 'Save failed', true);
       refreshBar();
     };
 
     if (scope === 'project') {
       var main = document.querySelector('[data-cms="project.body"]');
-      var globalChanges = collectContentChanges(keys.filter(function (k) { return k !== 'project.body'; }));
+      var globalChanges = submitted.filter(function (change) { return change.key !== 'project.body'; });
       var reqs = [];
       if (dirty['project.body'] && main) {
         reqs.push(fetch('/api/projects/' + encodeURIComponent(projectSlug), {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ body_html: cleanRegionHtml(main) }),
+          body: JSON.stringify({ body_html: submitted.find(function (change) { return change.key === 'project.body'; }).value }),
         }));
       }
       if (globalChanges.length) {
@@ -679,7 +690,7 @@
         done();
       }).catch(fail);
     } else {
-      var changes = collectContentChanges(keys);
+      var changes = submitted;
       fetch('/api/content/bulk', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

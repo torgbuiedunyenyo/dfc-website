@@ -143,7 +143,7 @@ test('newsletter signup styling preserves the desktop split and stacks the form 
 test('admin events are newest-first while the public calendar stays chronological', () => {
   const apiSource = fs.readFileSync(path.join(root, 'api/index.js'), 'utf8');
   const renderSource = fs.readFileSync(path.join(root, 'lib/render.js'), 'utf8');
-  assert.match(apiSource, /FROM events ORDER BY start_date DESC, id DESC/);
+  assert.match(apiSource, /FROM events WHERE published = true OR \$\{!!session\}\s+ORDER BY start_date DESC, id DESC/);
   assert.match(renderSource, /FROM events WHERE published = true ORDER BY start_date ASC/);
 });
 

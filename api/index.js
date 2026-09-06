@@ -351,11 +351,13 @@ function eventSnapshot(e) {
 
 async function handleEvents(client, req, res, rest, authorFromCaller) {
   if (req.method === 'GET' && !rest.length) {
+    const session = await auth.getSession(client, req);
     const rows = await client`
       SELECT id, title, to_char(start_date, 'YYYY-MM-DD') AS start_date,
              to_char(end_date, 'YYYY-MM-DD') AS end_date, link, published
-      FROM events ORDER BY start_date DESC, id DESC`;
-    res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=10, stale-while-revalidate=300');
+      FROM events WHERE published = true OR ${!!session}
+      ORDER BY start_date DESC, id DESC`;
+    res.setHeader('Cache-Control', NO_CACHE);
     return res.json({ events: rows });
   }
 
