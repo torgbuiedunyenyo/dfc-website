@@ -6,13 +6,14 @@ Make the new Dream Farm Commons CMS site a faithful, complete, well-formatted pr
 
 ## Source of truth
 
-- Public source site: `https://www.dreamfarmcommons.com/`
-- New production site: `https://dfc-website-two.vercel.app/`
-- Source sitemap: `https://www.dreamfarmcommons.com/sitemap.xml`
-- The public Wix pages are server-rendered sufficiently for automated extraction. Wix backend access is required only to recover 15 source image files that the public Wix CDN now returns as `403`.
+- Canonical production site: `https://www.dreamfarmcommons.com/`
+- Vercel project alias: `https://dfc-website-two.vercel.app/`
+- The captured Wix source, sitemap-derived manifests, and media audit under `migration/` remain the historical source for migration fidelity.
+- Wix backend access is required only to recover 15 source image files that the captured public Wix CDN URLs now return as `403`.
 
 ## Current state
 
+- On 2026-09-07, `dreamfarmcommons.com` and `www.dreamfarmcommons.com` were cut over from Wix to the Vercel project. The inactive Vercel zone's four Wix website overrides were removed, the registrar delegation was changed to Vercel nameservers, and a certificate covering both hostnames was issued. The `.com` registry plus Cloudflare, Google, and Quad9 public resolvers confirmed the new delegation and Vercel routing. Google Workspace MX/SPF/DKIM/DMARC and Mailchimp DKIM records were preserved; clients with cached Wix answers may continue reaching the old site only until those answers expire.
 - On 2026-09-07, the Current Exhibitions artwork column was narrowed to the About hero image's rendered width and centered independently of the gallery-space links, correcting the wide rightward offset while retaining the stacked scrolling sections and full-width mobile layout. Browser regression coverage compares the two page widths at desktop breakpoints, checks true viewport centering, and protects the artwork's intrinsic proportions.
 - On 2026-09-07, the Donate page Venmo artwork was replaced with the current Dream Farm Commons QR code supplied by the site owner, with an explicit accessible description and a regression check that the page references a valid local JPEG.
 - On 2026-09-05, all eight issues from the site audit were fixed: public routes reject draft projects, anonymous events exclude hidden entries (authenticated responses are never shared-cacheable), malformed cookies are ignored, pending saves preserve newer edits without reloading, the mobile Current links follow the measured header height, calendar controls fit narrow screens, events render throughout their full date range, and Subscribe/image-viewer controls retain visible keyboard focus. Regression coverage uses a disposable local PostgreSQL cluster and the real API/browser (`npm run test:integration`), including page/project save races and expired-session failures. No production content was modified.
