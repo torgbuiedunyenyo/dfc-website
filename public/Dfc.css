@@ -269,7 +269,7 @@ td{
 
 .current-layout {
   display: grid;
-  grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: clamp(30px, 5vw, 72px);
   width: 90%;
   max-width: 1280px;
@@ -279,6 +279,9 @@ td{
 }
 
 .current-section-links {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
   position: sticky;
   top: 220px;
   display: flex;
@@ -299,8 +302,13 @@ td{
 }
 
 .current-exhibitions {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
   display: grid;
   gap: 56px;
+  /* Match the visible artwork width to the About hero image. */
+  width: min(calc(54vw + 35px), 100%);
   min-width: 0;
 }
 
@@ -735,6 +743,9 @@ footer{
   }
 
   .current-section-links {
+    grid-column: auto;
+    grid-row: auto;
+    justify-self: stretch;
     top: calc(var(--site-header-bottom, 240px) + 16px);
     z-index: 10;
     flex-direction: row;
@@ -749,7 +760,11 @@ footer{
   }
 
   .current-exhibitions {
+    grid-column: auto;
+    grid-row: auto;
+    justify-self: stretch;
     gap: 42px;
+    width: 100%;
   }
 
   .current-exhibition {

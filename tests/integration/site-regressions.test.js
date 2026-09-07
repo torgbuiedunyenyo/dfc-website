@@ -30,7 +30,11 @@ before(async () => {
     ('published-audit','Published audit','past','/published-audit','<p>Published project text</p><img src="/Images/PPHoldingImage.jpg" alt="Artwork">'),
     ('archived-audit','Archived audit','archive','/archived-audit','<p>Archived project text</p>')`;
   await sql`INSERT INTO events (title,start_date,published) VALUES ('Hidden event','2026-09-19',false),('Published event','2026-09-20',true)`;
-  await sql`INSERT INTO content (key,value) VALUES ('about.intro','<p>Initial introduction</p>')`;
+  const currentAudit = '<h3><img src="/Images/IMG_9759.JPG" alt="Layout audit artwork"></h3><p>'
+    + 'Scrollable exhibition copy. '.repeat(200) + '</p>';
+  await sql`INSERT INTO content (key,value) VALUES
+    ('about.intro','<p>Initial introduction</p>'),
+    ('current.column-1',${currentAudit})`;
   const login = await fetch(site.url + '/api/auth/login', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ password: 'local-integration-only', name: 'Integration test' }),
@@ -90,6 +94,34 @@ test('Current gallery links remain visible below the fixed header at narrow and 
   await browser('click', '.current-section-links a[href="#annex"]');
   const target = await evaluate(`(()=>{const heading=document.querySelector('#annex h3').getBoundingClientRect();return {top:heading.top,navBottom:document.querySelector('.current-section-links').getBoundingClientRect().bottom}})()`);
   assert.ok(target.top >= target.navBottom, JSON.stringify(target));
+});
+
+test('Current artwork stays centered at the same width as the About hero image', async () => {
+  for (const width of [1024, 1440]) {
+    await browser('set', 'viewport', String(width), '1000');
+    await open('/About.html');
+    const aboutWidth = await evaluate('document.querySelector(".about-intro img").getBoundingClientRect().width');
+
+    await open('/Current.html');
+    const current = await evaluate(`(()=>{
+      const exhibitions = document.querySelector('.current-exhibitions').getBoundingClientRect();
+      const image = document.querySelector('#main-gallery img');
+      const imageRect = image.getBoundingClientRect();
+      return {
+        exhibitionsCenter: exhibitions.left + exhibitions.width / 2,
+        imageCenter: imageRect.left + imageRect.width / 2,
+        imageWidth: imageRect.width,
+        naturalRatio: image.naturalWidth / image.naturalHeight,
+        displayRatio: imageRect.width / imageRect.height,
+      };
+    })()`);
+
+    assert.ok(Math.abs(current.imageWidth - aboutWidth) <= 1, JSON.stringify({ width, aboutWidth, current }));
+    assert.ok(Math.abs(current.exhibitionsCenter - width / 2) <= 1, JSON.stringify({ width, current }));
+    assert.ok(Math.abs(current.imageCenter - width / 2) <= 3, JSON.stringify({ width, current }));
+    // The rendered box includes the site's 1px image border on each edge.
+    assert.ok(Math.abs(current.naturalRatio - current.displayRatio) <= 0.004, JSON.stringify({ width, current }));
+  }
 });
 
 test('calendar arrows stay onscreen and usable at 320px and 390px', async () => {
