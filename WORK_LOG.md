@@ -31,3 +31,9 @@
 - Full suite passes: 25 fast tests, 13 real database/browser integration tests; Vercel build and syntax checks pass. No lint script is configured.
 - All application changes are category controls/defaulting only. Existing show categories and workshop repair remain pending separate authorization.
 - Next external action: commit and push main to trigger normal Vercel deployment, then verify deployed assets. No manual deployment.
+
+## Published and verified
+- Commit 3d01938 pushed successfully to origin/main. Git-triggered production deployment dpl_3PTyqp57WDq43dWrgnD1Xcyiox26 is Ready and aliases both dreamfarmcommons.com hostnames.
+- Live /admin/admin.js returned 200 and exactly matches the tested file, including both category selectors.
+- No production content writes performed. Follow-ups remain existing uncategorized shows and workshop repair; not part of this authorization.
+- All test processes completed and their browsers/databases closed by teardown. Original untracked backup remains untouched. bd unavailable, so this log records follow-ups.
