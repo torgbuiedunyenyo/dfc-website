@@ -64,3 +64,7 @@ Make the new Dream Farm Commons CMS site a faithful, complete, well-formatted pr
 Authorized: add a category selector when moving Current to Past and in project details. Default moved shows to Exhibitions + Residencies. Existing production records and workshop repairs are outside this change. Investigation confirmed blank categories put new shows in a bottom catch-all section; workshop content survives but an out-of-column image breaks desktop layout.
 
 Implemented move dialog and project-details category selector, with existing/custom category preservation and default Exhibitions + Residencies for moved shows. All 25 fast tests and 13 integration tests passed; Vercel build and syntax/diff checks passed. Published commit 3d01938 to main; git-triggered Vercel deployment dpl_3PTyqp57WDq43dWrgnD1Xcyiox26 is Ready on both custom domains. Live admin JavaScript matches the tested file exactly. Existing production content was not modified. `bd` is unavailable; follow-up tracking is in WORK_LOG.md.
+
+## 2026-11-17 existing show assignments
+
+At the user's explicit request, Chris Martin and Megan Mirro's existing past projects were assigned to Exhibitions + Residencies. Before/after snapshots were recorded transactionally; body content, thumbnails and ordering were preserved. Live Past page verified both as the first two entries in that section (Megan, then Chris). Workshop repair remains pending.

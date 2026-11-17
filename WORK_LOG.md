@@ -37,3 +37,9 @@
 - Live /admin/admin.js returned 200 and exactly matches the tested file, including both category selectors.
 - No production content writes performed. Follow-ups remain existing uncategorized shows and workshop repair; not part of this authorization.
 - All test processes completed and their browsers/databases closed by teardown. Original untracked backup remains untouched. bd unavailable, so this log records follow-ups.
+
+## 2026-11-17 — assign Chris and Megan
+- User explicitly authorized assigning both existing shows to Exhibitions + Residencies.
+- Plan: transactionally update only their category and timestamp, preserving before/after history; verify live archive placement. Workshop remains outside scope.
+- Completed: both categories changed from null to Exhibitions + Residencies in one transaction, with before/after version history. Verified unchanged content, thumbnail and sort order.
+- Live verification: Past page lists Megan then Chris as the first two entries under Exhibitions + Residencies. No code changes or tests required for this content-only assignment.
