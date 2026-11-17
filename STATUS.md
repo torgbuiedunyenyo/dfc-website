@@ -58,3 +58,9 @@ Make the new Dream Farm Commons CMS site a faithful, complete, well-formatted pr
 
 1. Export or grant Wix Media Manager access for the 15 unavailable images in `migration/wix-media-missing.json`.
 2. Add those exact originals to the media map and rerun the verified idempotent import.
+
+## 2026-11-16 category controls
+
+Authorized: add a category selector when moving Current to Past and in project details. Default moved shows to Exhibitions + Residencies. Existing production records and workshop repairs are outside this change. Investigation confirmed blank categories put new shows in a bottom catch-all section; workshop content survives but an out-of-column image breaks desktop layout.
+
+Implemented move dialog and project-details category selector, with existing/custom category preservation and default Exhibitions + Residencies for moved shows. All 25 fast tests and 13 integration tests passed; Vercel build and syntax/diff checks passed. Publishing and deployment verification next. `bd` is unavailable; follow-up tracking is in WORK_LOG.md.

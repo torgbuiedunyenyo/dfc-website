@@ -242,6 +242,9 @@ async function handleProjects(client, req, res, rest, author) {
   // new past project (two-column layout), then clear the column down to its
   // venue header. Both steps are version-recorded so they can be undone.
   if (rest[0] === 'from-current' && req.method === 'POST') {
+    const category = req.body && req.body.category !== undefined
+      ? String(req.body.category || '').trim() || null
+      : 'Exhibitions + Residencies';
     const col = req.body && Number(req.body.column) === 2 ? 2 : 1;
     const key = `current.column-${col}`;
     const contentRows = await client`SELECT value FROM content WHERE key = ${key}`;
@@ -281,8 +284,8 @@ ${copyHtml}
     if (taken.length) slug = `${slug}-${crypto.randomBytes(2).toString('hex')}`;
     const [{ min }] = await client`SELECT COALESCE(MIN(sort_order), 1) AS min FROM projects`;
     const [row] = await client`
-      INSERT INTO projects (slug, title, status, layout, thumbnail, body_html, sort_order)
-      VALUES (${slug}, ${title}, 'past', 'detail', ${images[0] ? images[0].src : null}, ${body_html}, ${min - 1})
+      INSERT INTO projects (slug, title, status, layout, thumbnail, body_html, sort_order, category)
+      VALUES (${slug}, ${title}, 'past', 'detail', ${images[0] ? images[0].src : null}, ${body_html}, ${min - 1}, ${category})
       RETURNING *`;
     await recordVersion(client, 'project', slug, 'create', projectSnapshot(row), author);
 

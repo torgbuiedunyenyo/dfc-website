@@ -16,7 +16,8 @@ async function browser(...args) {
 async function evaluate(source) { return (await browser('eval', source)).result; }
 async function open(path) {
   await browser('open', site.url + path);
-  await evaluate('(async()=>{await document.fonts.ready;return true})()');
+  // Remote font loading must not stall unrelated editor/API checks indefinitely.
+  await evaluate('(async()=>{await Promise.race([document.fonts.ready,new Promise(resolve=>setTimeout(resolve,10000))]);return true})()');
 }
 async function waitFor(expression) {
   return evaluate(`(async()=>{const deadline=Date.now()+10000;while(!(${expression})){if(Date.now()>deadline)throw new Error('Condition did not become true');await new Promise(r=>setTimeout(r,20))}return true})()`);

@@ -212,6 +212,16 @@
     loadMoveButtons();
   }
 
+  function categorySelect(id, selected) {
+    var categories = ['Exhibitions + Residencies', 'Selected Talks + Workshops', 'Other Events'];
+    if (selected && categories.indexOf(selected) === -1) categories.push(selected);
+    return '<label for="' + id + '">Category</label><select id="' + id + '">' +
+      '<option value=""' + (!selected ? ' selected' : '') + '>Past Projects (uncategorized)</option>' +
+      categories.map(function (category) {
+        return '<option value="' + esc(category) + '"' + (category === selected ? ' selected' : '') + '>' + esc(category) + '</option>';
+      }).join('') + '</select>';
+  }
+
   var COLUMN_NAMES = { 1: 'Main Gallery', 2: 'The Annex' };
 
   function textOfHtml(html) {
@@ -246,15 +256,25 @@
         btn.textContent = '→ Move ' + COLUMN_NAMES[col] + ' show to Past Projects';
         btn.title = 'Moves this column’s images and text into a new past project and clears the column. Undoable from History.';
         btn.addEventListener('click', function () {
-          var t = prompt('Title for the new past project:\n(the column is cleared — undoable from History)', suggested);
-          if (t === null) return;
-          btn.disabled = true;
-          api('POST', '/api/projects/from-current', { column: col, title: t.trim() })
-            .then(function (r) {
+          var m = modal('<h3>Move show to Past Projects</h3>' +
+            '<label for="move-title">Title</label><input id="move-title" type="text" value="' + esc(suggested) + '">' +
+            categorySelect('move-category', 'Exhibitions + Residencies') +
+            '<p class="hint">The show’s images and text will move into this archive category and the Current column will be cleared. Undoable from History.</p>' +
+            '<div class="actions"><button id="move-cancel">Cancel</button><button class="primary" id="move-save">Move to Past Projects</button></div>');
+          m.querySelector('#move-cancel').addEventListener('click', function () { m.remove(); });
+          m.querySelector('#move-save').addEventListener('click', function () {
+            var save = m.querySelector('#move-save');
+            save.disabled = true;
+            api('POST', '/api/projects/from-current', {
+              column: col,
+              title: m.querySelector('#move-title').value.trim(),
+              category: m.querySelector('#move-category').value,
+            }).then(function (r) {
+              m.remove();
               toast('“' + r.project.title + '” moved to Past Projects');
               location.hash = '#projects';
-            })
-            .catch(function (err) { btn.disabled = false; toast(err.message, true); });
+            }).catch(function (err) { save.disabled = false; toast(err.message, true); });
+          });
         });
         curHolder.appendChild(btn);
       });
@@ -403,6 +423,7 @@
         '<h3>Project details</h3>' +
         '<label>Title (shown in the Past grid)</label>' +
         '<input type="text" id="dt-title" value="' + esc(p.title) + '">' +
+        categorySelect('dt-category', p.category) +
         '<label>Thumbnail (square crop in the grid)</label>' +
         '<div class="img-item"><img id="dt-thumb-img" src="' + esc(p.thumbnail || '/Images/PPHoldingImage.jpg') + '">' +
         '<div class="grow"><button id="dt-upload">Upload new thumbnail</button></div></div>' +
@@ -427,6 +448,7 @@
         api('PUT', '/api/projects/' + encodeURIComponent(slug), {
           title: m.querySelector('#dt-title').value,
           thumbnail: thumb,
+          category: m.querySelector('#dt-category').value,
         }).then(function () { m.remove(); toast('Saved'); renderProjects(); })
           .catch(function (err) { toast(err.message, true); });
       });
